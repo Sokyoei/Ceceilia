@@ -39,7 +39,7 @@ find_package(tinyxml2 CONFIG REQUIRED)
 #find_package(absl CONFIG REQUIRED)
 #target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
 
-# add_subdirectory(cc)
+add_subdirectory(cc)
 # add_subdirectory(boost)
 # add_subdirectory(dll)
 

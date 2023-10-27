@@ -19,6 +19,7 @@ $recurse_cache_paths = @(
     "x64"
     "Debug"
     "*.exe"
+    "*.user"
     # "*.dll"
     # "*.lib"
     # "*.pyd"
