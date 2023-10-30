@@ -2,6 +2,7 @@
 
 #include <tinyxml2.h>
 
+namespace Ahri {
 /**
  * @brief 递归遍历 XML 的元素
  * @param element XML 根节点
@@ -31,6 +32,7 @@ void print_xml(tinyxml2::XMLElement* root) {
         }
     }
 }
+}  // namespace Ahri
 
 int main(int argc, char* argv[]) {
 #ifdef _WIN32
@@ -41,7 +43,7 @@ int main(int argc, char* argv[]) {
     auto error = xml.LoadFile(xml_file);
     if (error == tinyxml2::XML_SUCCESS) {
         auto root = xml.RootElement();
-        print_xml(root);
+        Ahri::print_xml(root);
     }
     return 0;
 }

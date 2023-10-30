@@ -6,6 +6,9 @@
         "*.cuf": "FortranFreeForm",
         ".clang-format": "yaml",
         ".clang-tidy": "yaml",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "initializer_list": "cpp",
+        "cstddef": "cpp",
+        "xtr1common": "cpp"
     }
 }
