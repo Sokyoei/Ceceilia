@@ -25,10 +25,12 @@ if (CMAKE_CXX_COMPILER_LOADED)
     endif ()
 endif ()
 
-#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+# config.h settings
 # include_directories(${PROJECT_SOURCE_DIR})
-# link_directories(${PROJECT_SOURCE_DIR}/lib)
+# configure_file(
+#     ${PROJECT_SOURCE_DIR}/config.h.cmake
+#     ${PROJECT_SOURCE_DIR}/config.h
+# )
 
 find_package(fmt CONFIG REQUIRED)
 #target_link_libraries(main PRIVATE fmt::fmt)

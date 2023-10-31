@@ -9,6 +9,9 @@
         "iosfwd": "cpp",
         "initializer_list": "cpp",
         "cstddef": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "iostream": "cpp",
+        "filesystem": "cpp",
+        "ostream": "cpp"
     }
 }
