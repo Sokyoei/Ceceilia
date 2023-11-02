@@ -1,8 +1,7 @@
 $root_cache_paths = @(
     ".\build"
     ".\builddir"
-    ".\cmake-build-debug"
-    ".\cmake-build-release"
+    ".\cmake-build-*"
     ".\target"
     ".\out"
     ".\x64"

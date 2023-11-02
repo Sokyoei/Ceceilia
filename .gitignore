@@ -7,6 +7,9 @@ out/
 # CLion CMake build dir
 cmake-build-*/
 
+# CLion config dir
+.idea
+
 # CMake generate config.h
 config.h
 
