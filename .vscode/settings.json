@@ -93,6 +93,11 @@
         "numeric": "cpp",
         "ranges": "cpp",
         "valarray": "cpp",
-        "shared_mutex": "c"
+        "shared_mutex": "cpp",
+        "unistd.h": "c",
+        "pthread_unistd.h": "c",
+        "queue": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp"
     }
 }
