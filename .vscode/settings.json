@@ -98,6 +98,13 @@
         "pthread_unistd.h": "c",
         "queue": "cpp",
         "*.tcc": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "stdbool.h": "c",
+        "intrin.h": "c",
+        "immintrin.h": "c",
+        "x86intrin.h": "c",
+        "x86gprintrin.h": "c",
+        "fma4intrin.h": "c",
+        "pthreadpool.h": "c"
     }
 }
