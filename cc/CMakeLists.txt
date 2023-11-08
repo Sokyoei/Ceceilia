@@ -1,3 +1,4 @@
+add_executable(exceptions exceptions.cpp)
 add_executable(function_call function_call.cpp)
 
 find_package(OpenMP REQUIRED)
@@ -6,6 +7,7 @@ if(OpenMP_CXX_FOUND)
     target_link_libraries(OpenMP PUBLIC OpenMP::OpenMP_CXX)
 endif()
 
+add_executable(timer timer.cpp)
 add_executable(variable_parameter variable_parameter.cpp)
 add_executable(VLA VLA.c)
 

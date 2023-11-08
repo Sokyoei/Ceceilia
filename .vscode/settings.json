@@ -105,6 +105,15 @@
         "x86intrin.h": "c",
         "x86gprintrin.h": "c",
         "fma4intrin.h": "c",
-        "pthreadpool.h": "c"
+        "pthreadpool.h": "c",
+        "csetjmp": "cpp",
+        "csignal": "cpp",
+        "bitset": "cpp",
+        "memory_resource": "cpp",
+        "random": "cpp",
+        "string_view": "cpp",
+        "fstream": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp"
     }
 }

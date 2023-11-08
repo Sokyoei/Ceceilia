@@ -1,12 +1,12 @@
 $root_cache_paths = @(
+    ".\.xmake"
     ".\build"
     ".\builddir"
-    ".\cmake-build-*"
-    ".\target"
-    ".\out"
-    ".\x64"
     ".\Debug"
-    ".\.xmake"
+    ".\out"
+    ".\target"
+    ".\x64"
+    ".\cmake-build-*"
 )
 foreach ($path in $root_cache_paths) {
     if (Test-Path $path) {
@@ -15,8 +15,8 @@ foreach ($path in $root_cache_paths) {
 }
 
 $recurse_cache_paths = @(
-    "x64"
     "Debug"
+    "x64"
     "*.exe"
     "*.user"
     # "*.dll"

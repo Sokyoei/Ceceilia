@@ -14,7 +14,27 @@
 #include <system_error>
 #include <variant>
 
+namespace Ahri {
+/**
+ * @brief Sokyoei'Error example
+ */
+class SokyoeiError : public std::exception {
+private:
+    const char* _message;
+
+public:
+    explicit SokyoeiError(const char* message) : _message(message) {}
+    [[nodiscard]] const char* what() const noexcept override { return _message; }
+};
+}  // namespace Ahri
+
 int main(int argc, char const* argv[]) {
+    try {
+        throw Ahri::SokyoeiError("Something are Error");
+    } catch (const Ahri::SokyoeiError& e) {
+        std::cerr << e.what() << '\n';
+    }
+
     return 0;
 }
 
