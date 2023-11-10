@@ -9,7 +9,9 @@ project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 20)
 
+########################################################################################################################
 # compiler and platform settings
+########################################################################################################################
 if (CMAKE_C_COMPILER_LOADED)
     if (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
         set(CMAKE_C_FLAGS "/EHsc /source-charset:utf-8")
@@ -25,12 +27,14 @@ if (CMAKE_CXX_COMPILER_LOADED)
     endif ()
 endif ()
 
+set(ROOT ${PROJECT_SOURCE_DIR})
+
 # config.h settings
-# include_directories(${PROJECT_SOURCE_DIR})
-# configure_file(
-#     ${PROJECT_SOURCE_DIR}/config.h.cmake
-#     ${PROJECT_SOURCE_DIR}/config.h
-# )
+include_directories(${PROJECT_SOURCE_DIR})
+configure_file(
+    ${PROJECT_SOURCE_DIR}/config.h.cmake
+    ${PROJECT_SOURCE_DIR}/config.h
+)
 
 find_package(fmt CONFIG REQUIRED)
 #target_link_libraries(main PRIVATE fmt::fmt)

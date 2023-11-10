@@ -12,6 +12,8 @@
 
 #include <iostream>
 
+#include "config.h"
+
 namespace Ahri {
 // // C++98 const lvalue reference 常量左值引用
 // #if __cplusplus >= 199711L

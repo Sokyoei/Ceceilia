@@ -1,6 +1,9 @@
+#include <filesystem>
 #include <iostream>
 
 #include <tinyxml2.h>
+
+#include "config.h"
 
 namespace Ahri {
 /**
@@ -38,9 +41,9 @@ int main(int argc, char* argv[]) {
 #ifdef _WIN32
     system("chcp 65001");  // Windows 终端修改代码页以显示 UTF8 字符
 #endif
-    auto xml_file = R"(../data/Ahri/Ahri.xml)";
+    auto xml_file = std::filesystem::path(ROOT) / "data/Ahri/Ahri.xml";
     tinyxml2::XMLDocument xml;
-    auto error = xml.LoadFile(xml_file);
+    auto error = xml.LoadFile(xml_file.string().c_str());
     if (error == tinyxml2::XML_SUCCESS) {
         auto root = xml.RootElement();
         Ahri::print_xml(root);
