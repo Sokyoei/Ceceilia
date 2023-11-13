@@ -1,36 +1,41 @@
 #include <chrono>
 #include <iostream>
 
+#include "config.h"
+
 #if __cpp_lib_chrono
 #endif  // __cpp_lib_chrono
 
 /**
+ * @details 时间类型的用户定义字面量
  * C++14(h,min,s,ms,ns,us)
  * C++20(y,d)
- * 时间类型的用户定义字面量
  */
 #if __cpp_lib_chrono_udls
 using namespace std::chrono_literals;
 #endif  // __cpp_lib_chrono_udls
 
 namespace Ahri {
+/**
+ * @brief 时钟
+ */
 void clocks() {
-#if __cplusplus >= 201103L  // C++11
+#ifdef CXX11
 #ifdef _MSC_VER
     std::cout << std::chrono::system_clock::now() << std::endl;
 // std::cout << std::chrono::steady_clock::now() << std::endl;
 // std::cout << std::chrono::high_resolution_clock::now() << std::endl;
 #endif  // MSVC
 
-#if __cplusplus >= 202002L  // C++20
+#ifdef CXX20
 #ifdef _MSC_VER
     std::cout << std::chrono::gps_clock::now() << std::endl;
     std::cout << std::chrono::utc_clock::now() << std::endl;
     std::cout << std::chrono::tai_clock::now() << std::endl;
     std::cout << std::chrono::file_clock::now() << std::endl;
 #endif  // MSVC
-#endif  // C++20
-#endif  // C++11
+#endif  // CXX20
+#endif  // CXX11
 }
 }  // namespace Ahri
 

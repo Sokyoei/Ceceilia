@@ -46,7 +46,7 @@ namespace Ahri {
  */
 #ifdef __cpp_rvalue_references
 // C++11
-#if __cplusplus >= 201103L
+#ifdef CXX11
 int&& rref_cxx11 = 1;
 
 void otherdef_cxx11(int& t) {
@@ -63,7 +63,7 @@ template <typename T>
 void func_cxx11(T&& t) {
     otherdef_cxx11(std::forward<T>(t));
 }
-#endif  // C++11
+#endif  // CXX11
 #endif  // __cpp_rvalue_references
 }  // namespace Ahri
 

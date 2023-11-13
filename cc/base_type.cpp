@@ -5,26 +5,69 @@
 #include <iostream>
 #include <limits>
 
+#include "config.h"
+
 namespace Ahri {
-// int
-short s;
-int i;
+void int_type() {
+    // short
+    short short_;
+    short int short_int_;
+    signed short signed_short_;
+    signed short int signed_short_int_;
 
-// float
-float f;
-double d;
-long double ld;
+    unsigned short unsigned_short_;
+    unsigned short int unsigned_short_int_;
+    // int
+    int int_;
+    signed signed_;
+    signed int signed_int_;
 
-// char
-char c;
-// char8_t c8;
-#if __cplusplus >= 201103L
-char16_t c16;
-char32_t c32;
-#endif  // __cplusplus >= 201103L
+    unsigned unsigned_;
+    unsigned int unsigned_int_;
+    // long
+    long long_;
+    long int long_int_;
+    signed long signed_long_;
+    signed long int signed_long_int_;
 
-std::nullptr_t nil;
+    unsigned long unsigned_long_;
+    unsigned long int unsigned_long_int_;
+#ifdef CXX11
+    // long long
+    long long long_long_;
+    long long int long_long_int_;
+    signed long long signed_long_long_;
+    signed long long int signed_long_long_int_;
 
+    unsigned long long unsigned_long_long_;
+    unsigned long long int unsigned_long_long_int_;
+#endif  // CXX11
+}
+
+void float_type() {
+    float float_;
+    double double_;
+    long double long_double_;
+}
+
+void char_type() {
+    char char_;
+    wchar_t wchar_t_;
+#ifdef CXX20
+#ifdef __cpp_char8_t
+    char8_t char8_t_;
+#endif  // __cpp_char8_t
+#endif  // CXX20
+#ifdef CXX11
+    char16_t char16_t_;
+    char32_t char32_t_;
+#endif  // CXX11
+}
+
+bool bool_;
+std::nullptr_t nullptr_t_;
+std::size_t size_t_;
+std::byte byte_;
 }  // namespace Ahri
 
 int main(int argc, char const* argv[]) {

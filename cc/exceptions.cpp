@@ -14,6 +14,8 @@
 #include <system_error>
 #include <variant>
 
+#include "config.h"
+
 namespace Ahri {
 /**
  * @brief Sokyoei'Error example
@@ -38,11 +40,11 @@ int main(int argc, char const* argv[]) {
     return 0;
 }
 
-// #define exception
-#ifdef exception
+// #define ECXCEPTION
+#ifdef ECXCEPTION
 
 /**
- * stdc++ exception
+ * @brief C++ exception
  */
 #if __cpp_exceptions
 class exception : public std::exception {
@@ -52,7 +54,7 @@ class exception : public std::exception {
     class bad_cast : public std::bad_cast {                // dynamic_cast 转换失败
         class bad_any_cast : public std::bad_any_cast {};  // <any>
     };
-    class bad_typeid : public std::bad_typeid {};
+    class bad_typeid : public std::bad_typeid {};  // typeid 抛出
     class bad_exception : public std::bad_exception {};
     class bad_function_call : public std::bad_function_call {};
     class bad_optional_access : public std::bad_optional_access {};
@@ -84,7 +86,7 @@ class exception : public std::exception {
 #endif  // __cpp_exceptions
 
 /**
- * POSIX errc (/usr/include/asm-generic/errno.h)
+ * @brief POSIX errc (/usr/include/asm-generic/errno.h)
  */
 void errc() {
     static_assert(static_cast<int>(std::errc::operation_not_permitted) == EPERM);          //

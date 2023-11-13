@@ -1,8 +1,11 @@
 // variable parameter「可变长参数」
 
 #include <cstdarg>
+
 #include <initializer_list>
 #include <iostream>
+
+#include "config.h"
 
 namespace Ahri {
 /**
@@ -56,6 +59,8 @@ void func3(Args... args) {
     std::cout << std::endl;
 }
 
+#ifdef CXX17
+#ifdef __cpp_if_constexpr
 /**
  * C++17 if constexpr
  * @tparam T
@@ -72,7 +77,9 @@ void cxx17_if_constexpr(T t, Args... args) {
         std::cout << std::endl;
     }
 }
+#endif  // __cpp_if_constexpr
 
+#ifdef __cpp_fold_expressions
 /**
  * @brief C++17 fold expression
  *
@@ -84,6 +91,8 @@ template <typename... Args>
 auto cxx17_fold_expression(Args... args) {
     return (args + ...);
 }
+#endif  // __cpp_fold_expressions
+#endif  // CXX17
 }  // namespace Ahri
 
 int main(int argc, char* argv[]) {
