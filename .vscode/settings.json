@@ -114,6 +114,8 @@
         "string_view": "cpp",
         "fstream": "cpp",
         "numbers": "cpp",
-        "semaphore": "cpp"
+        "semaphore": "cpp",
+        "cinttypes": "cpp",
+        "strstream": "cpp"
     }
 }

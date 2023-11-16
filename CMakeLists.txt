@@ -30,7 +30,7 @@ endif ()
 set(ROOT ${PROJECT_SOURCE_DIR})
 
 # config.h settings
-include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include)
 configure_file(
     ${PROJECT_SOURCE_DIR}/config.h.cmake
     ${PROJECT_SOURCE_DIR}/config.h

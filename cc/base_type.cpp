@@ -48,6 +48,13 @@ void float_type() {
     float float_;
     double double_;
     long double long_double_;
+#ifdef CXX23
+    std::float16_t float16_t_;
+    std::float32_t float32_t_;
+    std::float64_t float64_t_;
+    std::float128_t float128_t_;
+    std::bfloat16_t bfloat16_t_;
+#endif  // CXX23
 }
 
 void char_type() {
@@ -68,6 +75,11 @@ bool bool_;
 std::nullptr_t nullptr_t_;
 std::size_t size_t_;
 std::byte byte_;
+/**
+ * TrivialType(平凡类型)
+ * Standard-layout Type(标准布局类型)
+ * POD(Plain Old Data)
+ */
 }  // namespace Ahri
 
 int main(int argc, char const* argv[]) {

@@ -1,5 +1,6 @@
 add_executable(exceptions exceptions.cpp)
 add_executable(function_call function_call.cpp)
+add_executable(function_pointer function_pointer.cpp)
 
 find_package(OpenMP REQUIRED)
 add_executable(OpenMP OpenMP.cpp)
