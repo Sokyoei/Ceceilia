@@ -48,4 +48,21 @@
 #endif  // C++98
 #endif  // __cplusplus
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Export
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#define AHRI_EXPORT
+
+#ifdef _MSC_VER  // MSVC
+#ifdef AHRI_EXPORT
+#define AHRI_API __declspec(dllexport)
+#else
+#define AHRI_API __declspec(dllimport)
+#endif
+#elif defined(__GNUC__) || defined(__GNUG__) && __GNUC__ > 4  // GCC
+#define AHRI_API __attribute__((visibility("default")))
+#else
+#define AHRI_API
+#endif
+
 #endif  // !SOKYOEI_H
