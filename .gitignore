@@ -1,3 +1,7 @@
+# ignore Sokyoei's temp dir
+/temp/
+/Sokyoei/
+
 # build dir
 build/
 

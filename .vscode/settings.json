@@ -116,6 +116,19 @@
         "numbers": "cpp",
         "semaphore": "cpp",
         "cinttypes": "cpp",
-        "strstream": "cpp"
+        "strstream": "cpp",
+        "cfenv": "cpp",
+        "complex": "cpp",
+        "ciso646": "cpp",
+        "latch": "cpp",
+        "syncstream": "cpp",
+        "barrier": "cpp",
+        "version": "cpp",
+        "execution": "cpp",
+        "cuchar": "cpp",
+        "scoped_allocator": "cpp",
+        "stack": "cpp",
+        "stdio.h": "c",
+        "pthread.h": "c"
     }
 }
