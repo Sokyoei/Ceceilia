@@ -2,8 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-pthread_mutex_t* mutex;
-pthread_cond_t* cond;
+pthread_rwlock_t* rwlock;   // 读写锁
+pthread_spinlock_t splock;  // 自旋锁
+pthread_mutex_t* mutex;     // 互斥锁
+pthread_cond_t* cond;       // 条件变量
+pthread_barrier_t barr;     // 屏障锁
 
 typedef struct Args {
     int num;

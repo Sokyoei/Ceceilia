@@ -29,3 +29,11 @@ add_executable(xml_file file/xml_file.cpp)
 target_link_libraries(xml_file PRIVATE tinyxml2::tinyxml2)
 add_executable(json_file file/json_file.cpp)
 target_link_libraries(json_file PRIVATE nlohmann_json::nlohmann_json)
+
+# SMID
+add_executable(smid SMID/smid.c)
+if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(smid PRIVATE /arch:AVX2)
+elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    target_compile_options(simd PRIVATE -mavx2)
+endif()
