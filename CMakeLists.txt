@@ -9,6 +9,32 @@ project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 20)
 
+add_compile_definitions(AHRI_EXPORT)
+# add_definitions(-DAHRI_EXPORT)
+
+execute_process(
+    COMMAND echo hello
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+    RESULT_VARIABLE result_var
+    OUTPUT_VARIABLE output_var
+    ERROR_VARIABLE error_var
+)
+message(STATUS result_var: ${result_var})
+message(STATUS output_var: ${output_var})
+message(STATUS error_var: ${error_var})
+
+add_custom_command(
+    OUTPUT hello
+    COMMAND echo hello
+)
+add_custom_target(
+    world ALL
+    COMMAND echo world
+    DEPENDS hello
+)
+
+# include(ExternalProject)
+
 ########################################################################################################################
 # compiler and platform settings
 ########################################################################################################################
