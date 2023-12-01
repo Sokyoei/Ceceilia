@@ -17,3 +17,11 @@ ij_editorconfig_space_after_comma = false
 
 [*.{sln,vcxproj,vcxproj.filters}]
 end_of_line = crlf
+
+[Makefile]
+indent_style = tab
+tab_width = 4
+
+[.gitmodules]
+indent_style = tab
+tab_width = 4

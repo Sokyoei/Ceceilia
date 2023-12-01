@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.20.0)
 
-set(CMAKE_TOOLCHAIN_FILE "D:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake")
+if (WIN32)
+    set(CMAKE_TOOLCHAIN_FILE "D:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake")
+elseif (LINUX)
+    set(CMAKE_TOOLCHAIN_FILE "~/vcpkg/scripts/buildsystems/vcpkg.cmake")
+endif ()
 
 project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 
