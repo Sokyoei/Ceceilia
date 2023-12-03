@@ -1,4 +1,4 @@
-// attribute
+// attribute(属性)
 //
 // [[noreturn]]           (C++11) 指示函数不返回
 // [[carries_dependency]] (C++11) 指示释放消费 std::memory_order 中的依赖链传入和传出该函数
@@ -11,11 +11,14 @@
 // [[no_unique_address]]  (C++20) 指示非静态数据成员不需要拥有不同于其类的所有其他非静态数据成员的地址
 // [[assume]]             (C++23) Specifies that an expression will always evaluate to true at a given point
 
+// https://en.cppreference.com/w/cpp/language/attributes
 // https://learn.microsoft.com/zh-cn/cpp/cpp/attributes?view=msvc-170
 
 #include <iostream>
 
 namespace Ahri {
+#if __cpp_namespace_attributes
+#endif
 #if __cpp_attributes
 [[gnu::const]] [[nodiscard]] int ahri_nodiscard() {
     return 1;

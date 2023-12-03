@@ -130,6 +130,9 @@
         "stack": "cpp",
         "stdio.h": "c",
         "pthread.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "generator": "cpp",
+        "process.h": "c",
+        "windows.h": "c"
     }
 }

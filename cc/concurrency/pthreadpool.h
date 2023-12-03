@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PTHREADPOOL_H
 #define PTHREADPOOL_H
 
