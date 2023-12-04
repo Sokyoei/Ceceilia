@@ -133,6 +133,7 @@
         "time.h": "c",
         "generator": "cpp",
         "process.h": "c",
-        "windows.h": "c"
+        "windows.h": "c",
+        "processthreadsapi.h": "c"
     }
 }

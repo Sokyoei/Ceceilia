@@ -44,7 +44,7 @@ add_custom_target(
 ########################################################################################################################
 if (CMAKE_C_COMPILER_LOADED)
     if (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
-        set(CMAKE_C_FLAGS "/EHsc /source-charset:utf-8")
+        set(CMAKE_C_FLAGS "/EHsc /Zc:__STDC__ /source-charset:utf-8")
     elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU")
         set(CMAKE_C_FLAGS "-fexec-charset=gbk")
     endif ()
