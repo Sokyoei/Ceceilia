@@ -2,10 +2,24 @@
 
 #define NUMBER 2
 
+/**
+ * @brief 管理者线程函数
+ * @param args
+ * @return
+ */
 void* manager(void* args);
 
+/**
+ * @brief 工作线程函数
+ * @param args
+ * @return
+ */
 void* worker(void* args);
 
+/**
+ * @brief 单个线程退出
+ * @param pool 线程池
+ */
 void thread_exit(PThreadPool* pool);
 
 PThreadPool* pthreadpool_create(int min_num, int max_num, int queue_size) {
@@ -72,23 +86,21 @@ void* worker(void* args) {
 
             if (pool->exit_num > 0) {
                 pool->exit_num--;
-                if (pool->live_num > pool->max_num) {
+                if (pool->live_num > pool->min_num) {
                     pool->live_num--;
                     pthread_mutex_unlock(&pool->lock_pool);
-                    // pthread_exit(NULL);
                     thread_exit(pool);
                 }
             }
         }
         if (pool->stop) {
             pthread_mutex_unlock(&pool->lock_pool);
-            // pthread_exit(NULL);
             thread_exit(pool);
         }
         Task task;
         task.function = pool->tasks[pool->queue_front].function;
         task.args = pool->tasks[pool->queue_front].args;
-        pool->queue_front = (pool->queue_front + 1) & pool->queue_size;  // move queue front
+        pool->queue_front = (pool->queue_front + 1) % pool->queue_capacity;  // move queue front
         pool->queue_size--;
 
         pthread_cond_signal(&pool->cond_not_full);
@@ -157,6 +169,7 @@ void thread_exit(PThreadPool* pool) {
     for (int i = 0; i < pool->max_num; i++) {
         if (pool->workers[i] == tid) {
             pool->workers[i] = 0;
+            printf("thread_exit called, %ld exiting\n", tid);
             break;
         }
     }
@@ -238,7 +251,6 @@ int main(int argc, char const* argv[]) {
     }
     _sleep(30000);
     pthreadpool_destroy(pool);
-    // free(num);
 
     return 0;
 }

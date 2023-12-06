@@ -28,8 +28,8 @@ typedef struct PThreadPool {
     pthread_t* workers;             // 工作线程
     pthread_mutex_t lock_pool;      // 线程池锁
     pthread_mutex_t lock_busy;      // 正在工作的线程锁
-    pthread_cond_t cond_not_full;   //
-    pthread_cond_t cond_not_empty;  //
+    pthread_cond_t cond_not_full;   // 任务队列是否满了
+    pthread_cond_t cond_not_empty;  // 任务队列是否空了
 
     int min_num;   // 最大线程数
     int max_num;   // 最小线程数
