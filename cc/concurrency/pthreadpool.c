@@ -16,12 +16,12 @@ PThreadPool* pthreadpool_create(int min_num, int max_num, int queue_size) {
             printf("create PThreadPool fail\n");
             break;
         }
-        pool->workers = (pthread_t*)malloc(sizeof(pthread_t*) * max_num);
+        pool->workers = (pthread_t*)malloc(sizeof(pthread_t) * max_num);
         if (pool->workers == NULL) {
             printf("create workers fail\n");
             break;
         }
-        memset(pool->workers, 0, sizeof(pthread_t*) * max_num);
+        memset(pool->workers, 0, sizeof(pthread_t) * max_num);
         pool->min_num = min_num;
         pool->max_num = max_num;
         pool->busy_num = 0;
@@ -59,6 +59,7 @@ PThreadPool* pthreadpool_create(int min_num, int max_num, int queue_size) {
     if (pool) {
         free(pool);
     }
+    return NULL;
 }
 
 void* worker(void* args) {
@@ -99,7 +100,7 @@ void* worker(void* args) {
         pthread_mutex_unlock(&pool->lock_busy);
         task.function(task.args);
         free(task.args);
-        task.args == NULL;
+        task.args = NULL;
 
         printf("thread %ld end working\n", pthread_self());
         pthread_mutex_lock(&pool->lock_busy);
@@ -112,7 +113,7 @@ void* worker(void* args) {
 void* manager(void* args) {
     PThreadPool* pool = (PThreadPool*)args;
     while (!pool->stop) {
-        _sleep(3000);  // 每 3s 检测一次
+        _sleep(3000);  // check by 3s
 
         pthread_mutex_lock(&pool->lock_pool);
         int queue_size = pool->queue_size;
@@ -128,7 +129,7 @@ void* manager(void* args) {
             int counter = 0;
             pthread_mutex_lock(&pool->lock_pool);
             for (int i = 0; i < pool->max_num && counter < NUMBER && pool->live_num < pool->max_num; i++) {
-                if (pool->workers[i] = 0) {
+                if (pool->workers[i] == 0) {
                     pthread_create(&pool->workers[i], NULL, worker, pool);
                     counter++;
                     pool->live_num++;
@@ -155,7 +156,7 @@ void thread_exit(PThreadPool* pool) {
     pthread_t tid = pthread_self();
     for (int i = 0; i < pool->max_num; i++) {
         if (pool->workers[i] == tid) {
-            pool->workers[i] == 0;
+            pool->workers[i] = 0;
             break;
         }
     }
@@ -218,6 +219,7 @@ int pthreadpool_destroy(PThreadPool* pool) {
     pthread_cond_destroy(&pool->cond_not_full);
     free(pool);
     pool = NULL;
+    return 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

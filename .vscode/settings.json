@@ -134,6 +134,9 @@
         "generator": "cpp",
         "process.h": "c",
         "windows.h": "c",
-        "processthreadsapi.h": "c"
+        "processthreadsapi.h": "c",
+        "float.h": "c",
+        "crtdefs.h": "c",
+        "stddef.h": "c"
     }
 }

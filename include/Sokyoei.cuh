@@ -10,7 +10,7 @@
     {                                                                                                               \
         cudaError_t error = Callable;                                                                               \
         if (error != cudaSuccess) {                                                                                 \
-            sprintf(stderr, "[%s %s][%s:%d][%s][CUDA ERROR: %s]", __DATE__, __TIME__, __FILE__, __LINE__, __func__, \
+            fprintf(stderr, "[%s %s][%s:%d][%s][CUDA ERROR: %s]", __DATE__, __TIME__, __FILE__, __LINE__, __func__, \
                     error);                                                                                         \
         }                                                                                                           \
     }                                                                                                               \
