@@ -125,7 +125,7 @@ void* worker(void* args) {
 void* manager(void* args) {
     PThreadPool* pool = (PThreadPool*)args;
     while (!pool->stop) {
-        _sleep(3000);  // check by 3s
+        sleep(3);  // check by 3s
 
         pthread_mutex_lock(&pool->lock_pool);
         int queue_size = pool->queue_size;
@@ -239,7 +239,7 @@ int pthreadpool_destroy(PThreadPool* pool) {
 void task_func(void* args) {
     int num = *(int*)args;
     printf("thread %ld is working, number = %d\n", pthread_self(), num);
-    _sleep(1000);
+    sleep(1);
 }
 
 int main(int argc, char const* argv[]) {
@@ -249,7 +249,7 @@ int main(int argc, char const* argv[]) {
         *num = i + 100;
         pthreadpool_add(pool, task_func, num);
     }
-    _sleep(30000);
+    sleep(30);
     pthreadpool_destroy(pool);
 
     return 0;

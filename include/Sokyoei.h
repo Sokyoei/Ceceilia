@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SOKYOEI_H
 #define SOKYOEI_H
 
@@ -64,25 +65,5 @@
 #else
 #define AHRI_API
 #endif
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// CUDA
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifdef __NVCC__
-#include <stdio.h>
-
-#include <cuda_runtime_api.h>
-
-#define CUDA_CHECK(Callable)                                                                                        \
-    {                                                                                                               \
-        cudaError_t error = Callable;                                                                               \
-        if (error != cudaSuccess) {                                                                                 \
-            sprintf(stderr, "[%s %s][%s:%d][%s][CUDA ERROR: %s]", __DATE__, __TIME__, __FILE__, __LINE__, __func__, \
-                    error);                                                                                         \
-            exit(1);                                                                                                \
-        }                                                                                                           \
-    }                                                                                                               \
-    while (0)
-#endif  // __NVCC__
 
 #endif  // !SOKYOEI_H
