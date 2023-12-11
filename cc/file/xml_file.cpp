@@ -1,7 +1,13 @@
 #include <filesystem>
 #include <iostream>
 
+#define USE_TINYXML2
+
+#ifdef USE_TINYXML2
 #include <tinyxml2.h>
+#else
+#error "require xml library"
+#endif
 
 #include "config.h"
 
@@ -41,12 +47,15 @@ int main(int argc, char* argv[]) {
 #ifdef _WIN32
     system("chcp 65001");  // Windows 终端修改代码页以显示 UTF8 字符
 #endif
-    auto xml_file = std::filesystem::path(ROOT) / "data/Ahri/Ahri.xml";
+    auto xml_file_path = std::filesystem::path(ROOT) / "data/Ahri/Ahri.xml";
+
+#ifdef USE_TINYXML2
     tinyxml2::XMLDocument xml;
-    auto error = xml.LoadFile(xml_file.string().c_str());
+    auto error = xml.LoadFile(xml_file_path.string().c_str());
     if (error == tinyxml2::XML_SUCCESS) {
         auto root = xml.RootElement();
         Ahri::print_xml(root);
     }
+#endif
     return 0;
 }

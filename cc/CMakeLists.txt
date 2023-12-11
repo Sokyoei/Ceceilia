@@ -25,10 +25,14 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 endif()
 
 # file
-add_executable(xml_file file/xml_file.cpp)
-target_link_libraries(xml_file PRIVATE tinyxml2::tinyxml2)
 add_executable(json_file file/json_file.cpp)
 target_link_libraries(json_file PRIVATE nlohmann_json::nlohmann_json)
+add_executable(toml_file file/toml_file.cpp)
+target_link_libraries(toml_file PRIVATE toml11::toml11)
+add_executable(xml_file file/xml_file.cpp)
+target_link_libraries(xml_file PRIVATE tinyxml2::tinyxml2)
+add_executable(yaml_file file/yaml_file.cpp)
+target_link_libraries(yaml_file PRIVATE yaml-cpp::yaml-cpp)
 
 # SMID
 add_executable(smid SMID/smid.c)

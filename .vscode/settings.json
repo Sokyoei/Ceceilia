@@ -138,7 +138,13 @@
         "float.h": "c",
         "crtdefs.h": "c",
         "stddef.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "nb30.h": "c",
+        "rpc.h": "c",
+        "shellapi.h": "c",
+        "winsock.h": "c",
+        "stdfloat": "cpp",
+        "*.ipp": "cpp"
     },
     "code-runner.executorMap": {
         "javascript": "node",

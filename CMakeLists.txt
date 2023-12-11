@@ -72,6 +72,8 @@ find_package(fmt CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 #set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
 find_package(tinyxml2 CONFIG REQUIRED)
+find_package(toml11 CONFIG REQUIRED)
+find_package(yaml-cpp CONFIG REQUIRED)
 #find_package(absl CONFIG REQUIRED)
 #target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
 
