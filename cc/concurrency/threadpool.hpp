@@ -1,3 +1,12 @@
+/**
+ * @file threadpool.hpp
+ * @date 2023/12/12
+ * @author Sokyoei
+ * @details
+ * C++ ThreadPool
+ * support C++11 ~ C++20
+ */
+
 #pragma once
 #ifndef THREADPOOL_HPP
 #define THREADPOOL_HPP
@@ -10,32 +19,33 @@
 #include <queue>
 #include <stdexcept>
 #include <thread>
+#include <type_traits>
 #include <vector>
 
 class ThreadPool {
     using Task = std::function<void()>;
 
 private:
-    std::condition_variable _cond;
-    std::vector<std::thread> _workers;
-    std::queue<Task> _tasks;
-    std::mutex _mutex;
-    bool _stop;
+    std::condition_variable cond;
+    std::vector<std::thread> workers;
+    std::queue<Task> tasks;
+    std::mutex mutex;
+    bool stop;
 
 public:
-    explicit ThreadPool(size_t threads) : _stop(false) {
-        for (size_t i = 0; i < threads; i++) {
-            _workers.emplace_back([this] {
+    explicit ThreadPool(size_t threads) : stop(false) {
+        for (size_t i = 0; i < threads; ++i) {
+            workers.emplace_back([this] {
                 for (;;) {
                     std::function<void()> task;
                     {
-                        std::unique_lock<std::mutex> lock(this->_mutex);
-                        this->_cond.wait(lock, [this] { return this->_stop || !this->_tasks.empty(); });
-                        if (this->_stop && this->_tasks.empty()) {
+                        std::unique_lock<std::mutex> lock(this->mutex);
+                        this->cond.wait(lock, [this] { return this->stop || !this->tasks.empty(); });
+                        if (this->stop && this->tasks.empty()) {
                             return;
                         }
-                        task = std::move(this->_tasks.front());
-                        this->_tasks.pop();
+                        task = std::move(this->tasks.front());
+                        this->tasks.pop();
                     }
                     task();
                 }
@@ -45,29 +55,40 @@ public:
 
     ~ThreadPool() {
         {
-            std::unique_lock<std::mutex> lock(_mutex);
-            _stop = true;
+            std::unique_lock<std::mutex> lock(mutex);
+            stop = true;
         }
-        _cond.notify_all();
-        for (auto&& worker : _workers) {
+        cond.notify_all();
+        for (auto&& worker : workers) {
             worker.join();
         }
     }
 
     template <typename F, typename... Args>
-    auto enqueue(F&& f, Args&&... args) -> std::future<typename std::result_of<F(Args...)>::type> {
+#if __cplusplus >= 201402L || _MSVC_LANG >= 201402L
+    decltype(auto) enqueue(F&& f, Args&&... args)
+#else
+    auto enqueue(F&& f, Args&&... args) -> std::future<typename std::result_of<F(Args...)>::type>
+#endif
+    {
+#if __cplusplus >= 201703L || _MSVC_LANG >= 201703L
+        using return_type = std::invoke_result_t<std::decay_t<F>, std::decay_t<Args>...>;
+#else
         using return_type = typename std::result_of<F(Args...)>::type;
+#endif
         auto task = std::make_shared<std::packaged_task<return_type()>>(
             std::bind(std::forward<F>(f), std::forward<Args>(args)...));
+        // auto task = std::make_shared<std::packaged_task<return_type()>>([func = std::forward<F>(f)] { return func();
+        // });
         std::future<return_type> res = task->get_future();
         {
-            std::unique_lock<std::mutex> lock(_mutex);
-            if (_stop) {
+            std::unique_lock<std::mutex> lock(mutex);
+            if (stop) {
                 throw std::runtime_error("enqueue on stoped ThreadPool");
             }
-            _tasks.emplace([task]() { (*task)(); });
+            tasks.emplace([task]() { (*task)(); });
         }
-        _cond.notify_one();
+        cond.notify_one();
         return res;
     }
 };

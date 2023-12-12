@@ -1,3 +1,11 @@
+/**
+ * @file pthreadpool.h
+ * @date 2023/12/12
+ * @author Sokyoei
+ * @details
+ * C pthread based ThreadPool
+ */
+
 #pragma once
 #ifndef PTHREADPOOL_H
 #define PTHREADPOOL_H

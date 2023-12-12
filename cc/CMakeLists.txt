@@ -15,7 +15,7 @@ add_executable(VLA VLA.c)
 
 # concurrency
 add_executable(thread concurrency/thread.cpp)
-
+add_executable(threadpool_example concurrency/threadpool.hpp concurrency/threadpool_example.cpp)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     find_package(Threads REQUIRED)
     if(Threads_FOUND)
@@ -23,6 +23,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         target_link_libraries(pthread PUBLIC Threads::Threads)
     endif()
 endif()
+
 
 # file
 add_executable(json_file file/json_file.cpp)

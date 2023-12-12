@@ -151,7 +151,7 @@
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -fexec-charset=gbk -I$workspaceRoot -I$workspaceRoot/include -o $fileNameWithoutExt -lpthread && $dir$fileNameWithoutExt",
         "zig": "zig run",
-        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ -std=c++17 $fileName -fexec-charset=gbk -I$workspaceRoot -I$workspaceRoot/include -o $fileNameWithoutExt -lpthread && $dir$fileNameWithoutExt",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "php",
         "python": "python -u",
