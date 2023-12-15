@@ -1,3 +1,11 @@
+/**
+ * @file server.hpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++ server
+ */
+
 #include <iostream>
 
 #ifdef _WIN32

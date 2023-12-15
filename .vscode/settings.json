@@ -144,7 +144,8 @@
         "shellapi.h": "c",
         "winsock.h": "c",
         "stdfloat": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "string.h": "c"
     },
     "code-runner.executorMap": {
         "javascript": "node",

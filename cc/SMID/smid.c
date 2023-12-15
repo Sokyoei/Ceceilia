@@ -1,4 +1,10 @@
-// SMID(Single Instruction Multiple Data 单指令集多数据)
+/**
+ * @file smid.c
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * SMID(Single Instruction Multiple Data 单指令集多数据)
+ */
 
 #include <stdio.h>
 

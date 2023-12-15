@@ -1,4 +1,10 @@
-// Create Windows dump file
+/**
+ * @file dump.hpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * Create Windows dump file
+ */
 
 #ifndef DUMP_HPP
 #define DUMP_HPP

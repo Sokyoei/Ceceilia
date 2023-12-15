@@ -1,4 +1,11 @@
-// lambda (C++11)
+/**
+ * @file lambda.cpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++11 lambda
+ */
+
 // [外部变量访问方式说明符(=, &, this, args,...)](arg) mutable noexcept/throw() -> return type { body };
 
 #include <algorithm>

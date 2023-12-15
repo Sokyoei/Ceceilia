@@ -1,4 +1,10 @@
-// variable parameter「可变长参数」
+/**
+ * @file variable_parameter.cpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * variable parameter「可变长参数」
+ */
 
 #include <cstdarg>
 

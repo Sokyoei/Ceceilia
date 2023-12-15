@@ -1,3 +1,11 @@
+/**
+ * @file OpenMP.cpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++ OpenMP
+ */
+
 #include <iostream>
 #ifdef _OPENMP
 #include <omp.h>

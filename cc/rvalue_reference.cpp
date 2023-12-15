@@ -1,4 +1,10 @@
-// rvalue reference (C++11) 右值引用
+/**
+ * @file rvalue_reference.cpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++11 rvalue reference(右值引用)
+ */
 
 //            expression
 //            /       \

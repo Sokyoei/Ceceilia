@@ -1,3 +1,11 @@
+/**
+ * @file client.hpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++ client
+ */
+
 // TCP/IP
 // +--------------+
 // | Application  |

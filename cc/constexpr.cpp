@@ -1,5 +1,11 @@
-// constexpr(常量表达式)
-//
+/**
+ * @file constexpr.cpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++11 constexpr(常量表达式)
+ */
+
 // constexpr 变量
 // constexpr 函数
 // constexpr 构造函数

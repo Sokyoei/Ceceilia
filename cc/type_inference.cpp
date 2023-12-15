@@ -1,4 +1,10 @@
-// C++ 类型推导
+/**
+ * @file type_inference.cpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++ 类型推导
+ */
 
 #include <iostream>
 

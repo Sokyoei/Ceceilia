@@ -1,3 +1,11 @@
+/**
+ * @file exceptions.cpp
+ * @date 2023/12/13
+ * @author Sokyoei
+ * @details
+ * C++ exception warning
+ */
+
 #include <cassert>
 
 #include <any>
