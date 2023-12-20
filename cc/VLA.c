@@ -1,4 +1,11 @@
-// VLA(Variable Length Array)「变长数组(运行时决定)」
+/**
+ * @file VLA.c
+ * @date 2023/12/20
+ * @author Sokyoei
+ * @details
+ * C VLA(Variable Length Array)「变长数组(运行时决定)」
+ */
+
 // https://en.cppreference.com/w/c/language/array
 
 #include <stdio.h>

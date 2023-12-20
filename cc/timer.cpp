@@ -1,3 +1,11 @@
+/**
+ * @file timer.cpp
+ * @date 2023/12/20
+ * @author Sokyoei
+ * @details
+ * C++ time
+ */
+
 #include <chrono>
 #include <iostream>
 

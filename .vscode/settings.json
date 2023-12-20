@@ -145,7 +145,8 @@
         "winsock.h": "c",
         "stdfloat": "cpp",
         "*.ipp": "cpp",
-        "string.h": "c"
+        "string.h": "c",
+        "*.inc": "cpp"
     },
     "code-runner.executorMap": {
         "javascript": "node",

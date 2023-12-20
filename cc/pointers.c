@@ -1,3 +1,11 @@
+/**
+ * @file pointers.c
+ * @date 2023/12/20
+ * @author Sokyoei
+ * @details
+ * C pointer
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 

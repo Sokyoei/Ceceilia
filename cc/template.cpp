@@ -1,3 +1,11 @@
+/**
+ * @file template.cpp
+ * @date 2023/12/20
+ * @author Sokyoei
+ * @details
+ * C++ template
+ */
+
 #include <iostream>
 #include <string>
 

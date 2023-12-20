@@ -11,7 +11,7 @@
 #include "config.h"
 
 namespace Ahri {
-#ifdef CXX14&& __cpp_decltype_auto
+#if CXX14 && __cpp_decltype_auto
 template <typename U, typename V>
 decltype(auto) add(U& u, V& v) {
     return u + v;

@@ -1,5 +1,11 @@
-// attribute(属性)
-//
+/**
+ * @file attribute.cpp
+ * @date 2023/12/20
+ * @author Sokyoei
+ * @details
+ * C++ attribute
+ */
+
 // [[noreturn]]           (C++11) 指示函数不返回
 // [[carries_dependency]] (C++11) 指示释放消费 std::memory_order 中的依赖链传入和传出该函数
 // [[deprecated]]         (C++14) 指示允许使用声明有此属性的名称或实体，但因 原因 而不鼓励使用

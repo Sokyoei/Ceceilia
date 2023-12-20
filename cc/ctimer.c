@@ -1,3 +1,11 @@
+/**
+ * @file ctimer.c
+ * @date 2023/12/20
+ * @author Sokyoei
+ * @details
+ * C time
+ */
+
 #include <stdio.h>
 #include <time.h>
 

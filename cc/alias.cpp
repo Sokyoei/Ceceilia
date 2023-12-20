@@ -1,3 +1,11 @@
+/**
+ * @file alias.cpp
+ * @date 2023/12/20
+ * @author Sokyoei
+ * @details
+ * C/C++ alias
+ */
+
 #include <array>
 #include <iostream>
 
