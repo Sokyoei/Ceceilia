@@ -1,3 +1,11 @@
+/**
+ * @file function_pointer.cpp
+ * @date 2023/12/22
+ * @author Sokyoei
+ * @details
+ * C++ function pointer
+ */
+
 // std::function
 // std::invoke
 

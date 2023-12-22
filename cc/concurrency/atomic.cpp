@@ -1,3 +1,11 @@
+/**
+ * @file atomic.cpp
+ * @date 2023/12/22
+ * @author Sokyoei
+ * @details
+ * C++ atomic
+ */
+
 #include <atomic>
 
 namespace Ahri {
