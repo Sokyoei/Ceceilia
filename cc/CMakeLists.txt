@@ -35,10 +35,10 @@ target_link_libraries(xml_file PRIVATE tinyxml2::tinyxml2)
 add_executable(yaml_file file/yaml_file.cpp)
 target_link_libraries(yaml_file PRIVATE yaml-cpp::yaml-cpp)
 
-# SMID
-add_executable(smid SMID/smid.c)
+# SIMD
+add_executable(simd SIMD/simd.c)
 if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(smid PRIVATE /arch:AVX2)
+    target_compile_options(simd PRIVATE /arch:AVX2)
 elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-    target_compile_options(smid PRIVATE -mavx2)
+    target_compile_options(simd PRIVATE -mavx2)
 endif()
