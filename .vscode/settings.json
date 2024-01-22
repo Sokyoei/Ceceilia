@@ -146,7 +146,9 @@
         "stdfloat": "cpp",
         "*.ipp": "cpp",
         "string.h": "c",
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "lua.hpp": "c",
+        "lua.h": "c"
     },
     "code-runner.executorMap": {
         "javascript": "node",
