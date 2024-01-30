@@ -23,28 +23,56 @@
 // | Physical     |
 // +--------------+
 
+// #define USE_BOOST_ASIO
+
 #include <iostream>
 
 #ifdef _WIN32
 #ifdef __GNUG__
-#define _WIN32_WINNT 0x0A00  // Windows 10
+// #define _WIN32_WINNT 0x0A00  // Windows 10
 #endif
 #include <WS2tcpip.h>
 #include <WinSock2.h>
 
 #pragma comment(lib, "ws2_32.lib")
 #elif defined(__linux__)
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 #else
 #error "This platform Socket operator are not support"
 #endif
 
+#ifdef USE_BOOST_ASIO
+#include <boost/asio.hpp>
+#include <boost/system.hpp>
+#endif
+
 namespace Ahri {
 class Client {
-private:
 public:
-    Client() {}
+    Client() {
+#ifdef USE_BOOST_ASIO
+        boost::asio::io_context io;  // io 上下文对象
+        boost::asio::ip::tcp::socket socket(io);
+        socket.open(boost::asio::ip::tcp::v4());
+        boost::asio::error::basic_errors be;
+        auto ec = boost::asio::error::make_error_code(be);
+        socket.bind(boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 12345), ec);
+
+        socket.close(ec);
+
+        boost::asio::ip::tcp::acceptor;
+        boost::asio::ip::udp::socket;
+        boost::asio::deadline_timer;
+#endif
+    }
     ~Client() {}
+
+private:
+    SOCKET client_socket;  // socket
+    SOCKADDR_IN sockaddr;  // address
 };
 
 void client() {

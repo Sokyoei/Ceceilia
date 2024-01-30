@@ -5,3 +5,10 @@
  *
  *
  */
+
+class logger {
+private:
+public:
+    logger() {}
+    ~logger() {}
+};

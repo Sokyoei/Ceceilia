@@ -7,16 +7,21 @@
  */
 
 #include <iostream>
+#include <string>
 
 #ifdef _WIN32
 #ifdef __GNUG__
-#define _WIN32_WINNT 0x0A00  // Windows 10
+// #define _WIN32_WINNT 0x0A00  // Windows 10
 #endif
 #include <WS2tcpip.h>
 #include <WinSock2.h>
+#include <Windows.h>
 
 #pragma comment(lib, "ws2_32.lib")
 #elif defined(__linux__)
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 #else
 #error "This platform Socket operator are not support"
@@ -24,10 +29,58 @@
 
 namespace Ahri {
 class Server {
-private:
+#ifdef __linux__
+    using SOCKET = int;
+    using SOCKADDR_IN = sockaddr_in;
+#endif
 public:
-    Server() {}
-    ~Server() {}
+    Server(std::string ip, int port) {
+#ifdef _WIN32
+        WSADATA wsadata;
+        int result = WSAStartup(MAKEWORD(2, 2), &wsadata);
+        if (result != 0) {
+            switch (result) {
+                case WSASYSNOTREADY:
+                    break;
+                case WSAVERNOTSUPPORTED:
+                    break;
+                case WSAEINPROGRESS:
+                    break;
+                case WSAEPROCLIM:
+                    break;
+                case WSAEFAULT:
+                    break;
+                default:
+                    break;
+            }
+        }
+#endif
+        server_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+        sockaddr.sin_family = AF_INET;
+        inet_pton(PF_INET, ip.c_str(), &sockaddr.sin_addr.S_un.S_addr);
+        sockaddr.sin_port = htons(port);
+        bind(server_socket, (SOCKADDR*)&sockaddr, sizeof(SOCKADDR));
+        listen(server_socket, 20);
+        int addrlen = sizeof(SOCKADDR);
+        client_socket = accept(server_socket, &clientaddr, &addrlen);
+    }
+
+    ~Server() {
+#ifdef _WIN32
+        closesocket(server_socket);
+        closesocket(client_socket);
+        WSACleanup();
+#elif defined(__linux__)
+        close(server_socket);
+        close(client_socket);
+#endif
+    }
+
+private:
+    SOCKET server_socket;
+    SOCKET client_socket;
+    SOCKADDR_IN sockaddr;
+    SOCKADDR clientaddr;
 };
 
 void server() {
@@ -40,7 +93,8 @@ void server() {
         memset(&sockaddr, 0, sizeof(sockaddr));
         sockaddr.sin_family = PF_INET;  // ipv4
         // sockaddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
-        inet_pton(PF_INET, "127.0.0.1", &sockaddr.sin_addr.S_un.S_addr);
+        sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+        // inet_pton(PF_INET, "127.0.0.1", &sockaddr.sin_addr.S_un.S_addr);
         sockaddr.sin_port = htons(8888);
         bind(serversock, (SOCKADDR*)&sockaddr, sizeof(SOCKADDR));
         // listen socket

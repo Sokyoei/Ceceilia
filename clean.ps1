@@ -23,7 +23,9 @@ $recurse_cache_paths = @(
     # "*.lib"
     # "*.pyd"
     # "*.a"
-    # "*.obj"
+    "*.obj"
+    "*.ilk"
+    "*.pdb"
     "tempCodeRunnerFile.*"
 )
 foreach ($path in $recurse_cache_paths) {
