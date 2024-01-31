@@ -1,5 +1,5 @@
-#ifndef CONTANTS_H
-#define CONTANTS_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
 // Project infomation
 #define AHTHOR "Sokyoei"
@@ -9,4 +9,4 @@
 #define VERSION_PATCH "1"
 #define VERSION VERSION_MAJOR "." VERSION_MINOR "." VERSION_PATCH
 
-#endif  // !CONTANTS_H
+#endif  // !CONSTANTS_H
