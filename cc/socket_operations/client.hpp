@@ -23,13 +23,18 @@
 // | Physical     |
 // +--------------+
 
-// #define USE_BOOST_ASIO
+#pragma once
+#ifndef CLIENT_HPP
+#define CLIENT_HPP
 
 #include <iostream>
-
 #ifdef _WIN32
+// GCC redefine _WIN32_WINNT for link ws2_32
 #ifdef __GNUG__
-// #define _WIN32_WINNT 0x0A00  // Windows 10
+#ifdef _WIN32_WINNT
+#undef _WIN32_WINNT
+#endif
+#define _WIN32_WINNT 0x0600
 #endif
 #include <WS2tcpip.h>
 #include <WinSock2.h>
@@ -44,29 +49,41 @@
 #error "This platform Socket operator are not support"
 #endif
 
-#ifdef USE_BOOST_ASIO
-#include <boost/asio.hpp>
-#include <boost/system.hpp>
-#endif
-
 namespace Ahri {
 class Client {
 public:
-    Client() {
-#ifdef USE_BOOST_ASIO
-        boost::asio::io_context io;  // io 上下文对象
-        boost::asio::ip::tcp::socket socket(io);
-        socket.open(boost::asio::ip::tcp::v4());
-        boost::asio::error::basic_errors be;
-        auto ec = boost::asio::error::make_error_code(be);
-        socket.bind(boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 12345), ec);
+    Client(std::string ip, int port) {
+        WSADATA wsadata;
+        if (WSAStartup(MAKEWORD(2, 2), &wsadata) == 0) {
+            // create socket
+            SOCKET clientsock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+            // send infomation
+            SOCKADDR_IN sockaddr;
+            memset(&sockaddr, 0, sizeof(sockaddr));
+            sockaddr.sin_family = PF_INET;  // ipv4
+            // #ifdef _MSC_VER
+            inet_pton(PF_INET, ip.c_str(), &sockaddr.sin_addr.S_un.S_addr);
+            // #elif defined(__GNUC__)
+            //         sockaddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+            // #endif
+            sockaddr.sin_port = htons(port);
+            connect(clientsock, (SOCKADDR*)&sockaddr, sizeof(sockaddr));
 
-        socket.close(ec);
+            while (true) {
+                std::string s;
+                char buffer[1024] = {0};
 
-        boost::asio::ip::tcp::acceptor;
-        boost::asio::ip::udp::socket;
-        boost::asio::deadline_timer;
-#endif
+                std::cout << "send info: ";
+                std::cin >> s;
+                // const char* msg = "hello sokyoei";
+                send(clientsock, s.c_str(), s.length(), 0);
+                recv(clientsock, buffer, 1024, 0);
+                std::cout << "server: " << buffer << std::endl;
+            }
+
+            closesocket(clientsock);
+            WSACleanup();
+        }
     }
     ~Client() {}
 
@@ -84,20 +101,30 @@ void client() {
         SOCKADDR_IN sockaddr;
         memset(&sockaddr, 0, sizeof(sockaddr));
         sockaddr.sin_family = PF_INET;  // ipv4
-        // sockaddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+                                        // #ifdef _MSC_VER
         inet_pton(PF_INET, "127.0.0.1", &sockaddr.sin_addr.S_un.S_addr);
+        // #elif defined(__GNUC__)
+        //         sockaddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+        // #endif
         sockaddr.sin_port = htons(8888);
         connect(clientsock, (SOCKADDR*)&sockaddr, sizeof(sockaddr));
 
-        char buffer[1024] = {0};
-        recv(clientsock, buffer, 1024, 0);
-        std::cout << "server: " << buffer << std::endl;
+        while (true) {
+            std::string s;
+            char buffer[1024] = {0};
 
-        const char* msg = "hello sokyoei";
-        send(clientsock, msg, strlen(msg) + sizeof(char), 0);
+            std::cout << "send info: ";
+            std::cin >> s;
+            // const char* msg = "hello sokyoei";
+            send(clientsock, s.c_str(), s.length(), 0);
+            recv(clientsock, buffer, 1024, 0);
+            std::cout << "server: " << buffer << std::endl;
+        }
 
         closesocket(clientsock);
         WSACleanup();
     }
 }
 }  // namespace Ahri
+
+#endif  // !CLIENT_HPP

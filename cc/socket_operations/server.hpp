@@ -6,6 +6,10 @@
  * C++ server
  */
 
+#pragma once
+#ifndef SERVER_HPP
+#define SERVER_HPP
+
 #include <iostream>
 #include <string>
 
@@ -95,6 +99,12 @@ void server() {
         // sockaddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
         sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
         // inet_pton(PF_INET, "127.0.0.1", &sockaddr.sin_addr.S_un.S_addr);
+        // #ifdef _MSC_VER
+        //         inet_pton(PF_INET, "127.0.0.1", &sockaddr.sin_addr.S_un.S_addr);
+        // #elif defined(__GNUC__)
+        //         sockaddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+        // #endif
+
         sockaddr.sin_port = htons(8888);
         bind(serversock, (SOCKADDR*)&sockaddr, sizeof(SOCKADDR));
         // listen socket
@@ -104,12 +114,18 @@ void server() {
         int nsize = sizeof(SOCKADDR);
         SOCKET clientsock = accept(serversock, (SOCKADDR*)&clientaddr, &nsize);
         // send infomation
-        const char* msg = "hello ahri";
-        send(clientsock, msg, strlen(msg) + sizeof(char), 0);
 
-        char buffer[1024] = {0};
-        recv(clientsock, buffer, 1024, 0);
-        std::cout << "client: " << buffer << std::endl;
+        while (true) {
+            std::string s;
+            char buffer[1024] = {0};
+            // const char* msg = "hello ahri";
+            std::cout << "send info: ";
+            std::cin >> s;
+            send(clientsock, s.c_str(), s.length(), 0);
+            recv(clientsock, buffer, 1024, 0);
+            std::cout << "client: " << buffer << std::endl;
+        }
+
         // close sockets
         closesocket(clientsock);
         closesocket(serversock);
@@ -118,3 +134,5 @@ void server() {
     }
 }
 }  // namespace Ahri
+
+#endif  // !SERVER_HPP
