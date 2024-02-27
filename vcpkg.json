@@ -1,0 +1,17 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+    "license": "MIT",
+    "version": "0.0.1",
+    "name": "ceceilia",
+    "dependencies": [
+        "fmt",
+        "gtest",
+        "tinyxml2",
+        "nlohmann-json",
+        "yaml-cpp",
+        "toml11",
+        "tomlplusplus",
+        "spdlog"
+    ],
+    "builtin-baseline": "13bde2ff13192e1b2fdd37bd9b475c7665ae6ae5"
+}

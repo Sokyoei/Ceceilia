@@ -11,28 +11,23 @@
 #define TCP_SERVER_HPP
 
 #include <iostream>
+#include <string>
 
 #include <boost/asio.hpp>
 
 namespace Ahri {
 class Server {
-private:
 public:
-    Server() {
-        boost::asio::io_context io;  // io 上下文对象
-        boost::asio::ip::tcp::socket socket(io);
+    Server(std::string ip, int port) {
         socket.open(boost::asio::ip::tcp::v4());
-        boost::asio::error::basic_errors be;
-        auto error_code = boost::asio::error::make_error_code(be);
-        socket.bind(boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 12345), error_code);
-
-        socket.close(error_code);
-
-        boost::asio::ip::tcp::acceptor;
-        boost::asio::ip::udp::socket;
-        boost::asio::deadline_timer;
+        socket.bind(boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port), error_code);
     }
-    ~Server() {}
+    ~Server() { socket.close(error_code); }
+
+private:
+    boost::asio::io_context io;  // io 上下文对象
+    boost::asio::ip::tcp::socket socket{io};
+    boost::system::error_code error_code;
 };
 }  // namespace Ahri
 

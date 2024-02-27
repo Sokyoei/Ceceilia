@@ -18,8 +18,16 @@ namespace Ahri {
 class Client {
 private:
 public:
-    Client() {}
-    ~Client() {}
+public:
+    Client(std::string ip, int port,std::string server_ip) {
+        socket.open(boost::asio::ip::tcp::v4());
+    }
+    ~Client() { socket.close(error_code); }
+
+private:
+    boost::asio::io_context io;  // io 上下文对象
+    boost::asio::ip::tcp::socket socket{io};
+    boost::system::error_code error_code;
 };
 }  // namespace Ahri
 
