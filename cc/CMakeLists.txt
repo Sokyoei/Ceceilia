@@ -43,6 +43,6 @@ elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU")
     target_compile_options(simd PRIVATE -mavx2)
 endif()
 
-# socket_operations
-add_executable(client_example socket_operations/client.hpp socket_operations/client_example.cpp)
-add_executable(server_example socket_operations/server.hpp socket_operations/server_example.cpp)
+# net
+add_executable(client_example net/client.hpp net/client_example.cpp)
+add_executable(server_example net/server.hpp net/server_example.cpp)

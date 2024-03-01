@@ -17,3 +17,20 @@ https://gcc.gnu.org/onlinedocs/
 | :---- | :--- |
 | -Wall |      |
 | -fPIC |      |
+
+## gdb
+
+|           |      |                          |
+| :-------- | :--- | :----------------------- |
+| break     | b    | 设置断点                 |
+| run       |      | 运行程序到断点（如果有） |
+| next      | n    | 单步执行                 |
+| step      | s    | 单步步入                 |
+| continue  | c    | 继续执行                 |
+| finish    |      | 单步跳出                 |
+| print     | p    |                          |
+| info      |      |                          |
+| backtrace | bt   | 打印调用堆栈             |
+| attach    |      |                          |
+| list      |      |                          |
+|           |      |                          |
