@@ -19,8 +19,8 @@ public:
     A() {}                                       // Default constructor         默认构造函数
     ~A() {}                                      // Destructor                  析构函数
     A(const A& a) {}                             // Copy constructor            复制构造函数
-    A(A&& a) noexcept {}                         // Move constructor            移动构造函数
     A& operator=(const A& a) {}                  // Copy assignment operator    复制赋值运算符
+    A(A&& a) noexcept {}                         // Move constructor            移动构造函数
     A& operator=(A&& a) noexcept {}              // Move assignment operator    移动赋值运算符
     A* operator&() { return this; }              // Get address operator        取地址运算符
     const A* operator&() const { return this; }  // Const get address operator  const 取地址运算符

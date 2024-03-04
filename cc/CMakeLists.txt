@@ -15,6 +15,7 @@ add_executable(VLA VLA.c)
 
 # concurrency
 add_executable(thread concurrency/thread.cpp)
+add_executable(future concurrency/future.cpp)
 add_executable(threadpool_example concurrency/threadpool.hpp concurrency/threadpool_example.cpp)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     find_package(Threads REQUIRED)
