@@ -1,3 +1,11 @@
+/**
+ * @file generator.hpp
+ * @date 2024/03/22
+ * @author Sokyoei
+ *
+ *
+ */
+
 #include <coroutine>
 
 namespace Ahri {

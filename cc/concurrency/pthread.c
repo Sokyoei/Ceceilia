@@ -1,3 +1,11 @@
+/**
+ * @file pthread.c
+ * @date 2024/03/22
+ * @author Sokyoei
+ *
+ *
+ */
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

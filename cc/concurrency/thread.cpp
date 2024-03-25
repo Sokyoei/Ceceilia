@@ -1,3 +1,11 @@
+/**
+ * @file thread.cpp
+ * @date 2024/03/22
+ * @author Sokyoei
+ *
+ *
+ */
+
 #include <iostream>
 #include <string>
 #include <string_view>

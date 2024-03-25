@@ -1,7 +1,13 @@
-// Windows Thread
-//
-// CreateThread()
-// _beginthread()/_beginthreadex()
+/**
+ * @file winthread.c
+ * @date 2024/03/22
+ * @author Sokyoei
+ * @details
+ * Windows Thread
+ * CreateThread()
+ * _beginthread()/_beginthreadex()
+ *
+ */
 
 #include <stdio.h>
 

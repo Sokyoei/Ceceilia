@@ -38,7 +38,6 @@ void test_condition_variable() {
     t1.join();
     t2.join();
 }
-
 }  // namespace Ahri
 
 int main(int argc, char const* argv[]) {

@@ -22,6 +22,11 @@
 #include <type_traits>
 #include <vector>
 
+/**
+ * @details
+ * 线程池执行任务要求 @b 任务无序 和 @b 无强关联性
+ *
+ */
 class ThreadPool {
     using Task = std::function<void()>;
 
