@@ -1,0 +1,55 @@
+site_name: Ceceilia(C/C++/CUDA)
+site_author: Sokyoei
+copyright: Sokyoei &copy 2024
+repo_name: Sokyoei/Ceceilia
+repo_url: https://github.com/Sokyoei/Ceceilia
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.top
+    - search.suggest
+    - toc.integrate
+  palette:
+    primary: pink
+    accent: purple
+
+plugins:
+  - search
+  #  - monorepo
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - def_list
+  - abbr
+  - admonition
+  - md_in_html
+  - pymdownx.snippets:
+      url_download: true
+      url_timeout: 0
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
