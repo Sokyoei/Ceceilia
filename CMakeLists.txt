@@ -9,6 +9,9 @@ project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 20)
 
+option(BUILD_CUDA "build cuda" OFF)
+option(BUILD_asio_learn "build asio_learn subproject" OFF)
+
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
 
@@ -35,23 +38,7 @@ add_custom_target(
 
 # include(ExternalProject)
 
-########################################################################################################################
-# compiler and platform settings
-########################################################################################################################
-if (CMAKE_C_COMPILER_LOADED)
-    if (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
-        set(CMAKE_C_FLAGS "/EHsc /Zc:__STDC__ /source-charset:utf-8")
-    elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-        set(CMAKE_C_FLAGS "-fexec-charset=gbk")
-    endif ()
-endif ()
-if (CMAKE_CXX_COMPILER_LOADED)
-    if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-        set(CMAKE_CXX_FLAGS "/EHsc /Zc:__cplusplus /source-charset:utf-8")
-    elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-        set(CMAKE_CXX_FLAGS "-fexec-charset=gbk")
-    endif ()
-endif ()
+include(cmake/compiler.cmake)
 
 set(ROOT ${PROJECT_SOURCE_DIR})
 

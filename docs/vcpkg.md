@@ -3,7 +3,7 @@
 ## 集成到 Visual Studio
 
 ```shell
-vcpkg integrate intall
+vcpkg integrate install
 # 卸载
 vcpkg integrate remove
 ```
