@@ -14,6 +14,10 @@ insert_final_newline = true
 max_line_length = 120
 
 ij_editorconfig_space_after_comma = false
+ij_cmake_space_before_for_parentheses = false
+ij_cmake_space_before_while_parentheses = false
+ij_cmake_space_before_if_parentheses = false
+ij_cmake_indent_size = 4
 
 [*.{sln,vcxproj,vcxproj.filters}]
 end_of_line = crlf
@@ -26,13 +30,7 @@ tab_width = 4
 indent_style = tab
 tab_width = 4
 
-[*.{yaml,yml}]
-indent_size = 2
-
-[*.clang-format]
-indent_size = 2
-
-[*.clang-tidy]
+[*.{yaml,yml,clang-format,clang-tidy}]
 indent_size = 2
 
 [*.{c,h,cpp,hpp,cc,hh,cxx,hxx,ixx,ipp,cppm}]

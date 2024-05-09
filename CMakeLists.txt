@@ -61,6 +61,13 @@ find_package(yaml-cpp CONFIG REQUIRED)
 #target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
 
 add_subdirectory(cc)
+if(BUILD_CUDA)
+    add_subdirectory(cuda)
+endif()
+if(BUILD_asio_learn)
+    add_subdirectory(asio_learn)
+endif()
+
 # add_subdirectory(boost)
 # add_subdirectory(dll)
 
@@ -116,7 +123,7 @@ add_subdirectory(cc)
 
 #set(GTEST_ROOT D:\\Download\\googletest-1.14.0\\build\\install)
 find_package(GTest REQUIRED)
-if (GTest_FOUND)
+if(GTest_FOUND)
     include_directories(${GTEST_ROOT}/include)
     add_subdirectory(tests)
-endif ()
+endif()

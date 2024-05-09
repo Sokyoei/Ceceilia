@@ -40,7 +40,7 @@ target_link_libraries(yaml_file PRIVATE yaml-cpp::yaml-cpp)
 add_executable(simd SIMD/simd.c)
 if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(simd PRIVATE /arch:AVX2)
-elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU")
+elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     target_compile_options(simd PRIVATE -mavx2)
 endif()
 
