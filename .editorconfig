@@ -18,6 +18,11 @@ ij_cmake_space_before_for_parentheses = false
 ij_cmake_space_before_while_parentheses = false
 ij_cmake_space_before_if_parentheses = false
 ij_cmake_indent_size = 4
+ij_any_line_comment_at_first_column = false
+ij_any_line_comment_add_space = true
+ij_any_block_comment_add_space = true
+ij_c_tag_prefix_of_block_comment = at
+ij_c_tag_prefix_of_line_comment = at
 
 [*.{sln,vcxproj,vcxproj.filters}]
 end_of_line = crlf
