@@ -1,25 +1,21 @@
 #include "Pimpl.hpp"
 
 namespace Ahri {
-struct Person::Impl {
-    std::string name_{"Furina"};
-    int age_{16};
-    std::string id_{"1030"};
+struct Dog::Impl {
+    std::string _name{"Furina"};
+    int _age{16};
+    std::string _id{"1030"};
 
     void print_info() const {
-        std::cout << "I'm " << name_ << ", " << age_ << " year old, and My id is " << id_ << std::endl;
+        std::cout << "I'm " << _name << ", " << _age << " year old, and My id is " << _id << std::endl;
     }
 };
 
-Person::Person() : impl_(std::make_unique<Impl>()) {}
+Dog::Dog() : _impl(std::make_unique<Impl>()) {}
 
-void Person::print_info() const {
-    impl_->print_info();
+Dog::~Dog() {}
+
+void Dog::print_info() const {
+    _impl->print_info();
 }
 }  // namespace Ahri
-
-int main(int argc, char const* argv[]) {
-    Ahri::Person p;
-    p.print_info();
-    return 0;
-}

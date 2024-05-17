@@ -3,14 +3,14 @@
 #include <string>
 
 namespace Ahri {
-class Person {
+class Dog {
 private:
     struct Impl;
-    std::unique_ptr<Impl> impl_;
+    std::unique_ptr<Impl> _impl;
 
 public:
-    Person();
-    ~Person() = default;
+    Dog();
+    ~Dog();
     void print_info() const;
 };
 }  // namespace Ahri

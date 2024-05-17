@@ -38,12 +38,12 @@ void say_good(std::unique_ptr<std::string_view> str) {
  * GCC 编译错误
  * @return std::thread
  */
-#ifndef __GNUG__
-std::thread func() {
-    std::string_view hello = "hello";
-    return std::thread(say_good, std::ref(hello));
-}
-#endif
+// #ifndef __GNUG__
+// std::thread func() {
+//    std::string_view hello = "hello";
+//    return std::thread(say_good, std::ref(hello));
+// }
+// #endif
 }  // namespace Ahri
 
 int main(int argc, char const* argv[]) {

@@ -1,0 +1,6 @@
+add_executable(simd simd.c)
+if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(simd PRIVATE /arch:AVX2)
+elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    target_compile_options(simd PRIVATE -mavx2)
+endif()

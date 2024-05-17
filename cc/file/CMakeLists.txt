@@ -1,0 +1,8 @@
+add_executable(json_file json_file.cpp)
+target_link_libraries(json_file PRIVATE nlohmann_json::nlohmann_json)
+add_executable(toml_file toml_file.cpp)
+target_link_libraries(toml_file PRIVATE toml11::toml11)
+add_executable(xml_file xml_file.cpp)
+target_link_libraries(xml_file PRIVATE tinyxml2::tinyxml2)
+add_executable(yaml_file yaml_file.cpp)
+target_link_libraries(yaml_file PRIVATE yaml-cpp::yaml-cpp)
