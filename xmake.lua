@@ -19,7 +19,7 @@ option("BUILD_asio_learn")
     set_description("build asio_learn subproject")
 option_end()
 
-add_defines("AHRI_EXPORT"--[[ , "_DEBUG" ]])
+add_defines("AHRI_EXPORT")
 
 set_warnings("all")
 
@@ -41,10 +41,13 @@ add_includedirs("$(projectdir)/include")
 -- config.h
 set_configdir("$(projectdir)")
 add_configfiles("config.h.xmake", { filename = "config.h" })
-set_configvar("ROOT", "$(projectdir)") -- FAIL: Windows 下生成的 config.h 使用 '\'
+set_configvar("ROOT", (function()
+    projectdir, count = string.gsub(os.projectdir(), "\\", "/")
+    return projectdir
+end)())
 
-add_requires("gtest", { config = { main = true, shared = true, gmock = true }})
-add_requires("fmt", { config = { header_only = true }})
+add_requires("gtest", { config = { main = true, shared = true, gmock = true } })
+add_requires("fmt", { config = { header_only = true } })
 add_requires("nlohmann_json")
 add_requires("tinyxml2")
 -- add_requires("toml11")
