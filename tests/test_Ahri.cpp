@@ -5,5 +5,5 @@ int add(int a, int b) {
 }
 
 TEST(add, test_add) {
-    ASSERT_EQ(add(1, 2), 4);
+    EXPECT_EQ(add(2, 2), 4);
 }

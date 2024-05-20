@@ -1,0 +1,9 @@
+cc_binary(
+    name = "classes",
+    srcs = ["classes.cpp"],
+)
+
+cc_binary(
+    name = "Pimpl_test",
+    srcs = ["Pimpl_test.cpp"],
+)

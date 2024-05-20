@@ -4,8 +4,6 @@ set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
 project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 
-#enable_language(CUDA)
-
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 20)
 
@@ -14,27 +12,6 @@ option(BUILD_asio_learn "build asio_learn subproject" OFF)
 
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
-
-execute_process(
-    COMMAND echo hello
-    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-    RESULT_VARIABLE result_var
-    OUTPUT_VARIABLE output_var
-    ERROR_VARIABLE error_var
-)
-message(STATUS result_var: ${result_var})
-message(STATUS output_var: ${output_var})
-message(STATUS error_var: ${error_var})
-
-add_custom_command(
-    OUTPUT hello
-    COMMAND echo hello
-)
-add_custom_target(
-    world ALL
-    COMMAND echo world
-    DEPENDS hello
-)
 
 # include(ExternalProject)
 
@@ -57,11 +34,20 @@ find_package(nlohmann_json CONFIG REQUIRED)
 find_package(tinyxml2 CONFIG REQUIRED)
 find_package(toml11 CONFIG REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
+# find_package(spdlog CONFIG REQUIRED)
+# target_link_libraries(main PRIVATE spdlog::spdlog_header_only)
 #find_package(absl CONFIG REQUIRED)
 #target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
 
+enable_testing()
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+# target_link_libraries(main PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+# add_test(AllTestsInMain main)
+
 add_subdirectory(cc)
 if(BUILD_CUDA)
+    enable_language(CUDA)
     add_subdirectory(cuda)
 endif()
 if(BUILD_asio_learn)
@@ -121,9 +107,6 @@ endif()
 # add_subdirectory(Sokyoei)
 # add_subdirectory(Nono)
 
-#set(GTEST_ROOT D:\\Download\\googletest-1.14.0\\build\\install)
-find_package(GTest REQUIRED)
 if(GTest_FOUND)
-    include_directories(${GTEST_ROOT}/include)
     add_subdirectory(tests)
 endif()
