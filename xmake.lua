@@ -46,8 +46,8 @@ set_configvar("ROOT", (function()
     return projectdir
 end)())
 
-add_requires("gtest", { config = { main = true, shared = true, gmock = true } })
-add_requires("fmt", { config = { header_only = true } })
+add_requires("gtest", { configs = { main = true, shared = true, gmock = true } })
+add_requires("fmt", { configs = { header_only = true } })
 add_requires("nlohmann_json")
 add_requires("tinyxml2")
 -- add_requires("toml11")
