@@ -1,0 +1,10 @@
+target("classes")
+    set_kind("binary")
+    add_files("classes.cpp")
+target_end()
+
+target("test_Pimpl")
+    set_kind("binary")
+    add_files("test_Pimpl.cpp", "Pimpl.cpp")
+    add_packages("gtest")
+target_end()

@@ -1,0 +1,5 @@
+target("test_Ahri")
+    set_kind("binary")
+    add_files("test_Ahri.cpp")
+    add_packages("gtest")
+target_end()

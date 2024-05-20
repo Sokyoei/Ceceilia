@@ -1,1 +1,1 @@
-add_executable(generator_example generator.hpp generator_example.cpp)
+add_executable(generator_example generator_example.cpp generator.hpp)

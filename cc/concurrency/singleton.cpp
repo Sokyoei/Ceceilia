@@ -13,7 +13,6 @@
 
 namespace Ahri {
 class SingletonLazy;
-class SingletonDeletor;
 
 class SingletonOnce {
 private:
@@ -27,6 +26,14 @@ public:
         static std::once_flag flag;
         std::call_once(flag, [&]() { instance = std::shared_ptr<SingletonOnce>(new SingletonOnce); });
         return instance;
+    }
+};
+
+class SingletonDeletor {
+public:
+    void operator()(SingletonLazy* sl) {
+        std::cout << "SingletonDeletor delete sl" << std::endl;
+        delete sl;
     }
 };
 
@@ -62,14 +69,6 @@ public:
 private:
     static std::shared_ptr<SingletonLazy> singletonLazy;
     static std::mutex mutex;
-};
-
-class SingletonDeletor {
-public:
-    void operator()(SingletonLazy* sl) {
-        std::cout << "SingletonDeletor delete sl" << std::endl;
-        delete sl;
-    }
 };
 
 /**
