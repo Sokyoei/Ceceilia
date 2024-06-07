@@ -28,7 +28,7 @@
 namespace Ahri {
 class Dump {
 private:
-    std::string filepath_;
+    std::string _filepath;
 
 public:
     Dump() {}

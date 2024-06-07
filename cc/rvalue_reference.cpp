@@ -6,15 +6,17 @@
  * C++11 rvalue reference「右值引用」
  */
 
-//            expression
-//            /       \
-//           /         \
-//       glvalue       rvalue
-//       广义左值        广义右值
-//       /     \       /     \
-//      /       \     /       \
-//   lvalue      xvalue      prvalue
-//    左值        将亡值       纯右值
+/**
+ *            expression
+ *            /       \
+ *           /         \
+ *       glvalue       rvalue
+ *       广义左值        广义右值
+ *       /     \       /     \
+ *      /       \     /       \
+ *   lvalue      xvalue      prvalue
+ *    左值        将亡值       纯右值
+ */
 
 #include <iostream>
 

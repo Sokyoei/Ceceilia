@@ -30,11 +30,11 @@ namespace Ahri {
  */
 class SokyoeiError : public std::exception {
 private:
-    const char* message_;
+    const char* _message;
 
 public:
-    explicit SokyoeiError(const char* message) : message_(message) {}
-    [[nodiscard]] const char* what() const noexcept override { return message_; }
+    explicit SokyoeiError(const char* message) : _message(message) {}
+    [[nodiscard]] const char* what() const noexcept override { return _message; }
 };
 }  // namespace Ahri
 

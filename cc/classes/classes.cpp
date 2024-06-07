@@ -57,11 +57,11 @@ inline void B::explicit_inline_function() {}
  */
 class AbstractAnimal {
 private:
-    int age;
-    bool is_alive;
+    int _age;
+    bool _is_alive;
 
 public:
-    AbstractAnimal(int age, bool is_alive) : age(age), is_alive(is_alive) { std::cout << "AbstractAnimal()" << '\n'; }
+    AbstractAnimal(int age, bool is_alive) : _age(age), _is_alive(is_alive) { std::cout << "AbstractAnimal()" << '\n'; }
     /// @brief 基类指针指向派生类时，基类的析构函数需要为虚函数，否则派生类析构时它析构函数不能被正常调用
     /* virtual */ ~AbstractAnimal() { std::cout << "~AbstractAnimal()" << '\n'; }
     /// @brief 纯虚函数，派生类必须实现
@@ -71,27 +71,27 @@ public:
 
 class Fox : public AbstractAnimal {
 private:
-    std::string name;
-    int* a;
+    std::string _name;
+    int* _a;
 
 public:
-    Fox(std::string name, int age, int is_alive) : name(name), AbstractAnimal(age, is_alive) {
+    Fox(std::string name, int age, int is_alive) : _name(name), AbstractAnimal(age, is_alive) {
         std::cout << "Fox()" << '\n';
-        int* a = new int(3);
+        _a = new int(3);
     }
     ~Fox() {
         std::cout << "~Fox()" << '\n';
-        delete a;
+        delete _a;
     }
     void eat() override { std::cout << "Fox can eat" << std::endl; }
 };
 
 class Person : public AbstractAnimal {
 private:
-    std::string name;
+    std::string _name;
 
 public:
-    Person(std::string name, int age, int is_alive) : name(name), AbstractAnimal(age, is_alive) {
+    Person(std::string name, int age, int is_alive) : _name(name), AbstractAnimal(age, is_alive) {
         std::cout << "Person()" << '\n';
     }
     ~Person() { std::cout << "~Person()" << '\n'; }

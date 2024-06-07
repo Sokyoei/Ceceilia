@@ -20,3 +20,20 @@
 #include <iconv.h>
 #include <unistd.h>
 #endif
+
+namespace Ahri {
+enum class ConvertType {
+    UTF8,
+    GBK,
+};
+
+class CharConvert {
+public:
+    CharConvert(ConvertType in, ConvertType out) {}
+    ~CharConvert() {}
+    char* UTF8ToGBK() {}
+    char* GBKToUTF8() {}
+
+private:
+};
+}  // namespace Ahri
