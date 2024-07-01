@@ -4,6 +4,6 @@ cc_binary(
 )
 
 cc_binary(
-    name = "Pimpl_test",
-    srcs = ["Pimpl_test.cpp"],
+    name = "test_Pimpl",
+    srcs = ["test_Pimpl.cpp"],
 )
