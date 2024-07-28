@@ -13,8 +13,6 @@ option(BUILD_asio_learn "build asio_learn subproject" OFF)
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
 
-# include(ExternalProject)
-
 include(cmake/compiler.cmake)
 
 set(ROOT ${PROJECT_SOURCE_DIR})
