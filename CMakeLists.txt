@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 3.20.0)
 
-set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/vcpkg/scripts/buildsystems/vcpkg.cmake")
-
 project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 20)
 
+# options
 option(BUILD_CUDA "build cuda" OFF)
 option(BUILD_asio_learn "build asio_learn subproject" OFF)
 
@@ -16,34 +15,69 @@ add_compile_definitions(AHRI_EXPORT)
 include(cmake/compiler.cmake)
 
 set(ROOT ${PROJECT_SOURCE_DIR})
-
-# config.h settings
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include)
-configure_file(
-    ${PROJECT_SOURCE_DIR}/config.h.cmake
-    ${PROJECT_SOURCE_DIR}/config.h
-)
 
+# third libraries
 find_package(fmt CONFIG REQUIRED)
-#target_link_libraries(main PRIVATE fmt::fmt)
-#target_link_libraries(main PRIVATE fmt::fmt-header-only)
+# target_link_libraries(main PRIVATE fmt::fmt)
+# target_link_libraries(main PRIVATE fmt::fmt-header-only)
+if(fmt_FOUND)
+    set(USE_FMT true)
+endif(fmt_FOUND)
+
 find_package(nlohmann_json CONFIG REQUIRED)
-#set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+# target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+# set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+if(nlohmann_json_FOUND)
+    set(USE_NLOHMANN_JSON true)
+endif(nlohmann_json_FOUND)
+
 find_package(tinyxml2 CONFIG REQUIRED)
+# target_link_libraries(main PRIVATE tinyxml2::tinyxml2)
+if(tinyxml2_FOUND)
+    set(USE_TINYXML2 true)
+endif(tinyxml2_FOUND)
+
 # find_package(toml11 CONFIG REQUIRED)
+
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(tomlplusplus REQUIRED IMPORTED_TARGET tomlplusplus)
+# target_link_libraries(main PkgConfig::tomlplusplus)
+if(tomlplusplus_FOUND)
+    set(USE_TOMLPLUSPLUS true)
+endif(tomlplusplus_FOUND)
+
 find_package(yaml-cpp CONFIG REQUIRED)
-# find_package(spdlog CONFIG REQUIRED)
+# target_link_libraries(main PRIVATE yaml-cpp::yaml-cpp)
+if(yaml-cpp_FOUND)
+    set(USE_YAML_CPP true)
+endif(yaml-cpp_FOUND)
+
+find_package(spdlog CONFIG REQUIRED)
+# target_link_libraries(main PRIVATE spdlog::spdlog)
 # target_link_libraries(main PRIVATE spdlog::spdlog_header_only)
-#find_package(absl CONFIG REQUIRED)
-#target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
+if(spdlog_FOUND)
+    set(USE_SPDLOG true)
+endif(spdlog_FOUND)
+
+# find_package(absl CONFIG REQUIRED)
+# target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
 
 enable_testing()
-find_package(GTest REQUIRED)
+find_package(GTest CONFIG REQUIRED)
+if(GTest_FOUND)
+    set(USE_GTEST true)
+endif(GTest_FOUND)
 include_directories(${GTEST_INCLUDE_DIRS})
 # target_link_libraries(main PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
 # add_test(AllTestsInMain main)
+
+find_package(mosquitto)
+# target_include_directories(main PRIVATE ${MOSQUITTO_INCLUDE_DIRS})
+# target_link_libraries(main PRIVATE ${MOSQUITTO_LIBRARIES})
+if(mosquitto_FOUND)
+    set(USE_MOSQUITTO true)
+endif(mosquitto_FOUND)
 
 add_subdirectory(cc)
 if(BUILD_CUDA)
@@ -110,3 +144,9 @@ endif()
 if(GTest_FOUND)
     add_subdirectory(tests)
 endif()
+
+# config.h settings
+configure_file(
+    ${PROJECT_SOURCE_DIR}/config.h.cmake
+    ${PROJECT_SOURCE_DIR}/config.h
+)

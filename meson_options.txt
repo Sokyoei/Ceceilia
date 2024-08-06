@@ -1,0 +1,2 @@
+option('cuda', type: 'boolean', value: false, description: 'build cuda')
+option('asio_learn', type: 'boolean', value: false, description: 'build asio_learn subproject')
