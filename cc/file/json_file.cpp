@@ -6,19 +6,17 @@
  *
  */
 
+#include "config.h"
+
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-
-#define USE_NLOHMANN_JSON
 
 #ifdef USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
 #else
 #error "require json library"
 #endif
-
-#include "config.h"
 
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32

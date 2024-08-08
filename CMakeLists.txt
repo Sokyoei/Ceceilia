@@ -76,9 +76,10 @@ endif(GTest_FOUND)
 find_package(mosquitto)
 # target_include_directories(main PRIVATE ${MOSQUITTO_INCLUDE_DIRS})
 # target_link_libraries(main PRIVATE ${MOSQUITTO_LIBRARIES})
-if(mosquitto_FOUND)
+# mosquitto_FOUND are not set
+if(MOSQUITTO_LIBRARIES)
     set(USE_MOSQUITTO true)
-endif(mosquitto_FOUND)
+endif()
 
 add_subdirectory(cc)
 if(BUILD_CUDA)
@@ -87,6 +88,13 @@ if(BUILD_CUDA)
 endif()
 if(BUILD_asio_learn)
     add_subdirectory(asio_learn)
+endif()
+
+# System
+if(WIN32)
+    add_subdirectory(windows)
+elseif(LINUX)
+    add_subdirectory(linux)
 endif()
 
 # add_subdirectory(boost)
@@ -139,7 +147,7 @@ endif()
 
 #add_subdirectory(STL)
 # add_subdirectory(Windows)
-# add_subdirectory(Sokyoei)
+add_subdirectory(Sokyoei)
 # add_subdirectory(Nono)
 
 if(GTest_FOUND)

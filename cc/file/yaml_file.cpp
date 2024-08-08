@@ -6,19 +6,17 @@
  *
  */
 
+#include "config.h"
+
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-
-#define USE_YAML_CPP
 
 #ifdef USE_YAML_CPP
 #include <yaml-cpp/yaml.h>
 #else
 #error "require yaml library"
 #endif
-
-#include "config.h"
 
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32

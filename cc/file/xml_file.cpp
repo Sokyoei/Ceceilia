@@ -6,18 +6,16 @@
  *
  */
 
+#include "config.h"
+
 #include <filesystem>
 #include <iostream>
-
-#define USE_TINYXML2
 
 #ifdef USE_TINYXML2
 #include <tinyxml2.h>
 #else
 #error "require xml library"
 #endif
-
-#include "config.h"
 
 namespace Ahri {
 /**

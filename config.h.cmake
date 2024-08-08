@@ -13,5 +13,6 @@
 #cmakedefine USE_TINYXML2
 #cmakedefine USE_YAML_CPP
 #cmakedefine USE_GTEST
+#cmakedefine USE_MOSQUITTO
 
 #endif  // !CONFIG_H
