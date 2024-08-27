@@ -1,5 +1,5 @@
 # MSVC
-set(MSVC_BASE_FLAGS "/EHsc /source-charset:utf-8")
+set(MSVC_BASE_FLAGS "/EHsc /utf-8")
 set(MSVC_CC_FLAGS "${MSVC_BASE_FLAGS} /Zc:__STDC__")
 set(MSVC_CXX_FLAGS "${MSVC_BASE_FLAGS} /Zc:__cplusplus")
 
