@@ -1,3 +1,18 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
 ${define ROOT}
 
 #include "include/Sokyoei.h"
+
+// libraries
+${define USE_FMT}
+${define USE_SPDLOG}
+${define USE_NLOHMANN_JSON}
+${define USE_TOMLPLUSPLUS}
+${define USE_TINYXML2}
+${define USE_YAML_CPP}
+${define USE_GTEST}
+${define USE_MOSQUITTO}
+
+#endif  // !CONFIG_H

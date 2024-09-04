@@ -1,0 +1,1 @@
+--8<-- "bazel/README.md"
