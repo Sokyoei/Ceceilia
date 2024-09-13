@@ -1,4 +1,5 @@
 #include <exception>
+#include <iostream>
 
 #include "Ceceilia/utils/mqtt_utils.hpp"
 

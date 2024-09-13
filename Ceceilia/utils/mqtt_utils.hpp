@@ -9,10 +9,6 @@
 #ifndef MQTT_UTILS_HPP
 #define MQTT_UTILS_HPP
 
-#include <cstring>
-#include <iostream>
-#include <memory>
-
 #include <fmt/core.h>
 #include <mosquittopp.h>
 
