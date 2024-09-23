@@ -14,6 +14,7 @@ if has_nvcc
     nvcc = meson.get_compiler('cuda')
 endif
 
+ROOT = '"' + meson.current_source_dir().replace('\\', '/') + '"'
 config_h = include_directories('.')
 
 subdir('cc')
@@ -24,3 +25,12 @@ endif
 if get_option('asio_learn')
     subdir('asio_learn')
 endif
+
+# config.h
+cfg_data = configuration_data()
+cfg_data.set('ROOT', ROOT)
+configure_file(
+    input: meson.current_source_dir() / 'config.h.meson',
+    output: 'config.h', # in build dir
+    configuration: cfg_data,
+)

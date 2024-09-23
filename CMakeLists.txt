@@ -17,6 +17,7 @@ include(cmake/compiler.cmake)
 set(ROOT ${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include)
 
+include(cmake/library.cmake)
 # third libraries
 find_package(fmt CONFIG REQUIRED)
 # target_link_libraries(main PRIVATE fmt::fmt)
@@ -81,13 +82,17 @@ if(MOSQUITTO_LIBRARIES)
     set(USE_MOSQUITTO true)
 endif()
 
+if(BUILD_asio_learn)
+    find_package(Boost REQUIRED COMPONENTS asio)
+    if(Boost_asio_FOUND)
+        add_subdirectory(asio_learn)
+    endif(Boost_asio_FOUND)
+endif(BUILD_asio_learn)
+
 add_subdirectory(cc)
 if(BUILD_CUDA)
     enable_language(CUDA)
     add_subdirectory(cuda)
-endif()
-if(BUILD_asio_learn)
-    add_subdirectory(asio_learn)
 endif()
 
 # System

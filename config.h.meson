@@ -1,0 +1,18 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#mesondefine ROOT
+
+#include "include/Sokyoei.h"
+
+// third libraries
+#mesondefine USE_FMT
+#mesondefine USE_SPDLOG
+#mesondefine USE_NLOHMANN_JSON
+#mesondefine USE_TOMLPLUSPLUS
+#mesondefine USE_TINYXML2
+#mesondefine USE_YAML_CPP
+#mesondefine USE_GTEST
+#mesondefine USE_MOSQUITTO
+
+#endif  // !CONFIG_H
