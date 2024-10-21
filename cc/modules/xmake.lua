@@ -1,0 +1,6 @@
+-- target("cpp_module")
+--     set_kind("binary")
+--     add_files("main.cpp", "hello.ixx")
+--     set_languages("c++23")
+--     set_policy("build.c++.modules", true)
+-- target_end()

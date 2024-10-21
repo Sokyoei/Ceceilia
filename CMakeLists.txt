@@ -1,13 +1,14 @@
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.28)  # CMake 3.28+ support C++ Modules
 
 project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 17)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 
 # options
 option(BUILD_CUDA "build cuda" OFF)
 option(BUILD_asio_learn "build asio_learn subproject" OFF)
+option(BUILD_protobuf_learn "build protobuf_learn subproject" OFF)
 
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
@@ -88,6 +89,14 @@ if(BUILD_asio_learn)
         add_subdirectory(asio_learn)
     endif(Boost_asio_FOUND)
 endif(BUILD_asio_learn)
+
+if(BUILD_protobuf_learn)
+    find_package(Protobuf CONFIG REQUIRED)
+    # target_link_libraries(main PRIVATE protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
+    if(Protobuf_FOUND)
+        add_subdirectory(protobuf_learn)
+    endif(Protobuf_FOUND)
+endif(BUILD_protobuf_learn)
 
 add_subdirectory(cc)
 if(BUILD_CUDA)

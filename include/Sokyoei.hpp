@@ -44,7 +44,6 @@
 #define AHRI_maybe_unused
 #endif
 
-
 #if __has_cpp_attribute(carries_dependency)
 #define AHRI_CARRIES_DEPENDENCY [[carries_dependency]]
 #else

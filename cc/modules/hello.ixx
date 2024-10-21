@@ -12,6 +12,6 @@
 
 export module hello;
 
-export auto say() {
+export auto say() -> const char* {
     return "hello C++20 module";
 }
