@@ -4,6 +4,7 @@ set(
     "protobuf_v3_learn.proto"
 )
 
+# build .proto file
 foreach(PROTO_FILE ${PROTO_FILES})
     get_filename_component(PROTO_FILE_NAME ${PROTO_FILE} NAME)
     get_filename_component(PROTO_FILE_DIR ${PROTO_FILE} DIRECTORY)
@@ -15,5 +16,6 @@ foreach(PROTO_FILE ${PROTO_FILES})
     )
 endforeach(PROTO_FILE ${PROTO_FILES})
 
-add_executable(protobuf_learn protobuf_learn.cpp)
+add_executable(protobuf_learn protobuf_learn.cpp protobuf_v2_learn.pb.cc protobuf_v2_learn.pb.h)
 target_link_libraries(protobuf_learn PRIVATE protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
+target_link_libraries(protobuf_learn PRIVATE fmt::fmt-header-only)
