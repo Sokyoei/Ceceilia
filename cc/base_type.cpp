@@ -32,7 +32,7 @@ void int_type() {
 
     unsigned long unsigned_long_;
     unsigned long int unsigned_long_int_;
-#ifdef CXX11
+#ifdef AHRI_CXX11
     // long long
     long long long_long_;
     long long int long_long_int_;
@@ -41,34 +41,34 @@ void int_type() {
 
     unsigned long long unsigned_long_long_;
     unsigned long long int unsigned_long_long_int_;
-#endif  // CXX11
+#endif  // AHRI_CXX11
 }
 
 void float_type() {
     float float_;
     double double_;
     long double long_double_;
-#ifdef CXX23
+#ifdef AHRI_CXX23
     std::float16_t float16_t_;
     std::float32_t float32_t_;
     std::float64_t float64_t_;
     std::float128_t float128_t_;
     std::bfloat16_t bfloat16_t_;
-#endif  // CXX23
+#endif  // AHRI_CXX23
 }
 
 void char_type() {
     char char_;
     wchar_t wchar_t_;
-#ifdef CXX20
+#ifdef AHRI_CXX20
 #ifdef __cpp_char8_t
     char8_t char8_t_;
 #endif  // __cpp_char8_t
-#endif  // CXX20
-#ifdef CXX11
+#endif  // AHRI_CXX20
+#ifdef AHRI_CXX11
     char16_t char16_t_;
     char32_t char32_t_;
-#endif  // CXX11
+#endif  // AHRI_CXX11
 }
 
 bool bool_;

@@ -65,7 +65,7 @@ void func3(Args... args) {
     std::cout << std::endl;
 }
 
-#ifdef CXX17
+#ifdef AHRI_CXX17
 #ifdef __cpp_if_constexpr
 /**
  * C++17 if constexpr
@@ -98,7 +98,7 @@ auto cxx17_fold_expression(Args... args) {
     return (args + ...);
 }
 #endif  // __cpp_fold_expressions
-#endif  // CXX17
+#endif  // AHRI_CXX17
 }  // namespace Ahri
 
 int main(int argc, char* argv[]) {

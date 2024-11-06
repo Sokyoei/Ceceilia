@@ -23,11 +23,11 @@ void hello() {
 
 int main(int argc, char const* argv[]) {
     // use function pointer
-#ifdef CXX11
+#ifdef AHRI_CXX11
     using void_void_fn_t = void (*)();
-#elif defined(CXX98)
+#elif defined(AHRI_CXX98)
     typedef void (*void_void_fn_t)();
-#endif  // CXX11
+#endif  // AHRI_CXX11
     void_void_fn_t func = Ahri::hello;
     func();
 

@@ -28,22 +28,22 @@ namespace Ahri {
  * @brief 时钟
  */
 void clocks() {
-#ifdef CXX11
+#ifdef AHRI_CXX11
 #ifdef _MSC_VER
     std::cout << std::chrono::system_clock::now() << std::endl;
 // std::cout << std::chrono::steady_clock::now() << std::endl;
 // std::cout << std::chrono::high_resolution_clock::now() << std::endl;
 #endif  // MSVC
 
-#ifdef CXX20
+#ifdef AHRI_CXX20
 #ifdef _MSC_VER
     std::cout << std::chrono::gps_clock::now() << std::endl;
     std::cout << std::chrono::utc_clock::now() << std::endl;
     std::cout << std::chrono::tai_clock::now() << std::endl;
     std::cout << std::chrono::file_clock::now() << std::endl;
 #endif  // MSVC
-#endif  // CXX20
-#endif  // CXX11
+#endif  // AHRI_CXX20
+#endif  // AHRI_CXX11
 }
 }  // namespace Ahri
 

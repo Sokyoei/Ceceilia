@@ -18,7 +18,7 @@ using namespace std::string_literals;
 using namespace std::string_view_literals;
 
 const char c[] = "ahri";
-#ifdef CXX20
+#ifdef AHRI_CXX20
 const char8_t c8[] = u8"ahri";  // C++20
 #endif
 const char16_t c16[] = u"ahri";
@@ -26,7 +26,7 @@ const char32_t c32[] = U"ahri";
 const wchar_t w[] = L"ahri";
 
 std::string s = "ahri"s;
-#ifdef CXX20
+#ifdef AHRI_CXX20
 std::u8string u8s = u8"ahri"s;
 #endif
 std::u16string u16s = u"ahri"s;
@@ -34,7 +34,7 @@ std::u32string u32s = U"ahri"s;
 std::wstring ws = L"ahri"s;
 
 std::string_view sv = "ahri"sv;
-#ifdef CXX20
+#ifdef AHRI_CXX20
 std::u8string_view u8sv = u8"ahri"sv;
 #endif
 std::u16string_view u16sv = u"ahri"sv;

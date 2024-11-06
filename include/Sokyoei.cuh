@@ -2,6 +2,6 @@
 #ifndef SOKYOEI_CUH
 #define SOKYOEI_CUH
 
-#include "cuda_utils.cuh"
+#include "Ahri.cuh"
 
 #endif  // !SOKYOEI_CUH

@@ -11,17 +11,17 @@
 #include "config.h"
 
 namespace Ahri {
-#if CXX14 && __cpp_decltype_auto
+#if AHRI_CXX14 && __cpp_decltype_auto
 template <typename U, typename V>
 decltype(auto) add(U& u, V& v) {
     return u + v;
 }
-#elif defined(CXX11)
+#elif defined(AHRI_CXX11)
 template <typename U, typename V>
 auto add(U& u, V& v) -> decltype(u + v) {
     return u + v;
 }
-#endif  // CXX14
+#endif  // AHRI_CXX14
 
 }  // namespace Ahri
 
