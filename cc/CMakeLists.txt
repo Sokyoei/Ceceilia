@@ -18,6 +18,7 @@ if(OpenMP_CXX_FOUND)
 endif()
 
 add_executable(pointers pointers.c)
+add_executable(random random.cpp)
 add_executable(ranges ranges.cpp)
 add_executable(regular_expressions regular_expressions.cpp)
 add_executable(rvalue_reference rvalue_reference.cpp)
