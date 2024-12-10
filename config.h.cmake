@@ -14,5 +14,7 @@
 #cmakedefine USE_YAML_CPP
 #cmakedefine USE_GTEST
 #cmakedefine USE_MOSQUITTO
+#cmakedefine USE_PROTOBUF
+#cmakedefine USE_BOOST_ASIO
 
 #endif  // !CONFIG_H

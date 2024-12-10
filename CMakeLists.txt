@@ -2,68 +2,27 @@ cmake_minimum_required(VERSION 3.28)  # CMake 3.28+ support C++ Modules
 
 project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 
+include(CheckLanguage)
+check_language(CUDA)
+if(CMAKE_CUDA_COMPILER)
+    enable_language(CUDA)
+endif()
+
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 23)
 
 # options
-option(BUILD_CUDA "build cuda" OFF)
-option(BUILD_asio_learn "build asio_learn subproject" OFF)
-option(BUILD_protobuf_learn "build protobuf_learn subproject" OFF)
+option(asio_learn "build asio_learn subproject" OFF)
+option(protobuf_learn "build protobuf_learn subproject" OFF)
 
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
 
-include(cmake/compiler.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/compiler.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/library.cmake)
 
 set(ROOT ${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include)
-
-include(cmake/library.cmake)
-# third libraries
-find_package(fmt CONFIG REQUIRED)
-# target_link_libraries(main PRIVATE fmt::fmt)
-# target_link_libraries(main PRIVATE fmt::fmt-header-only)
-if(fmt_FOUND)
-    set(USE_FMT true)
-endif(fmt_FOUND)
-
-find_package(nlohmann_json CONFIG REQUIRED)
-# target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
-# set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
-if(nlohmann_json_FOUND)
-    set(USE_NLOHMANN_JSON true)
-endif(nlohmann_json_FOUND)
-
-find_package(tinyxml2 CONFIG REQUIRED)
-# target_link_libraries(main PRIVATE tinyxml2::tinyxml2)
-if(tinyxml2_FOUND)
-    set(USE_TINYXML2 true)
-endif(tinyxml2_FOUND)
-
-# find_package(toml11 CONFIG REQUIRED)
-
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(tomlplusplus REQUIRED IMPORTED_TARGET tomlplusplus)
-# target_link_libraries(main PkgConfig::tomlplusplus)
-if(tomlplusplus_FOUND)
-    set(USE_TOMLPLUSPLUS true)
-endif(tomlplusplus_FOUND)
-
-find_package(yaml-cpp CONFIG REQUIRED)
-# target_link_libraries(main PRIVATE yaml-cpp::yaml-cpp)
-if(yaml-cpp_FOUND)
-    set(USE_YAML_CPP true)
-endif(yaml-cpp_FOUND)
-
-find_package(spdlog CONFIG REQUIRED)
-# target_link_libraries(main PRIVATE spdlog::spdlog)
-# target_link_libraries(main PRIVATE spdlog::spdlog_header_only)
-if(spdlog_FOUND)
-    set(USE_SPDLOG true)
-endif(spdlog_FOUND)
-
-# find_package(absl CONFIG REQUIRED)
-# target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
 
 enable_testing()
 include(GoogleTest)
@@ -75,34 +34,23 @@ if(GTest_FOUND)
     set(USE_GTEST true)
 endif(GTest_FOUND)
 
-find_package(mosquitto)
-# target_include_directories(main PRIVATE ${MOSQUITTO_INCLUDE_DIRS})
-# target_link_libraries(main PRIVATE ${MOSQUITTO_LIBRARIES})
-# mosquitto_FOUND are not set
-if(MOSQUITTO_LIBRARIES)
-    set(USE_MOSQUITTO true)
-endif()
+add_subdirectory(cc)
 
-if(BUILD_asio_learn)
-    find_package(Boost REQUIRED COMPONENTS asio)
+if(asio_learn)
     if(Boost_asio_FOUND)
         add_subdirectory(asio_learn)
     endif(Boost_asio_FOUND)
-endif(BUILD_asio_learn)
+endif(asio_learn)
 
-if(BUILD_protobuf_learn)
-    find_package(protobuf CONFIG REQUIRED)
-    # target_link_libraries(main PRIVATE protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
+if(protobuf_learn)
     if(protobuf_FOUND)
         add_subdirectory(protobuf_learn)
     endif(protobuf_FOUND)
-endif(BUILD_protobuf_learn)
+endif(protobuf_learn)
 
-add_subdirectory(cc)
-if(BUILD_CUDA)
-    enable_language(CUDA)
+if(CMAKE_CUDA_COMPILER)
     add_subdirectory(cuda)
-endif()
+endif(CMAKE_CUDA_COMPILER)
 
 # System
 if(WIN32)
@@ -159,14 +107,14 @@ endif()
 #     endif ()
 # endif ()
 
-#add_subdirectory(STL)
+# add_subdirectory(STL)
 # add_subdirectory(Windows)
-add_subdirectory(Sokyoei)
+# add_subdirectory(Sokyoei)
 # add_subdirectory(Nono)
 
 if(GTest_FOUND)
     add_subdirectory(tests)
-endif()
+endif(GTest_FOUND)
 
 # config.h settings
 configure_file(
