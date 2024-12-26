@@ -3,6 +3,11 @@ target("classes")
     add_files("classes.cpp")
 target_end()
 
+target("CRTP")
+    set_kind("binary")
+    add_files("CRTP.cpp")
+target_end()
+
 target("test_Pimpl")
     set_kind("binary")
     add_files("test_Pimpl.cpp", "Pimpl.cpp")

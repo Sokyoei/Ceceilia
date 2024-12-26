@@ -7,3 +7,8 @@ cc_binary(
     name = "test_Pimpl",
     srcs = ["test_Pimpl.cpp"],
 )
+
+cc_binary(
+    name = "CRTP",
+    srcs = ["CRTP.cpp"],
+)
