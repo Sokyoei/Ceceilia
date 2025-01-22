@@ -16,5 +16,6 @@
 #cmakedefine USE_MOSQUITTO
 #cmakedefine USE_PROTOBUF
 #cmakedefine USE_BOOST_ASIO
+#cmakedefine USE_BENCHMARK
 
 #endif  // !CONFIG_H

@@ -1,3 +1,11 @@
+/**
+ * @file CRTP.cpp
+ * @date 2024/12/27
+ * @author Sokyoei
+ * @details
+ *  CRTP(Curiously Recurring Template Pattern) 奇特递归模板模式
+ */
+
 #include <iostream>
 
 namespace Ahri {

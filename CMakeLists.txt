@@ -35,6 +35,7 @@ if(GTest_FOUND)
 endif(GTest_FOUND)
 
 add_subdirectory(cc)
+add_subdirectory(benchmark)
 
 if(asio_learn)
     if(Boost_asio_FOUND)

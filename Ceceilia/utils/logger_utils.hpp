@@ -40,7 +40,7 @@ namespace Ahri {
     std::initializer_list<spdlog::sink_ptr> sinks{console, file_logger};
     auto loggers = std::make_shared<spdlog::logger>("logger", sinks);
     loggers->set_level(spdlog::level::debug);
-    loggers->set_pattern("%^[%Y-%m-%d %H:%M:%S.%e][%s][line:%#][%l]: %v%$");
+    loggers->set_pattern("%^[%Y-%m-%d %H:%M:%S.%e][%s:%#][%l]: %v%$");
     spdlog::register_logger(loggers);
 }
 

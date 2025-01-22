@@ -4,6 +4,7 @@ add_executable(condition_variable condition_variable.cpp)
 add_executable(future future.cpp)
 add_executable(lock lock.cpp)
 add_executable(singleton singleton.cpp)
+add_executable(sync sync.cpp)
 add_executable(thread thread.cpp)
 add_executable(threadpool_example threadpool_example.cpp threadpool.hpp)
 
