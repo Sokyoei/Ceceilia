@@ -18,11 +18,13 @@
 #error "require yaml library"
 #endif
 
+#include "Ceceilia.hpp"
+
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32
     system("chcp 65001");
 #endif
-    auto yaml_file_path = std::filesystem::path(ROOT) / "data/Ahri/Ahri.yaml";
+    auto yaml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.yaml";
 
 #ifdef USE_YAML_CPP
     std::fstream f(yaml_file_path);

@@ -17,6 +17,8 @@
 #error "require xml library"
 #endif
 
+#include "Ceceilia.hpp"
+
 namespace Ahri {
 /**
  * @brief 递归遍历 XML 的元素
@@ -53,7 +55,7 @@ int main(int argc, char* argv[]) {
 #ifdef _WIN32
     system("chcp 65001");  // Windows 终端修改代码页以显示 UTF8 字符
 #endif
-    auto xml_file_path = std::filesystem::path(ROOT) / "data/Ahri/Ahri.xml";
+    auto xml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.xml";
 
 #ifdef USE_TINYXML2
     tinyxml2::XMLDocument xml;

@@ -21,6 +21,8 @@
 #error "require toml library"
 #endif
 
+#include "Ceceilia.hpp"
+
 using namespace std::string_literals;
 using namespace std::string_view_literals;
 
@@ -29,7 +31,7 @@ int main(int argc, char const* argv[]) {
     std::system("chcp 65001");  // Windows 终端修改代码页以显示 UTF8 字符
 #endif
 
-    auto toml_file_path = std::filesystem::path(ROOT) / "data/Ahri/Ahri.toml";
+    auto toml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.toml";
 
 #ifdef USE_TOMLPLUSPLUS
     auto settings = toml::parse_file(toml_file_path.c_str());
