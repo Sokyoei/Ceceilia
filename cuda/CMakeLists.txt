@@ -1,3 +1,5 @@
+add_executable(device_info device_info.cu)
 add_executable(event event.cu)
 add_executable(kernel kernel.cu)
 add_executable(stream stream.cu)
+add_executable(shared_memory shared_memory.cu)
