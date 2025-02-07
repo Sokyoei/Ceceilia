@@ -32,6 +32,7 @@ Testing
 Makefile
 !/Makefile
 !/cc/Makefile
+!/linux/Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json

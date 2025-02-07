@@ -1,9 +1,9 @@
+all: constexpr
+
 constexpr:
 	$(CXX) $(CXXFLAGS) constexpr.cpp -o constexpr
 
-all: constexpr
-
 clean:
-	-rm -f constexpr
+	rm -f constexpr
 
 .PHONY: all clean

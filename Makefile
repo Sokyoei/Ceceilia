@@ -13,13 +13,17 @@ ROOT=$(shell pwd)
 
 export CC CXX CFLAGS CXXFLAGS ROOT
 
+all: cc linux
+
 # 或者 $(MAKE) -C cc
 cc:
 	cd cc && $(MAKE)
 
-all: cc
+linux:
+	cd linux && $(MAKE)
 
-clean: cc
+clean: cc linux
 	cd cc && $(MAKE) clean
+	cd linux && $(MAKE) clean
 
-.PHONY: all clean cc
+.PHONY: all clean cc linux
