@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD 23)
 # options
 option(asio_learn "build asio_learn subproject" OFF)
 option(protobuf_learn "build protobuf_learn subproject" OFF)
+option(folly_learn "build folly_learn subproject" OFF)
 
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
@@ -48,6 +49,12 @@ if(protobuf_learn)
         add_subdirectory(protobuf_learn)
     endif(protobuf_FOUND)
 endif(protobuf_learn)
+
+if(folly_learn)
+    if(folly_FOUND)
+        add_subdirectory(folly_learn)
+    endif(folly_FOUND)
+endif(folly_learn)
 
 if(CMAKE_CUDA_COMPILER)
     add_subdirectory(cuda)

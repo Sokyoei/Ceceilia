@@ -17,5 +17,6 @@
 #cmakedefine USE_PROTOBUF
 #cmakedefine USE_BOOST_ASIO
 #cmakedefine USE_BENCHMARK
+#cmakedefine USE_FOLLY
 
 #endif  // !CONFIG_H
