@@ -3,7 +3,11 @@
 
 #cmakedefine ROOT "@ROOT@"
 
+#ifdef __cplusplus
+#include "include/Sokyoei.hpp"
+#else
 #include "include/Sokyoei.h"
+#endif  // __cplusplus
 
 // third libraries
 #cmakedefine USE_FMT

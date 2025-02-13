@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD 23)
 # options
 option(asio_learn "build asio_learn subproject" OFF)
 option(protobuf_learn "build protobuf_learn subproject" OFF)
+option(boost_learn "build boost_learn subproject" OFF)
 option(folly_learn "build folly_learn subproject" OFF)
 
 add_compile_definitions(AHRI_EXPORT)
@@ -45,10 +46,16 @@ if(asio_learn)
 endif(asio_learn)
 
 if(protobuf_learn)
-    if(protobuf_FOUND)
+    if(Protobuf_FOUND)
         add_subdirectory(protobuf_learn)
-    endif(protobuf_FOUND)
+    endif(Protobuf_FOUND)
 endif(protobuf_learn)
+
+if(boost_learn)
+    if(Boost_FOUND)
+        add_subdirectory(boost_learn)
+    endif(Boost_FOUND)
+endif(boost_learn)
 
 if(folly_learn)
     if(folly_FOUND)

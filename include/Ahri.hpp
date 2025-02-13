@@ -5,6 +5,31 @@
 #include "Ahri.h"
 
 /**
+ * @brief C++ standard
+ */
+#ifdef __cplusplus
+#define AHRI_CXX 1
+#if __cplusplus >= 199711L || _MSVC_LANG >= 199711L
+#define AHRI_CXX98 1
+#if __cplusplus >= 201103L || _MSVC_LANG >= 201103L
+#define AHRI_CXX11 1
+#if __cplusplus >= 201402L || _MSVC_LANG >= 201402L
+#define AHRI_CXX14 1
+#if __cplusplus >= 201703L || _MSVC_LANG >= 201703L
+#define AHRI_CXX17 1
+#if __cplusplus >= 202002L || _MSVC_LANG >= 202002L
+#define AHRI_CXX20 1
+#if __cplusplus >= 202302L || _MSVC_LANG >= 202302L
+#define AHRI_CXX23 1
+#endif  // C++23
+#endif  // C++20
+#endif  // C++17
+#endif  // C++14
+#endif  // C++11
+#endif  // C++98
+#endif  // __cplusplus
+
+/**
  * @brief C++ attribute
  */
 #ifdef __has_cpp_attribute

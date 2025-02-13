@@ -3,7 +3,11 @@
 
 #mesondefine ROOT
 
+#ifdef __cplusplus
+#include "include/Sokyoei.hpp"
+#else
 #include "include/Sokyoei.h"
+#endif  // __cplusplus
 
 // third libraries
 #mesondefine USE_FMT
@@ -14,5 +18,6 @@
 #mesondefine USE_YAML_CPP
 #mesondefine USE_GTEST
 #mesondefine USE_MOSQUITTO
+#mesondefine USE_FOLLY
 
 #endif  // !CONFIG_H
