@@ -1,0 +1,5 @@
+target("Ceceilia")
+    set_kind("library")
+    add_files("*.hpp", "*.cpp")
+    add_packages("gtest")
+target_end()

@@ -1,0 +1,15 @@
+#pragma once
+#ifndef ARRAY
+#define ARRAY
+
+namespace Ahri {
+template <typename T>
+class array {
+public:
+    array(T /* args */);
+
+private:
+};
+}  // namespace Ahri
+
+#endif  // !ARRAY

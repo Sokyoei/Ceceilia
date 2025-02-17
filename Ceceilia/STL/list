@@ -1,0 +1,15 @@
+#pragma once
+#ifndef LIST
+#define LIST
+
+namespace Ahri {
+template <typename T>
+class list {
+public:
+    list(T /* args */);
+
+private:
+};
+}  // namespace Ahri
+
+#endif  // !LIST

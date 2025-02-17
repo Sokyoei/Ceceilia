@@ -15,37 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="modules\hello.ixx">
+    <ClInclude Include="utils\logger_utils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\mqtt_utils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\error_utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="core\string.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\string.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="modules\main.cpp">
+    <ClCompile Include="utils\logger_utils.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="modules\Ahri\Ahri-KDA.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\Ahri\Ahri.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\Ahri\Ahri-Popstar.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\Ahri\Nono\Nono.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\Ahri\Sokyoei\Sokyoei.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\Ahri\Nono\Animal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\Ahri\Sokyoei\Sokyoei_impl.ixx">
+    <ClCompile Include="utils\mqtt_utils.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="modules\Ahri\Nono\Animal.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <None Include="STL\map" />
+    <None Include="STL\set" />
+    <None Include="STL\vector" />
   </ItemGroup>
 </Project>

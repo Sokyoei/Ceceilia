@@ -1,0 +1,15 @@
+#pragma once
+#ifndef MAP
+#define MAP
+
+namespace Ahri {
+template <typename T>
+class map {
+public:
+    map(T /* args */);
+
+private:
+};
+}  // namespace Ahri
+
+#endif  // !MAP

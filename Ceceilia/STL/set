@@ -1,0 +1,15 @@
+#pragma once
+#ifndef SET
+#define SET
+
+namespace Ahri {
+template <typename T>
+class set {
+public:
+    set(T);
+
+private:
+};
+}  // namespace Ahri
+
+#endif  // !SET
