@@ -92,6 +92,12 @@
 #else
 #define AHRI_NO_UNIQUE_ADDRESS
 #endif
+
+#if __has_cpp_attribute(indeterminate)
+#define AHRI_INDETERMINATE [[indeterminate]]
+#else
+#define AHRI_INDETERMINATE
+#endif
 #endif  // __has_cpp_attribute
 
 #endif  // !AHRI_HPP

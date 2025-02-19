@@ -22,5 +22,6 @@
 #cmakedefine USE_BOOST_ASIO
 #cmakedefine USE_BENCHMARK
 #cmakedefine USE_FOLLY
+#cmakedefine USE_PROXY
 
 #endif  // !CONFIG_H

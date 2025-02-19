@@ -7,3 +7,6 @@ add_test(test_Pimpl test_Pimpl)
 
 add_executable(classes classes.cpp)
 add_executable(CRTP CRTP.cpp)
+add_executable(polymorphism_proxy polymorphism_proxy.cpp)
+target_link_libraries(polymorphism_proxy PRIVATE msft_proxy)
+target_link_libraries(polymorphism_proxy PRIVATE fmt::fmt-header-only)
