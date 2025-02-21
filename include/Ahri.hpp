@@ -8,19 +8,28 @@
  * @brief C++ standard
  */
 #ifdef __cplusplus
+#ifdef _MSC_VER
+#define AHRI_CPLUSPLUS _MSVC_LANG
+#else
+#define AHRI_CPLUSPLUS __cplusplus
+#endif
+
 #define AHRI_CXX 1
-#if __cplusplus >= 199711L || _MSVC_LANG >= 199711L
+#if AHRI_CPLUSPLUS >= 199711L
 #define AHRI_CXX98 1
-#if __cplusplus >= 201103L || _MSVC_LANG >= 201103L
+#if AHRI_CPLUSPLUS >= 201103L
 #define AHRI_CXX11 1
-#if __cplusplus >= 201402L || _MSVC_LANG >= 201402L
+#if AHRI_CPLUSPLUS >= 201402L
 #define AHRI_CXX14 1
-#if __cplusplus >= 201703L || _MSVC_LANG >= 201703L
+#if AHRI_CPLUSPLUS >= 201703L
 #define AHRI_CXX17 1
-#if __cplusplus >= 202002L || _MSVC_LANG >= 202002L
+#if AHRI_CPLUSPLUS >= 202002L
 #define AHRI_CXX20 1
-#if __cplusplus >= 202302L || _MSVC_LANG >= 202302L
+#if AHRI_CPLUSPLUS >= 202302L
 #define AHRI_CXX23 1
+#if AHRI_CPLUSPLUS >= 202612L  // not publish
+#define AHRI_CXX26 1
+#endif  // C++26
 #endif  // C++23
 #endif  // C++20
 #endif  // C++17
