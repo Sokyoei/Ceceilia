@@ -20,6 +20,10 @@
 | -Wall |      |
 | -fPIC |      |
 
+### -fPIC
+
+PIC(Position-Independent Code), 位置无关代码
+
 ## gdb
 
 |           |      |                          |

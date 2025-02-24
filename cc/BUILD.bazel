@@ -1,4 +1,9 @@
 cc_binary(
+    name = "alias",
+    srcs = ["alias.cpp"],
+)
+
+cc_binary(
     name = "attribute",
     srcs = ["attribute.cpp"],
 )
@@ -9,18 +14,13 @@ cc_binary(
 )
 
 cc_binary(
-    name = "classes",
-    srcs = ["classes.cpp"],
-)
-
-cc_binary(
     name = "constexpr",
     srcs = ["constexpr.cpp"],
 )
 
 cc_binary(
-    name = "containers",
-    srcs = ["containers.cpp"],
+    name = "cstrings",
+    srcs = ["cstrings.c"],
 )
 
 cc_binary(
@@ -54,13 +54,23 @@ cc_binary(
 )
 
 cc_binary(
-    name = "Pimpl",
-    srcs = ["Pimpl.cpp"],
+    name = "pointers",
+    srcs = ["pointers.cpp"],
 )
 
 cc_binary(
-    name = "pointers",
-    srcs = ["pointers.c"],
+    name = "random",
+    srcs = ["random.c"],
+)
+
+cc_binary(
+    name = "regular_expressions",
+    srcs = ["regular_expressions.cpp"],
+)
+
+cc_binary(
+    name = "replace",
+    srcs = ["replace.cpp"],
 )
 
 cc_binary(
@@ -76,11 +86,6 @@ cc_binary(
 cc_binary(
     name = "strings",
     srcs = ["strings.cpp"],
-)
-
-cc_binary(
-    name = "template",
-    srcs = ["template.cpp"],
 )
 
 cc_binary(

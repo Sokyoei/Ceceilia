@@ -39,6 +39,13 @@ endif
 # config.h
 cfg_data = configuration_data()
 cfg_data.set('ROOT', ROOT)
+cfg_data.set('USE_FMT', fmt.found())
+cfg_data.set('USE_SPDLOG', spdlog.found())
+cfg_data.set('USE_TINYXML2', tinyxml2.found())
+cfg_data.set('USE_NLOHMANN_JSON', nlohmann_json.found())
+cfg_data.set('USE_YAML_CPP', yaml_cpp.found())
+cfg_data.set('USE_TOMLPLUSPLUS', tomlplusplus.found())
+cfg_data.set('USE_GTEST', gtest.found())
 configure_file(
     input: meson.current_source_dir() / 'config.h.meson',
     output: 'config.h', # in build dir
