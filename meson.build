@@ -9,7 +9,6 @@ project(
 cxx = meson.get_compiler('cpp')
 cc = meson.get_compiler('c')
 has_nvcc = add_languages('cuda', required: false)
-message(has_nvcc)
 if has_nvcc
     nvcc = meson.get_compiler('cuda')
 endif
@@ -17,7 +16,18 @@ endif
 ROOT = '"' + meson.current_source_dir().replace('\\', '/') + '"'
 config_h = include_directories('.')
 
+# library
+fmt = dependency('fmt')
+spdlog = dependency('spdlog')
+tinyxml2 = dependency('tinyxml2')
+nlohmann_json = dependency('nlohmann_json')
+yaml_cpp = dependency('yaml-cpp')
+tomlplusplus = dependency('tomlplusplus', method: 'pkg-config')
+gtest = dependency('gtest')
+gtest_main = dependency('gtest_main')
+
 subdir('cc')
+subdir('tests')
 
 if get_option('cuda') and has_nvcc
     subdir('cuda')

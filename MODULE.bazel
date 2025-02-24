@@ -4,3 +4,28 @@
 #
 # For more details, please check https://github.com/bazelbuild/bazel/issues/18958
 ###############################################################################
+
+"""
+Ceceilia
+"""
+
+module(name = "ceceilia", version = "0.0.1")
+
+bazel_dep(name = "rules_cc", version = "0.0.9")
+bazel_dep(name = "bazel_skylib", version = "1.5.0")
+
+# library
+bazel_dep(name = "fmt", version = "11.1.3")
+bazel_dep(name = "spdlog", version = "1.15.1")
+bazel_dep(name = "googletest", version = "1.16.0")
+bazel_dep(name = "tinyxml2", version = "10.0.0")
+bazel_dep(name = "nlohmann_json", version = "3.11.3")
+bazel_dep(name = "yaml-cpp", version = "0.8.0")
+bazel_dep(name = "tomlplusplus", version = "3.4.0")
+
+cc = use_extension("@rules_cc//cc:extensions.bzl", "cc_extensions")
+cc.toolchain()
+
+# config.h
+# genrule()
+# load("@config.h.bazel")

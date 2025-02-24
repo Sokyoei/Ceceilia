@@ -12,3 +12,8 @@ cc_binary(
     name = "CRTP",
     srcs = ["CRTP.cpp"],
 )
+
+cc_binary(
+    name = "polymorphism_proxy",
+    srcs = ["polymorphism_proxy.cpp"],
+)
