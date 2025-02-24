@@ -17,6 +17,8 @@
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/spdlog.h>
 
+#include "Ahri.hpp"
+
 namespace Ahri {
 /**
  * @brief 初始化 logger
@@ -32,7 +34,7 @@ namespace Ahri {
  * }
  * ```
  */
-[[noreturn]] void init_logging(std::string file_path) {
+AHRI_NORETURN void init_logging(std::string file_path) {
     // sinks
     auto console = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
     auto file_logger = std::make_shared<spdlog::sinks::daily_file_sink_mt>(file_path, 0, 0);

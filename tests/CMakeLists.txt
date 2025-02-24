@@ -14,3 +14,5 @@ target_link_libraries(test_mqtt_subscribe PRIVATE ${MOSQUITTO_LIBRARIES} fmt::fm
 
 add_executable(test_logger_utils test_logger_utils.cpp)
 target_link_libraries(test_logger_utils PRIVATE spdlog::spdlog_header_only)
+
+add_subdirectory(Ceceilia)
