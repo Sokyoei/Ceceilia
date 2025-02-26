@@ -1,0 +1,6 @@
+cfile = executable('cfile', 'cfile.c')
+file = executable('file', 'file.cpp')
+json_file = executable('json_file', 'json_file.cpp', dependencies: [nlohmann_json], include_directories: [include_root, include])
+toml_file = executable('toml_file', 'toml_file.cpp', dependencies: [tomlplusplus], include_directories: [include_root, include])
+xml_file = executable('xml_file', 'xml_file.cpp', dependencies: [tinyxml2], include_directories: [include_root, include])
+yaml_file = executable('yaml_file', 'yaml_file.cpp', dependencies: [yaml_cpp], include_directories: [include_root, include])

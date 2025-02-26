@@ -1,9 +1,11 @@
 cc_binary(
     name = "boost_threadpool",
     srcs = ["boost_threadpool.cpp"],
+    deps = ["@boost.asio//:boost.asio"],
 )
 
 cc_binary(
     name = "boost_uuid",
     srcs = ["boost_uuid.cpp"],
+    deps = ["@boost.uuid//:boost.uuid"],
 )

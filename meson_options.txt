@@ -1,2 +1,3 @@
-option('cuda', type: 'boolean', value: false, description: 'build cuda')
-option('asio_learn', type: 'boolean', value: false, description: 'build asio_learn subproject')
+option('boost_learn', type: 'boolean', value: false, description: 'build boost_learn subproject')
+option('folly_learn', type: 'boolean', value: false, description: 'build folly_learn subproject')
+option('protobuf_learn', type: 'boolean', value: false, description: 'build protobuf_learn subproject')

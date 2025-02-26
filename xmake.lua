@@ -7,15 +7,30 @@ add_rules("mode.debug", "mode.release")
 set_languages("c17", "c++20")
 
 -- options
-option("BUILD_CUDA")
+option("cuda")
     set_default(false)
     set_showmenu(true)
     set_description("build cuda")
 option_end()
-option("BUILD_asio_learn")
+option("asio_learn")
     set_default(false)
     set_showmenu(true)
     set_description("build asio_learn subproject")
+option_end()
+option("boost_learn")
+    set_default(false)
+    set_showmenu(true)
+    set_description("build boost_learn subproject")
+option_end()
+option("folly_learn")
+    set_default(false)
+    set_showmenu(true)
+    set_description("build folly_learn subproject")
+option_end()
+option("protobuf_learn")
+    set_default(false)
+    set_showmenu(true)
+    set_description("build protobuf_learn subproject")
 option_end()
 
 add_defines("AHRI_EXPORT")
@@ -79,12 +94,23 @@ add_requires("yaml-cpp")
 if has_package("yaml-cpp") then
     set_configvar("USE_YAML_CPP", true)
 end
+add_requires("boost")
+if has_package("boost") then
+    set_configvar("USE_BOOST", true)
+end
 
+-- subdir
 includes("cc")
-if option("BUILD_CUDA") then
+if has_config("cuda") then
     includes("cuda")
 end
-if option("BUILD_asio_learn") then
-    includes("asio_learn")
+if has_config("boost_learn") then
+    includes("boost_learn")
+end
+if has_config("folly_learn") then
+    includes("folly_learn")
+end
+if has_config("protobuf_learn") then
+    includes("protobuf_learn")
 end
 includes("tests")

@@ -22,10 +22,9 @@ bazel_dep(name = "tinyxml2", version = "10.0.0")
 bazel_dep(name = "nlohmann_json", version = "3.11.3")
 bazel_dep(name = "yaml-cpp", version = "0.8.0")
 bazel_dep(name = "tomlplusplus", version = "3.4.0")
+bazel_dep(name = "protobuf", version = "29.3")
+bazel_dep(name = "boost.asio", version = "1.83.0")
+bazel_dep(name = "boost.uuid", version = "1.83.0")
 
 cc = use_extension("@rules_cc//cc:extensions.bzl", "cc_extensions")
 cc.toolchain()
-
-# config.h
-# genrule()
-# load("@config.h.bazel")

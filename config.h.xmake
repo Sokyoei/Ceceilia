@@ -18,5 +18,6 @@ ${define USE_TINYXML2}
 ${define USE_YAML_CPP}
 ${define USE_GTEST}
 ${define USE_MOSQUITTO}
+${define USE_BOOST}
 
 #endif  // !CONFIG_H

@@ -9,7 +9,7 @@ exceptions = executable('exceptions', sources: 'exceptions.cpp')
 function_call = executable('function_call', sources: 'function_call.cpp')
 function_pointer = executable('function_pointer', sources: 'function_pointer.cpp')
 lambda = executable('lambda', sources: 'lambda.cpp')
-OpenMP = executable('OpenMP', sources: 'OpenMP.cpp')s
+OpenMP = executable('OpenMP', sources: 'OpenMP.cpp')
 pointers = executable('pointers', sources: 'pointers.c')
 random = executable('random', sources: 'random.cpp')
 ranges = executable('ranges', sources: 'ranges.cpp')
@@ -22,4 +22,6 @@ three_way_comparison = executable('three_way_comparison', sources: 'three_way_co
 timer = executable('timer', sources: 'timer.cpp')
 type_inference = executable('type_inference', sources: 'type_inference.cpp')
 variable_parameter = executable('variable_parameter', sources: 'variable_parameter.cpp')
-VLA = executable('VLA', sources: 'VLA.c.cpp.cpp.cpp')
+VLA = executable('VLA', sources: 'VLA.c')
+
+subdir('file')

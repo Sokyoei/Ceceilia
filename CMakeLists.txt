@@ -12,10 +12,9 @@ set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 23)
 
 # options
-option(asio_learn "build asio_learn subproject" OFF)
-option(protobuf_learn "build protobuf_learn subproject" OFF)
 option(boost_learn "build boost_learn subproject" OFF)
 option(folly_learn "build folly_learn subproject" OFF)
+option(protobuf_learn "build protobuf_learn subproject" OFF)
 
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
@@ -38,34 +37,21 @@ endif(GTest_FOUND)
 
 add_subdirectory(cc)
 add_subdirectory(benchmark)
-
-if(asio_learn)
-    if(Boost_asio_FOUND)
-        add_subdirectory(asio_learn)
-    endif(Boost_asio_FOUND)
-endif(asio_learn)
-
-if(protobuf_learn)
-    if(Protobuf_FOUND)
-        add_subdirectory(protobuf_learn)
-    endif(Protobuf_FOUND)
-endif(protobuf_learn)
-
-if(boost_learn)
-    if(Boost_FOUND)
-        add_subdirectory(boost_learn)
-    endif(Boost_FOUND)
-endif(boost_learn)
-
-if(folly_learn)
-    if(folly_FOUND)
-        add_subdirectory(folly_learn)
-    endif(folly_FOUND)
-endif(folly_learn)
-
 if(CMAKE_CUDA_COMPILER)
     add_subdirectory(cuda)
 endif(CMAKE_CUDA_COMPILER)
+
+if(boost_learn AND Boost_FOUND)
+    add_subdirectory(boost_learn)
+endif(boost_learn AND Boost_FOUND)
+
+if(folly_learn AND folly_FOUND)
+    add_subdirectory(folly_learn)
+endif(folly_learn AND folly_FOUND)
+
+if(protobuf_learn AND Protobuf_FOUND)
+    add_subdirectory(protobuf_learn)
+endif(protobuf_learn AND Protobuf_FOUND)
 
 # System
 if(WIN32)

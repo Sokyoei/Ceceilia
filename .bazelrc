@@ -1,11 +1,13 @@
 startup --host_jvm_args=-XX:-UseParallelGC
 
 build --enable_bzlmod
-build --cxxopt=-std=c++20
+
+# Linux GCC
+build:linux --cxxopt=-std=c++20
 
 # Windows MSVC
-build:windows --copt=/std:c++latest
-build:windows --copt=/W3
+build:windows --copt=/std:clatest /W3
+build:windows --cxxopt=/std:c++latest /W3
 build:windows --host_copt=/std:c++latest
 build:windows --action_env=BAZEL_VC="C:/Program Files/Microsoft Visual Studio/2022/Community/VC"
 build:windows --action_env=VCPKG_ROOT="D:/vcpkg"

@@ -4,6 +4,7 @@ project(
     'cpp',
     version: '0.0.1',
     license: 'MIT',
+    default_options: ['c_std=c17', 'cpp_std=c++20'],
 )
 
 cxx = meson.get_compiler('cpp')
@@ -14,7 +15,8 @@ if has_nvcc
 endif
 
 ROOT = '"' + meson.current_source_dir().replace('\\', '/') + '"'
-config_h = include_directories('.')
+include_root = include_directories('.')
+include = include_directories('include')
 
 # library
 fmt = dependency('fmt')
@@ -29,11 +31,17 @@ gtest_main = dependency('gtest_main')
 subdir('cc')
 subdir('tests')
 
-if get_option('cuda') and has_nvcc
+if has_nvcc
     subdir('cuda')
 endif
-if get_option('asio_learn')
-    subdir('asio_learn')
+if get_option('boost_learn')
+    subdir('boost_learn')
+endif
+if get_option('folly_learn')
+    subdir('folly_learn')
+endif
+if get_option('protobuf_learn')
+    subdir('protobuf_learn')
 endif
 
 # config.h
