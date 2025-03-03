@@ -10,9 +10,9 @@ int main(int argc, char const* argv[]) {
     logger->warn("warn 警告");
     logger->error("error 错误");
     // spdlog 使用宏可以输出行号和文件名等
-    LOGGER_DEBUG("debug 测试");
-    LOGGER_INFO("info 信息");
-    LOGGER_WARN("warn 警告");
-    LOGGER_ERROR("error 错误");
+    AHRI_LOGGER_DEBUG("debug 测试");
+    AHRI_LOGGER_INFO("info 信息");
+    AHRI_LOGGER_WARN("warn 警告");
+    AHRI_LOGGER_ERROR("error 错误");
     return 0;
 }

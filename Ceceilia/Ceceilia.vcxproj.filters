@@ -27,6 +27,12 @@
     <ClInclude Include="core\string.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="utils\json.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\console.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core\string.ixx">
@@ -38,10 +44,15 @@
     <ClCompile Include="utils\mqtt_utils.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="utils\json.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="STL\map" />
     <None Include="STL\set" />
     <None Include="STL\vector" />
+    <None Include="STL\list" />
+    <None Include="STL\array" />
   </ItemGroup>
 </Project>

@@ -19,9 +19,11 @@
 #cmakedefine USE_GTEST
 #cmakedefine USE_MOSQUITTO
 #cmakedefine USE_PROTOBUF
+#cmakedefine USE_BOOST
 #cmakedefine USE_BOOST_ASIO
 #cmakedefine USE_BENCHMARK
 #cmakedefine USE_FOLLY
 #cmakedefine USE_PROXY
+#cmakedefine USE_ABSL
 
 #endif  // !CONFIG_H

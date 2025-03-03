@@ -41,8 +41,11 @@ if(spdlog_FOUND)
     set(USE_SPDLOG true)
 endif(spdlog_FOUND)
 
-# find_package(absl CONFIG REQUIRED)
+find_package(absl CONFIG REQUIRED)
 # target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
+if(absl_FOUND)
+    set(USE_ABSL true)
+endif(absl_FOUND)
 
 find_package(mosquitto)
 # target_include_directories(main PRIVATE ${MOSQUITTO_INCLUDE_DIRS})

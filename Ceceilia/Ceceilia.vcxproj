@@ -70,6 +70,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)\..\;$(ProjectDir)\..\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)\..\;$(ProjectDir)\..\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -150,16 +156,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="core\string.hpp" />
+    <ClInclude Include="utils\console.h" />
     <ClInclude Include="utils\error_utils.h" />
+    <ClInclude Include="utils\json.hpp" />
     <ClInclude Include="utils\logger_utils.hpp" />
     <ClInclude Include="utils\mqtt_utils.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core\string.ixx" />
+    <ClCompile Include="utils\json.ixx" />
     <ClCompile Include="utils\logger_utils.ixx" />
     <ClCompile Include="utils\mqtt_utils.ixx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="STL\array" />
+    <None Include="STL\list" />
     <None Include="STL\map" />
     <None Include="STL\set" />
     <None Include="STL\vector" />
