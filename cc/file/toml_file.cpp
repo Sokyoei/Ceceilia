@@ -14,7 +14,11 @@
 #include <string_view>
 
 #ifdef USE_TOMLPLUSPLUS
+#if __has_include(<toml++/toml.h>)  // for vcpkg
 #include <toml++/toml.h>
+#elif __has_include(<toml.hpp>)
+#include <toml.hpp>
+#endif
 #elif defined(USE_TOML11)
 #include <toml.hpp>
 #else

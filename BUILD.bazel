@@ -1,0 +1,36 @@
+cc_library(
+    name = "config",
+    hdrs = [
+        "config.h",
+        "include/Sokyoei.h",
+        "include/Sokyoei.hpp",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "include",
+    hdrs = [
+        "include/Ahri.cuh",
+        "include/Ahri.h",
+        "include/Ahri.hpp",
+        "include/Ahri.ixx",
+        "include/Ceceilia.cuh",
+        "include/Ceceilia.h",
+        "include/Ceceilia.hpp",
+        "include/Nono.cuh",
+        "include/Nono.h",
+        "include/Nono.hpp",
+        "include/Nono.ixx",
+        "include/Sokyoei.cuh",
+        "include/Sokyoei.h",
+        "include/Sokyoei.hpp",
+        "include/Sokyoei.ixx",
+        "include/Utils.h",
+        "include/Utils.hpp",
+        "include/cuda_utils.cuh",
+    ],
+    includes = ["//include"],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+)

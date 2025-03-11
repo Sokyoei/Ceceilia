@@ -1,0 +1,22 @@
+cc_library(
+    name = "Ceceilia",
+    srcs = [],
+    hdrs = [
+        "Ceceilia/STL/array",
+        "Ceceilia/STL/list",
+        "Ceceilia/STL/map",
+        "Ceceilia/STL/set",
+        "Ceceilia/STL/vector",
+        "Ceceilia/core/string.hpp",
+        "Ceceilia/core/string.ixx",
+        "Ceceilia/utils/console.h",
+        "Ceceilia/utils/error_utils.h",
+        "Ceceilia/utils/json.hpp",
+        "Ceceilia/utils/json.ixx",
+        "Ceceilia/utils/logger_utils.hpp",
+        "Ceceilia/utils/logger_utils.ixx",
+        "Ceceilia/utils/mqtt_utils.hpp",
+        "Ceceilia/utils/mqtt_utils.ixx",
+    ],
+    visibility = ["//visibility:public"],
+)

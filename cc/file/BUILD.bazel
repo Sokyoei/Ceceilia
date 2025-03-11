@@ -1,0 +1,39 @@
+cc_binary(
+    name = "json_file",
+    srcs = ["json_file.cpp"],
+    deps = [
+        "//:config",
+        "//:include",
+        "@nlohmann_json//:json",
+    ],
+)
+
+cc_binary(
+    name = "toml_file",
+    srcs = ["toml_file.cpp"],
+    deps = [
+        "//:config",
+        "//:include",
+        "@tomlplusplus",
+    ],
+)
+
+cc_binary(
+    name = "xml_file",
+    srcs = ["xml_file.cpp"],
+    deps = [
+        "//:config",
+        "//:include",
+        "@tinyxml2",
+    ],
+)
+
+cc_binary(
+    name = "yaml_file",
+    srcs = ["yaml_file.cpp"],
+    deps = [
+        "//:config",
+        "//:include",
+        "@yaml-cpp",
+    ],
+)
