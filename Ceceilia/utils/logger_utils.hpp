@@ -37,7 +37,7 @@ namespace Ahri {
  * }
  * ```
  */
-AHRI_NORETURN void init_logging(std::string file_path) {
+void init_logging(std::string file_path) {
     // sinks
     auto console = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
     auto file_logger = std::make_shared<spdlog::sinks::daily_file_sink_mt>(file_path, 0, 0);
