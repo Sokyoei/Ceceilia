@@ -59,8 +59,8 @@ private:
     ~Logger() { spdlog::drop_all(); }
 
 public:
-    static inline std::shared_ptr<spdlog::logger> get_logger() {
-        static inline Logger logger;
+    static std::shared_ptr<spdlog::logger> get_logger() {
+        static Logger logger;
         return spdlog::get("logger");
     }
 };

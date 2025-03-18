@@ -1,7 +1,16 @@
 cc_binary(
+    name = "boost_asio",
+    srcs = ["boost_asio.cpp"],
+    deps = [
+        "@boost.asio",
+        "@fmt",
+    ],
+)
+
+cc_binary(
     name = "boost_threadpool",
     srcs = ["boost_threadpool.cpp"],
-    deps = ["@boost.asio//:boost.asio"],
+    deps = ["@boost.asio"],
 )
 
 cc_binary(
