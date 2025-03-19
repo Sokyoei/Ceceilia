@@ -41,13 +41,14 @@ void init_logging(std::string file_path) {
     // sinks
     auto console = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
     auto file_logger = std::make_shared<spdlog::sinks::daily_file_sink_mt>(file_path, 0, 0);
+    std::string console_pattern = fmt::format("{}[%Y-%m-%d %H:%M:%S.%e]{}{}[%s:%#]{}%^[%l]: %v%$", COLOR_GREEN,
+                                              COLOR_RESET, COLOR_CYAN, COLOR_RESET);
+    console->set_pattern(console_pattern);
+    file_logger->set_pattern("[%Y-%m-%d %H:%M:%S.%e][%s:%#]%^[%l]: %v%$");
 
     std::initializer_list<spdlog::sink_ptr> sinks{console, file_logger};
     auto loggers = std::make_shared<spdlog::logger>("logger", sinks);
     loggers->set_level(spdlog::level::debug);
-    std::string pattern = fmt::format("{}[%Y-%m-%d %H:%M:%S.%e]{}{}[%s:%#]{}%^[%l]: %v%$", COLOR_GREEN, COLOR_RESET,
-                                      COLOR_CYAN, COLOR_RESET);
-    loggers->set_pattern(pattern);
     spdlog::register_logger(loggers);
 }
 
