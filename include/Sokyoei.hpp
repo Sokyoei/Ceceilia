@@ -4,4 +4,6 @@
 
 #include "Ahri.hpp"
 
+namespace Sokyoei = Ahri;
+
 #endif  // !SOKYOEI_HPP

@@ -4,4 +4,6 @@
 
 #include "Ahri.hpp"
 
+namespace Nono = Ahri;
+
 #endif  // !NONO_HPP
