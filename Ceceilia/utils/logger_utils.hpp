@@ -68,12 +68,12 @@ public:
 
 inline auto logger = Logger::get_logger();
 
-#define AHRI_LOGGER_TRACE(...) SPDLOG_LOGGER_TRACE(logger, __VA_ARGS__)
-#define AHRI_LOGGER_DEBUG(...) SPDLOG_LOGGER_DEBUG(logger, __VA_ARGS__)
-#define AHRI_LOGGER_INFO(...) SPDLOG_LOGGER_INFO(logger, __VA_ARGS__)
-#define AHRI_LOGGER_WARN(...) SPDLOG_LOGGER_WARN(logger, __VA_ARGS__)
-#define AHRI_LOGGER_ERROR(...) SPDLOG_LOGGER_ERROR(logger, __VA_ARGS__)
-#define AHRI_LOGGER_CRITICAL(...) SPDLOG_LOGGER_CRITICAL(logger, __VA_ARGS__)
+#define AHRI_LOGGER_TRACE(...) SPDLOG_LOGGER_TRACE(Ahri::logger, __VA_ARGS__)
+#define AHRI_LOGGER_DEBUG(...) SPDLOG_LOGGER_DEBUG(Ahri::logger, __VA_ARGS__)
+#define AHRI_LOGGER_INFO(...) SPDLOG_LOGGER_INFO(Ahri::logger, __VA_ARGS__)
+#define AHRI_LOGGER_WARN(...) SPDLOG_LOGGER_WARN(Ahri::logger, __VA_ARGS__)
+#define AHRI_LOGGER_ERROR(...) SPDLOG_LOGGER_ERROR(Ahri::logger, __VA_ARGS__)
+#define AHRI_LOGGER_CRITICAL(...) SPDLOG_LOGGER_CRITICAL(Ahri::logger, __VA_ARGS__)
 
 // #define LOGGER_TRACE(...) AHRI_LOGGER_TRACE(__VA_ARGS__)
 // #define LOGGER_DEBUG(...) AHRI_LOGGER_DEBUG(__VA_ARGS__)
