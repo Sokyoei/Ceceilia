@@ -39,3 +39,11 @@
 | :--------------- | :--------------------- |
 | -arch=compute_XY | 指定虚拟架构的计算能力 |
 | -code=sm_XY      | 指定真实架构的计算能力 |
+
+## PTX
+
+PTX(Parallel Thread Execution)
+
+```shell
+nvcc -ptx cuda_file.cu -o ptx_file.ptx
+```
