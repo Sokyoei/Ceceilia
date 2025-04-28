@@ -48,7 +48,7 @@ void float_type() {
     float float_;
     double double_;
     long double long_double_;
-#ifdef AHRI_CXX23
+#ifdef AHRI_CXXXX
     std::float16_t float16_t_;
     std::float32_t float32_t_;
     std::float64_t float64_t_;

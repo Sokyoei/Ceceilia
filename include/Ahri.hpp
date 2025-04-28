@@ -33,6 +33,9 @@ namespace Ahri {
 #define AHRI_CXX23 1
 #if AHRI_CPLUSPLUS >= 202612L  // not publish
 #define AHRI_CXX26 1
+#if AHRI_CPLUSPLUS >= 999999L  // not impl
+#define AHRI_CXXXX 1
+#endif  // C++XX
 #endif  // C++26
 #endif  // C++23
 #endif  // C++20

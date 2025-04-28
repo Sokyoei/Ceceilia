@@ -1,14 +1,16 @@
-function(install_ceceilia)
+set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory")
 
-endfunction(install_ceceilia)
+macro(install_ceceilia_exe exe)
+    install(TARGETS ${exe} RUNTIME DESTINATION bin)
+endmacro(install_ceceilia_exe)
 
-install(
-    EXPORT ${PROJECT_NAME}-config
-    NAMESPACE Ahri::
-    DESTINATION ${CMAKE_INSTALL_LIB_DIR}/cmake/${PROJECT_NAME}
-)
-
-install(
-    DIRECTORY
-    DESTINATION
-)
+macro(install_ceceilia_lib lib)
+    install(
+        TARGETS ${lib}
+        EXPORT ${PROJECT_NAME}Targets
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+        INCLUDES DESTINATION include
+    )
+endmacro(install_ceceilia_lib)

@@ -116,4 +116,7 @@ JSONObject parse(std::string_view json) {
 }
 }  // namespace Ahri
 
+namespace Sokyoei = Ahri;
+namespace Nono = Ahri;
+
 #endif  // !JSON_HPP

@@ -43,7 +43,7 @@ if is_os("windows") then
     add_cxflags("-fexec-charset=gbk", { tools = "gcc" })
 end
 -- MSVC
-add_cxflags("/EHsc", "/source-charset:utf-8", { tools = "cl" })
+add_cxflags("/EHsc", "/utf-8", { tools = "cl" })
 add_cflags("/Zc:__STDC__", { tools = "cl" })
 add_cxxflags("/Zc:__cplusplus", { tools = "cl" })
 add_cxxflags("/experimental:module", { tools = "cl" })

@@ -11,7 +11,9 @@ endif()
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 23)
 
+########################################################################################################################
 # options
+########################################################################################################################
 option(boost_learn "build boost_learn subproject" OFF)
 option(folly_learn "build folly_learn subproject" OFF)
 option(protobuf_learn "build protobuf_learn subproject" OFF)
@@ -21,6 +23,7 @@ add_compile_definitions(AHRI_EXPORT)
 
 include(${PROJECT_SOURCE_DIR}/cmake/compiler.cmake)
 include(${PROJECT_SOURCE_DIR}/cmake/library.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/install.cmake)
 
 set(ROOT ${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include)
@@ -122,3 +125,5 @@ configure_file(
     ${PROJECT_SOURCE_DIR}/config.h.cmake
     ${PROJECT_SOURCE_DIR}/config.h
 )
+
+include(${PROJECT_SOURCE_DIR}/cmake/package.cmake)
