@@ -1,6 +1,7 @@
 add_executable(alias alias.cpp)
-install_ceceilia_exe(alias)
+install_exe(alias)
 add_executable(attribute attribute.cpp)
+install_exe(attribute)
 add_executable(base_type base_type.cpp)
 add_executable(charconvert_example charconvert_example.cpp charconvert.hpp)
 add_executable(constexpr constexpr.cpp)
