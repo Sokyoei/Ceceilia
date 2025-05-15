@@ -6,18 +6,20 @@
  *
  */
 
-#include "config.h"
-
 #include <filesystem>
 #include <iostream>
+
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
+#include "Ceceilia.hpp"
 
 #ifdef USE_TINYXML2
 #include <tinyxml2.h>
 #else
 #error "require xml library"
 #endif
-
-#include "Ceceilia.hpp"
 
 namespace Ahri {
 /**
@@ -53,8 +55,9 @@ void print_xml(tinyxml2::XMLElement* root) {
 
 int main(int argc, char* argv[]) {
 #ifdef _WIN32
-    system("chcp 65001");  // Windows 终端修改代码页以显示 UTF8 字符
+    SetConsoleOutputCP(CP_UTF8);
 #endif
+
     auto xml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.xml";
 
 #ifdef USE_TINYXML2

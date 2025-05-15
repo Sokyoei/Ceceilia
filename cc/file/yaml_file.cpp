@@ -6,11 +6,15 @@
  *
  */
 
-#include "config.h"
-
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
+#include "Ceceilia.hpp"
 
 #ifdef USE_YAML_CPP
 #include <yaml-cpp/yaml.h>
@@ -18,12 +22,11 @@
 #error "require yaml library"
 #endif
 
-#include "Ceceilia.hpp"
-
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32
-    system("chcp 65001");
+    SetConsoleOutputCP(CP_UTF8);
 #endif
+
     auto yaml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.yaml";
 
 #ifdef USE_YAML_CPP

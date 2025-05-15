@@ -6,12 +6,16 @@
  *
  */
 
-#include "config.h"
-
 #include <filesystem>
 #include <iostream>
 #include <string>
 #include <string_view>
+
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
+#include "Ceceilia.hpp"
 
 #ifdef USE_TOMLPLUSPLUS
 #if __has_include(<toml++/toml.h>)  // for vcpkg
@@ -25,14 +29,12 @@
 #error "require toml library"
 #endif
 
-#include "Ceceilia.hpp"
-
 using namespace std::string_literals;
 using namespace std::string_view_literals;
 
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32
-    std::system("chcp 65001");  // Windows 终端修改代码页以显示 UTF8 字符
+    SetConsoleOutputCP(CP_UTF8);
 #endif
 
     auto toml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.toml";

@@ -6,11 +6,15 @@
  *
  */
 
-#include "config.h"
-
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
+#include "Ceceilia.hpp"
 
 #ifdef USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
@@ -18,12 +22,11 @@
 #error "require json library"
 #endif
 
-#include "Ceceilia.hpp"
-
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32
-    system("chcp 65001");
+    SetConsoleOutputCP(CP_UTF8);
 #endif
+
     auto json_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.json";
 
 #ifdef USE_NLOHMANN_JSON
