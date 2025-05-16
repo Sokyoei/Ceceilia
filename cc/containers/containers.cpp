@@ -19,6 +19,29 @@
 #include <unordered_set>
 #include <vector>
 
+#include "Ceceilia.hpp"
+
+#ifdef USE_BOOST
+#include <boost/array.hpp>
+#include <boost/container/vector.hpp>
+#include <boost/unordered_map.hpp>
+#include <boost/unordered_set.hpp>
+#endif
+
+#ifdef USE_FOLLY
+#include <folly/AtomicHashArray.h>
+#include <folly/AtomicHashMap.h>
+#include <folly/AtomicUnorderedMap.h>
+#include <folly/ConcurrentSkipList.h>
+#include <folly/FBVector.h>
+#include <folly/container/Array.h>
+#endif
+
+#ifdef USE_ABSL
+#include <absl/container/flat_hash_map.h>
+#include <absl/container/flat_hash_set.h>
+#endif
+
 namespace Ahri {
 /**
  * @brief Sequence containers(顺序容器)
