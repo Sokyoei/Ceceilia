@@ -13,9 +13,10 @@
 #include <fmt/core.h>
 
 namespace Ahri {
-class LoadLibrary {
+class AhriLoadLibrary  // rename for Windows LoadLibrary macro
+{
 public:
-    LoadLibrary(std::string library_name) : _library_name(library_name) {
+    AhriLoadLibrary(std::string library_name) : _library_name(library_name) {
 #ifdef _WIN32
         _platform_library_name = fmt::format("{}.dll", _library_name);
 #elif defined(__linux__)
@@ -24,7 +25,7 @@ public:
 #endif
     }
 
-    ~LoadLibrary() {
+    ~AhriLoadLibrary() {
 #ifdef _WIN32
 #elif defined(__linux__)
         dlclose(_handle);

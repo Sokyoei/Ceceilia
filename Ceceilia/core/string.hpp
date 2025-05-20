@@ -7,8 +7,8 @@
  */
 
 #pragma once
-#ifndef STRING_HPP
-#define STRING_HPP
+#ifndef CECELIA_CORE_STRING_HPP
+#define CECELIA_CORE_STRING_HPP
 
 #include <string>
 
@@ -67,4 +67,4 @@ DstType convert(StringEncodingType from, StringEncodingType to, SrcType src) {
 }
 }  // namespace Ahri
 
-#endif  // !STRING_HPP
+#endif  // !CECELIA_CORE_STRING_HPP
