@@ -1,0 +1,8 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#define ROOT @@ROOT@@
+
+// libraries
+
+#endif  // !CONFIG_H

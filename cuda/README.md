@@ -15,7 +15,7 @@
     !!! warning "linux cudnn 直接解压要解压到 `/usr/local/cuda-X.Y/target/linux.../` 路径下"
 
         ```shell
-        tar -xvf cudnn... -C /usr/local/cuda/target/linux.../  --strip-components 1
+        sudo tar -xvf cudnn-linux-x86_64-X.Y.Z_cudaXX-archive.tar.xz -C /usr/local/cuda/targets/x86_64-linux/  --strip-components 1
         ```
 
 卸载
