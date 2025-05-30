@@ -3,6 +3,27 @@
 
 #define ROOT @@ROOT@@
 
-// libraries
+#ifdef __cplusplus
+#include "include/Sokyoei.hpp"
+#else
+#include "include/Sokyoei.h"
+#endif  // __cplusplus
+
+// third libraries
+#define USE_FMT
+#define USE_SPDLOG
+#define USE_NLOHMANN_JSON
+#define USE_TOMLPLUSPLUS
+#define USE_TINYXML2
+#define USE_YAML_CPP
+#define USE_GTEST
+#define USE_MOSQUITTO
+#define USE_PROTOBUF
+#define USE_BOOST
+#define USE_BOOST_ASIO
+#define USE_BENCHMARK
+#define USE_FOLLY
+#define USE_PROXY
+#define USE_ABSL
 
 #endif  // !CONFIG_H
