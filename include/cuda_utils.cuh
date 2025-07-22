@@ -2,7 +2,7 @@
 #ifndef CUDA_UTILS_CUH
 #define CUDA_UTILS_CUH
 
-#ifdef __NVCC__
+// #ifdef __NVCC__
 #include <stdio.h>
 
 #include <cuda_runtime_api.h>
@@ -15,6 +15,6 @@
                     __func__, cudaGetErrorName(error), cudaGetErrorString(error));                            \
         }                                                                                                     \
     } while (0)
-#endif  // __NVCC__
+// #endif  // __NVCC__
 
 #endif  // !CUDA_UTILS_CUH
