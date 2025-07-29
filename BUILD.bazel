@@ -28,7 +28,6 @@ cc_library(
         "include/Sokyoei.ixx",
         "include/Utils.h",
         "include/Utils.hpp",
-        "include/cuda_utils.cuh",
     ],
     includes = ["//include"],
     strip_include_prefix = "include",
