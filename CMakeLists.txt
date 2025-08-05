@@ -38,6 +38,38 @@ if(GTest_FOUND)
     set(USE_GTEST true)
 endif(GTest_FOUND)
 
+########################################################################################################################
+# Ahri::Cecceilia and Ahri::Cecceilia-Header-Only
+########################################################################################################################
+file(
+    GLOB_RECURSE
+    VISION_SOURCE_FILES
+    "src/*.cpp"
+    "include/*.hpp"
+    "include/*.h"
+    "Ceceilia/*.hpp"
+    "Ceceilia/*.h"
+)
+add_library(ahri_ceceilia SHARED ${VISION_SOURCE_FILES})
+target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_FMT}>:fmt::fmt>)
+target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_SPDLOG}>:spdlog::spdlog>)
+target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_NLOHMANN_JSON}>:nlohmann_json::nlohmann_json>)
+target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_TINYXML2}>:tinyxml2::tinyxml2>)
+target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_TOMLPLUSPLUS}>:PkgConfig::tomlplusplus>)
+target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_YAML_CPP}>:yaml-cpp::yaml-cpp>)
+target_compile_definitions(ahri_ceceilia PUBLIC AHRI_CECEILIA_BUILD_SHARED_LIBRARY)
+add_library(Ahri::Ceceilia ALIAS ahri_ceceilia)
+
+add_library(ahri_ceceilia_header_only INTERFACE)
+target_include_directories(ahri_ceceilia_header_only INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+add_library(Ahri::Ceceilia-Header-Only ALIAS ahri_ceceilia_header_only)
+
+########################################################################################################################
+# Subprojects
+########################################################################################################################
 add_subdirectory(cc)
 add_subdirectory(benchmark)
 if(CMAKE_CUDA_COMPILER)
