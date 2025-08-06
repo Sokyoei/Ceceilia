@@ -6,8 +6,9 @@
  *
  */
 
-#ifndef ERROR_UTILS_H
-#define ERROR_UTILS_H
+#pragma once
+#ifndef AHRI_CECEILIA_UTILS_ERROR_UTILS_H
+#define AHRI_CECEILIA_UTILS_ERROR_UTILS_H
 
 #include <setjmp.h>
 
@@ -53,4 +54,4 @@
     while (0)  \
         ;
 
-#endif  // !ERROR_UTILS_H
+#endif  // !AHRI_CECEILIA_UTILS_ERROR_UTILS_H

@@ -6,7 +6,8 @@
 
 #include "Ahri.hpp"
 
-#include <cuda_runtime_api.h>
+#if __has_include(<cuda_runtime.h>)
+#include <cuda_runtime.h>
 
 namespace Ahri::CUDA {
 #define CUDA_CHECK(Callable)                                                                                  \
@@ -18,5 +19,6 @@ namespace Ahri::CUDA {
         }                                                                                                     \
     } while (0)
 }  // namespace Ahri::CUDA
+#endif  // __has_include(<cuda_runtime.h>)
 
 #endif  // !AHRI_CUH

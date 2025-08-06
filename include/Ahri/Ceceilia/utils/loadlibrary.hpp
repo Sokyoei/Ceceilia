@@ -1,6 +1,6 @@
 #pragma once
-#ifndef LOADLIBRARY_HPP
-#define LOADLIBRARY_HPP
+#ifndef AHRI_CECEILIA_UTILS_LOADLIBRARY_HPP
+#define AHRI_CECEILIA_UTILS_LOADLIBRARY_HPP
 
 #include <string>
 
@@ -42,4 +42,4 @@ private:
 };
 }  // namespace Ahri
 
-#endif  // !LOADLIBRARY_HPP
+#endif  // !AHRI_CECEILIA_UTILS_LOADLIBRARY_HPP

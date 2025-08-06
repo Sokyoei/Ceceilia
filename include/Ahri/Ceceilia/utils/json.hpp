@@ -7,8 +7,8 @@
  */
 
 #pragma once
-#ifndef JSON_HPP
-#define JSON_HPP
+#ifndef AHRI_CECEILIA_UTILS_JSON_HPP
+#define AHRI_CECEILIA_UTILS_JSON_HPP
 
 #include <charconv>
 #include <optional>
@@ -119,4 +119,4 @@ JSONObject parse(std::string_view json) {
 namespace Sokyoei = Ahri;
 namespace Nono = Ahri;
 
-#endif  // !JSON_HPP
+#endif  // !AHRI_CECEILIA_UTILS_JSON_HPP

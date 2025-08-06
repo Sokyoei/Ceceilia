@@ -1,6 +1,6 @@
 #pragma once
-#ifndef FMT_HPP
-#define FMT_HPP
+#ifndef AHRI_CECEILIA_UTILS_FMT_HPP
+#define AHRI_CECEILIA_UTILS_FMT_HPP
 
 #include <fmt/core.h>
 
@@ -23,4 +23,4 @@ namespace Ahri {
     FMT_END_NAMESPACE
 }  // namespace Ahri
 
-#endif  // !FMT_HPP
+#endif  // !AHRI_CECEILIA_UTILS_FMT_HPP

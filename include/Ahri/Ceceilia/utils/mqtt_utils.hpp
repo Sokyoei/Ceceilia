@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef MQTT_UTILS_HPP
-#define MQTT_UTILS_HPP
+#ifndef AHRI_CECEILIA_UTILS_MQTT_UTILS_HPP
+#define AHRI_CECEILIA_UTILS_MQTT_UTILS_HPP
 
 #include <fmt/core.h>
 #include <mosquittopp.h>
@@ -58,4 +58,4 @@ public:
 };
 }  // namespace Ahri
 
-#endif  // !MQTT_UTILS_HPP
+#endif  // !AHRI_CECEILIA_UTILS_MQTT_UTILS_HPP

@@ -6,8 +6,8 @@
  * logger
  */
 
-#ifndef LOGGER_UTILS_HPP
-#define LOGGER_UTILS_HPP
+#ifndef AHRI_CECEILIA_UTILS_LOGGER_UTILS_HPP
+#define AHRI_CECEILIA_UTILS_LOGGER_UTILS_HPP
 
 #include <initializer_list>
 #include <string>
@@ -19,7 +19,7 @@
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/spdlog.h>
 
-#include "Ahri.hpp"
+#include "Ahri/Ahri.hpp"
 #include "console.h"
 
 namespace Ahri {
@@ -90,4 +90,4 @@ inline auto logger = Logger::get_logger();
 // #define LOGC(...) LOGGER_CRITICAL(__VA_ARGS__)
 }  // namespace Ahri
 
-#endif  // !LOGGER_UTILS_HPP
+#endif  // !AHRI_CECEILIA_UTILS_LOGGER_UTILS_HPP

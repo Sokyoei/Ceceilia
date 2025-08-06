@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ARRAY
-#define ARRAY
+#ifndef AHRI_CECEILIA_STL_ARRAY
+#define AHRI_CECEILIA_STL_ARRAY
 
 namespace Ahri {
 template <typename T>
@@ -12,4 +12,4 @@ private:
 };
 }  // namespace Ahri
 
-#endif  // !ARRAY
+#endif  // !AHRI_CECEILIA_STL_ARRAY

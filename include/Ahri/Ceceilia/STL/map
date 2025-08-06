@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MAP
-#define MAP
+#ifndef AHRI_CECEILIA_STL_MAP
+#define AHRI_CECEILIA_STL_MAP
 
 namespace Ahri {
 template <typename T>
@@ -12,4 +12,4 @@ private:
 };
 }  // namespace Ahri
 
-#endif  // !MAP
+#endif  // !AHRI_CECEILIA_STL_MAP

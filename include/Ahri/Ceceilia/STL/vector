@@ -1,6 +1,6 @@
 #pragma once
-#ifndef VECTOR
-#define VECTOR
+#ifndef AHRI_CECEILIA_STL_VECTOR
+#define AHRI_CECEILIA_STL_VECTOR
 
 namespace Ahri {
 template <typename T>
@@ -10,4 +10,4 @@ public:
 };
 }  // namespace Ahri
 
-#endif  // !VECTOR
+#endif  // !AHRI_CECEILIA_STL_VECTOR

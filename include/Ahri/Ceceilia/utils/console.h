@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CONSOLE_H
-#define CONSOLE_H
+#ifndef AHRI_CECEILIA_UTILS_CONSOLE_H
+#define AHRI_CECEILIA_UTILS_CONSOLE_H
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ANSI Color Escape
@@ -77,4 +77,4 @@
 #define COLOR_RESET AHRI_RESET
 // clang-format on
 
-#endif  // !CONSOLE_H
+#endif  // !AHRI_CECEILIA_UTILS_CONSOLE_H
