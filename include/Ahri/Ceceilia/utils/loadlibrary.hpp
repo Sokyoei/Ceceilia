@@ -22,18 +22,28 @@ public:
     AhriLoadLibrary(std::string library_name) : _library_name(library_name) {
 #ifdef _WIN32
         _platform_library_name = fmt::format("{}.dll", _library_name);
-        handle = LoadLibraryEx(std::filesystem::path(_platform_library_name).wstring().c_str(), nullptr,
-                               LOAD_WITH_ALTERED_SEARCH_PATH);
+#ifdef UNICODE
+        auto dll = std::filesystem::path(_platform_library_name).wstring();
+#else
+        auto dll = std::filesystem::path(_platform_library_name).string();
+#endif
+        handle = LoadLibraryEx(dll.c_str(), nullptr, LOAD_WITH_ALTERED_SEARCH_PATH);
         if (!handle) {
             DWORD error = GetLastError();
             AHRI_LOGGER_ERROR("Failed to load plugin library. Error: {}", error);
-            return 1;
+            std::exit(1);
         } else {
             AHRI_LOGGER_INFO("Load {} success", _platform_library_name);
         }
 #elif defined(__linux__)
         _platform_library_name = fmt::format("lib{}.so", _library_name);
         handle = dlopen(_platform_library_name.c_str(), RTLD_LAZY);
+        if (!handle) {
+            AHRI_LOGGER_ERROR("Failed to load plugin library. Error: {}", dlerror());
+            std::exit(1);
+        } else {
+            AHRI_LOGGER_INFO("Load {} success", _platform_library_name);
+        }
 #endif
     }
 
