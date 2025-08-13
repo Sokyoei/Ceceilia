@@ -4,9 +4,9 @@
 #cmakedefine ROOT "@ROOT@"
 
 #ifdef __cplusplus
-#include "include/Sokyoei.hpp"
+#include "Ahri/Sokyoei.hpp"
 #else
-#include "include/Sokyoei.h"
+#include "Ahri/Sokyoei.h"
 #endif  // __cplusplus
 
 // third libraries
