@@ -9,26 +9,31 @@ set_languages("c17", "c++20")
 ------------------------------------------------------------------------------------------------------------------------
 -- options
 ------------------------------------------------------------------------------------------------------------------------
-option("cuda")
-    set_default(false)
-    set_showmenu(true)
-    set_description("build cuda")
-option_end()
-option("boost_learn")
-    set_default(false)
-    set_showmenu(true)
-    set_description("build boost_learn subproject")
-option_end()
-option("folly_learn")
-    set_default(false)
-    set_showmenu(true)
-    set_description("build folly_learn subproject")
-option_end()
-option("protobuf_learn")
-    set_default(false)
-    set_showmenu(true)
-    set_description("build protobuf_learn subproject")
-option_end()
+option("cuda",              { default = false, showmenu=true, description = "build cuda"                        })
+option("boost_learn",       { default = false, showmenu=true, description = "build boost_learn subproject"      })
+option("folly_learn",       { default = false, showmenu=true, description = "build folly_learn subproject"      })
+option("protobuf_learn",    { default = false, showmenu=true, description = "build protobuf_learn subproject"   })
+
+-- option("cuda")
+--     set_default(false)
+--     set_showmenu(true)
+--     set_description("build cuda")
+-- option_end()
+-- option("boost_learn")
+--     set_default(false)
+--     set_showmenu(true)
+--     set_description("build boost_learn subproject")
+-- option_end()
+-- option("folly_learn")
+--     set_default(false)
+--     set_showmenu(true)
+--     set_description("build folly_learn subproject")
+-- option_end()
+-- option("protobuf_learn")
+--     set_default(false)
+--     set_showmenu(true)
+--     set_description("build protobuf_learn subproject")
+-- option_end()
 
 ------------------------------------------------------------------------------------------------------------------------
 -- global settings
@@ -62,12 +67,19 @@ add_cxflags("/EHsc", "/utf-8", { tools = "cl" })
 add_cflags("/Zc:__STDC__", { tools = "cl" })
 add_cxxflags("/Zc:__cplusplus", { tools = "cl" })
 add_cxxflags("/experimental:module", { tools = "cl" })
-add_ldflags("/subsystem:console", { tools = "cl" })
+if is_plat("windows") then
+    add_ldflags("/subsystem:console")
+end
 
 ------------------------------------------------------------------------------------------------------------------------
 -- libraries
 ------------------------------------------------------------------------------------------------------------------------
-add_requires("gtest", { configs = { main = true, shared = true, gmock = true } })
+-- shared = false in windows(not find gtest_main.lib import library)
+if is_plat("windows") then
+    add_requires("gtest", { configs = { main = true, shared = false, gmock = true } })
+else
+    add_requires("gtest", { configs = { main = true, shared = true, gmock = true } })
+end
 if has_package("gtest") then
     set_configvar("USE_GTEST", true)
 end
@@ -121,3 +133,7 @@ if has_config("protobuf_learn") then
     includes("protobuf_learn")
 end
 includes("tests")
+
+------------------------------------------------------------------------------------------------------------------------
+-- xpack
+------------------------------------------------------------------------------------------------------------------------

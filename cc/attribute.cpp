@@ -20,29 +20,29 @@
 // https://en.cppreference.com/w/cpp/language/attributes
 // https://learn.microsoft.com/zh-cn/cpp/cpp/attributes?view=msvc-170
 
+#include "Ahri/Ceceilia.hpp"
+
 #include <iostream>
 
 namespace Ahri {
 #if __cpp_namespace_attributes
 #endif
+
 #if __cpp_attributes
-[[gnu::const]] [[nodiscard]] int ahri_nodiscard() {
-    return 1;
-};
-
-[[nodiscard("别忘记返回值")]] int ahri_nodiscard2() {
-    return 1;
-};
-
+#ifdef AHRI_CXX11
 [[noreturn]] int ahri_noreturn() {
     std::cout << "[[noreturn]]" << std::endl;
     return 1;
 }
+#endif
 
+#if defined(AHRI_CXX11) || !defined(AHRI_CXX26)
 [[carries_dependency]] int ahri_carries_dependency() {
     return 1;
 }
+#endif
 
+#ifdef AHRI_CXX14
 // msvc error c4996
 [[deprecated]] int ahri_deprecated() {
     return 1;
@@ -52,22 +52,49 @@ namespace Ahri {
 [[deprecated("已弃用")]] int ahri_deprecated2() {
     return 1;
 }
+#endif
 
 //[[fallthrough]] int ahri_fallthrough() {}
+
+#ifdef AHRI_CXX17
+[[nodiscard]] int ahri_nodiscard() {
+    return 1;
+};
+
+[[nodiscard("别忘记返回值")]] int ahri_nodiscard2() {
+    return 1;
+};
 
 [[maybe_unused]] int ahri_maybe_unused(int a, int b) {
     return 1;
 }
+#endif
 
 //[[likely]] int ahri_likely() {}
 //[[unlikely]] int ahri_unlikely() {}
 //[[no_unique_address]] int ahri_no_unique_address() {}
 //[[assume]] int ahri_assume() {}
 //[[optimize_for_synchronized]] int ahri_optimize_for_synchronized() {}
+// [[indeterminate]]
+
+#ifdef _MSC_VER
+// [[gsl::suppress(rules)]]
+// [[msvc::flatten]]
+// [[msvc::forceinline]]
+// [[msvc::forceinline_calls]]
+// [[msvc::intrinsic]]
+// [[msvc::noinline]]
+// [[msvc::noinline_calls]]
+// [[msvc::no_tls_guard]]
+#endif  // _MSC_VER
+
+#ifdef __GNUG__
+#endif  // __GNUG__
 #endif  // __cpp_attributes
 }  // namespace Ahri
 
 int main(int argc, char* argv[]) {
+#ifdef __cpp_attributes
     Ahri::ahri_nodiscard();
     Ahri::ahri_nodiscard2();
     std::cout << Ahri::ahri_noreturn() << std::endl;
@@ -75,6 +102,6 @@ int main(int argc, char* argv[]) {
     // std::cout << Ahri::ahri_deprecated() << std::endl;
     // std::cout << Ahri::ahri_deprecated2() << std::endl;
     std::cout << Ahri::ahri_maybe_unused(1, 1) << std::endl;
-
+#endif  // __cpp_attributes
     return 0;
 }
