@@ -1,3 +1,13 @@
+enable_testing()
+include(GoogleTest)
+find_package(GTest CONFIG REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+# target_link_libraries(main PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+# add_test(AllTestsInMain main)
+if(GTest_FOUND)
+    set(USE_GTEST true)
+endif(GTest_FOUND)
+
 find_package(fmt CONFIG REQUIRED)
 # target_link_libraries(main PRIVATE fmt::fmt)
 # target_link_libraries(main PRIVATE fmt::fmt-header-only)

@@ -6,16 +6,13 @@ set_version("0.0.1")
 add_rules("mode.debug", "mode.release")
 set_languages("c17", "c++20")
 
+------------------------------------------------------------------------------------------------------------------------
 -- options
+------------------------------------------------------------------------------------------------------------------------
 option("cuda")
     set_default(false)
     set_showmenu(true)
     set_description("build cuda")
-option_end()
-option("asio_learn")
-    set_default(false)
-    set_showmenu(true)
-    set_description("build asio_learn subproject")
 option_end()
 option("boost_learn")
     set_default(false)
@@ -33,21 +30,12 @@ option("protobuf_learn")
     set_description("build protobuf_learn subproject")
 option_end()
 
+------------------------------------------------------------------------------------------------------------------------
+-- global settings
+------------------------------------------------------------------------------------------------------------------------
 add_defines("AHRI_EXPORT")
 
 set_warnings("all")
-
--- GCC
-add_cxflags("-fdiagnostics-color=always", { tools = "gcc" })
-if is_os("windows") then
-    add_cxflags("-fexec-charset=gbk", { tools = "gcc" })
-end
--- MSVC
-add_cxflags("/EHsc", "/utf-8", { tools = "cl" })
-add_cflags("/Zc:__STDC__", { tools = "cl" })
-add_cxxflags("/Zc:__cplusplus", { tools = "cl" })
-add_cxxflags("/experimental:module", { tools = "cl" })
-add_ldflags("/subsystem:console", { tools = "cl" })
 
 -- include dir
 add_includedirs("$(projectdir)")
@@ -61,7 +49,24 @@ set_configvar("ROOT", (function()
     return projectdir
 end)())
 
+------------------------------------------------------------------------------------------------------------------------
+-- compiler and linker
+------------------------------------------------------------------------------------------------------------------------
+-- GCC
+add_cxflags("-fdiagnostics-color=always", { tools = "gcc" })
+if is_os("windows") then
+    add_cxflags("-fexec-charset=gbk", { tools = "gcc" })
+end
+-- MSVC
+add_cxflags("/EHsc", "/utf-8", { tools = "cl" })
+add_cflags("/Zc:__STDC__", { tools = "cl" })
+add_cxxflags("/Zc:__cplusplus", { tools = "cl" })
+add_cxxflags("/experimental:module", { tools = "cl" })
+add_ldflags("/subsystem:console", { tools = "cl" })
+
+------------------------------------------------------------------------------------------------------------------------
 -- libraries
+------------------------------------------------------------------------------------------------------------------------
 add_requires("gtest", { configs = { main = true, shared = true, gmock = true } })
 if has_package("gtest") then
     set_configvar("USE_GTEST", true)
@@ -94,12 +99,14 @@ add_requires("yaml-cpp")
 if has_package("yaml-cpp") then
     set_configvar("USE_YAML_CPP", true)
 end
-add_requires("boost")
+add_requires("boost", { configs = {asio = true, system = true, thread = true } })
 if has_package("boost") then
     set_configvar("USE_BOOST", true)
 end
 
+------------------------------------------------------------------------------------------------------------------------
 -- subdir
+------------------------------------------------------------------------------------------------------------------------
 includes("cc")
 if has_config("cuda") then
     includes("cuda")

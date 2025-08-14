@@ -18,6 +18,9 @@ option(boost_learn "build boost_learn subproject" OFF)
 option(folly_learn "build folly_learn subproject" OFF)
 option(protobuf_learn "build protobuf_learn subproject" OFF)
 
+########################################################################################################################
+# global settings
+########################################################################################################################
 add_compile_definitions(AHRI_EXPORT)
 # add_definitions(-DAHRI_EXPORT)
 
@@ -27,16 +30,6 @@ include(${PROJECT_SOURCE_DIR}/cmake/install.cmake)
 
 set(ROOT ${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include)
-
-enable_testing()
-include(GoogleTest)
-find_package(GTest CONFIG REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-# target_link_libraries(main PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
-# add_test(AllTestsInMain main)
-if(GTest_FOUND)
-    set(USE_GTEST true)
-endif(GTest_FOUND)
 
 ########################################################################################################################
 # Ahri::Cecceilia and Ahri::Cecceilia-Header-Only
