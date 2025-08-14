@@ -6,6 +6,8 @@
  *
  */
 
+#include "Ahri/Ceceilia.hpp"
+
 #include <filesystem>
 #include <iostream>
 #include <string>
@@ -14,8 +16,6 @@
 #ifdef _WIN32
 #include <Windows.h>
 #endif
-
-#include "Ceceilia.hpp"
 
 #ifdef USE_TOMLPLUSPLUS
 #if __has_include(<toml++/toml.h>)  // for vcpkg

@@ -6,13 +6,17 @@
  * C++ exception warning
  */
 
+#include "Ahri/Ahri.hpp"
+
 #include <cassert>
 
 #include <any>
 #include <chrono>
 #include <exception>
 #include <filesystem>
+#ifdef _MSC_VER
 #include <format>
+#endif
 #include <future>
 #include <ios>
 #include <iostream>
@@ -21,8 +25,6 @@
 #include <stdexcept>
 #include <system_error>
 #include <variant>
-
-#include "Ceceilia.hpp"
 
 namespace Ahri {
 /**
@@ -97,29 +99,29 @@ class exception : public std::exception {
  * @brief POSIX errc (/usr/include/asm-generic/errno.h)
  */
 void errc() {
-    static_assert(static_cast<int>(std::errc::operation_not_permitted) == EPERM);          //
-    static_assert(static_cast<int>(std::errc::no_such_file_or_directory) == ENOENT);       //
-    static_assert(static_cast<int>(std::errc::no_such_process) == ESRCH);                  //
-    static_assert(static_cast<int>(std::errc::interrupted) == EINTR);                      //
-    static_assert(static_cast<int>(std::errc::io_error) == EIO);                           //
-    static_assert(static_cast<int>(std::errc::no_such_device_or_address) == ENXIO);        //
-    static_assert(static_cast<int>(std::errc::argument_list_too_long) == E2BIG);           // 参数列表过长
-    static_assert(static_cast<int>(std::errc::executable_format_error) == ENOEXEC);        //
-    static_assert(static_cast<int>(std::errc::bad_file_descriptor) == EBADF);              //
-    static_assert(static_cast<int>(std::errc::no_child_process) == ECHILD);                //
-    static_assert(static_cast<int>(std::errc::resource_unavailable_try_again) == EAGAIN);  // 资源不可用，须重试
-    static_assert(static_cast<int>(std::errc::not_enough_memory) == ENOMEM);               //
-    static_assert(static_cast<int>(std::errc::permission_denied) == EACCES);               // 权限被禁止
-    static_assert(static_cast<int>(std::errc::bad_address) == EFAULT);                     //
-    static_assert(static_cast<int>(std::errc::device_or_resource_busy) == EBUSY);          //
-    static_assert(static_cast<int>(std::errc::file_exists) == EEXIST);                     //
-    static_assert(static_cast<int>(std::errc::cross_device_link) == EXDEV);                //
-    static_assert(static_cast<int>(std::errc::no_such_device) == ENODEV);                  //
-    static_assert(static_cast<int>(std::errc::not_a_directory) == ENOTDIR);                //
-    static_assert(static_cast<int>(std::errc::is_a_directory) == EISDIR);                  //
-    static_assert(static_cast<int>(std::errc::invalid_argument) == EINVAL);                //
-    static_assert(static_cast<int>(std::errc::too_many_files_open_in_system) == ENFILE);   //
-    static_assert(static_cast<int>(std::errc::too_many_files_open) == EMFILE);             //
+    static_assert(static_cast<int>(std::errc::operation_not_permitted) == EPERM);              //
+    static_assert(static_cast<int>(std::errc::no_such_file_or_directory) == ENOENT);           //
+    static_assert(static_cast<int>(std::errc::no_such_process) == ESRCH);                      //
+    static_assert(static_cast<int>(std::errc::interrupted) == EINTR);                          //
+    static_assert(static_cast<int>(std::errc::io_error) == EIO);                               //
+    static_assert(static_cast<int>(std::errc::no_such_device_or_address) == ENXIO);            //
+    static_assert(static_cast<int>(std::errc::argument_list_too_long) == E2BIG);               // 参数列表过长
+    static_assert(static_cast<int>(std::errc::executable_format_error) == ENOEXEC);            //
+    static_assert(static_cast<int>(std::errc::bad_file_descriptor) == EBADF);                  //
+    static_assert(static_cast<int>(std::errc::no_child_process) == ECHILD);                    //
+    static_assert(static_cast<int>(std::errc::resource_unavailable_try_again) == EAGAIN);      // 资源不可用，须重试
+    static_assert(static_cast<int>(std::errc::not_enough_memory) == ENOMEM);                   //
+    static_assert(static_cast<int>(std::errc::permission_denied) == EACCES);                   // 权限被禁止
+    static_assert(static_cast<int>(std::errc::bad_address) == EFAULT);                         //
+    static_assert(static_cast<int>(std::errc::device_or_resource_busy) == EBUSY);              //
+    static_assert(static_cast<int>(std::errc::file_exists) == EEXIST);                         //
+    static_assert(static_cast<int>(std::errc::cross_device_link) == EXDEV);                    //
+    static_assert(static_cast<int>(std::errc::no_such_device) == ENODEV);                      //
+    static_assert(static_cast<int>(std::errc::not_a_directory) == ENOTDIR);                    //
+    static_assert(static_cast<int>(std::errc::is_a_directory) == EISDIR);                      //
+    static_assert(static_cast<int>(std::errc::invalid_argument) == EINVAL);                    //
+    static_assert(static_cast<int>(std::errc::too_many_files_open_in_system) == ENFILE);       //
+    static_assert(static_cast<int>(std::errc::too_many_files_open) == EMFILE);                 //
     static_assert(static_cast<int>(std::errc::inappropriate_io_control_operation) == ENOTTY);  //
     static_assert(static_cast<int>(std::errc::file_too_large) == EFBIG);                       //
     static_assert(static_cast<int>(std::errc::no_space_on_device) == ENOSPC);                  //

@@ -8,7 +8,11 @@
 
 #include <stdio.h>
 
+#ifdef _MSC_VER
 #include <intrin.h>
+#else
+#include <immintrin.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -16,6 +20,9 @@ extern "C" {
 
 // load/store/set
 
+#ifndef _MSC_VER
+__attribute__((target("avx")))
+#endif
 void test_256_double() {
     double d[4];
     __m256d a = _mm256_set_pd(1.1, 2.2, 3.3, 4.4);

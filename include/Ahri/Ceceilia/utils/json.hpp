@@ -21,7 +21,7 @@
 #include <variant>
 #include <vector>
 
-#include "Ahri.hpp"
+#include "Ahri/Ahri.hpp"
 
 namespace Ahri {
 struct JSONObject {

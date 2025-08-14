@@ -6,6 +6,8 @@
  *
  */
 
+#include "Ahri/Ceceilia.hpp"
+
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -13,8 +15,6 @@
 #ifdef _WIN32
 #include <Windows.h>
 #endif
-
-#include "Ceceilia.hpp"
 
 #ifdef USE_YAML_CPP
 #include <yaml-cpp/yaml.h>

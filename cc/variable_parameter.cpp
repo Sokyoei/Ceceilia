@@ -6,18 +6,24 @@
  * variable parameter「可变长参数」
  */
 
+#include "Ahri/Ahri.hpp"
+
 #include <cstdarg>
 
 #include <initializer_list>
 #include <iostream>
 
-#include "Ceceilia.hpp"
-
 namespace Ahri {
 /**
  * C va_list
  */
-extern "C" void __cdecl c_vparam(int x, ...) {
+extern "C" void
+#ifdef _MSC_VER
+    __cdecl
+#else
+    __attribute__((cdecl))
+#endif
+    c_vparam(int x, ...) {
     va_list ap;
     va_start(ap, x);
     for (int i = 0; i < x; i++) {

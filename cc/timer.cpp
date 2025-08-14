@@ -6,20 +6,24 @@
  * C++ time
  */
 
+#include "Ahri/Ahri.hpp"
+
+#include <ctime>
+
 #include <chrono>
+#include <iomanip>
 #include <iostream>
 
-#include "Ceceilia.hpp"
-
-#if __cpp_lib_chrono
-#endif  // __cpp_lib_chrono
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 /**
  * @details 时间类型的用户定义字面量
  * C++14(h,min,s,ms,ns,us)
  * C++20(y,d)
  */
-#if __cpp_lib_chrono_udls
+#ifdef __cpp_lib_chrono_udls
 using namespace std::chrono_literals;
 #endif  // __cpp_lib_chrono_udls
 
@@ -58,16 +62,20 @@ void date() {
     std::cout << "当前日期: " << std::put_time(local_time, "%Y/%m/%d") << std::endl;
     std::cout << "当前日期和时间: " << std::put_time(local_time, "%Y/%m/%d %H:%M:%S") << std::endl;
 
-    auto localTime = std::chrono::zoned_time(std::chrono::current_zone(), now).get_local_time();
-    auto ymd = std::chrono::year_month_day(floor<std::chrono::days>(localTime));
+#ifdef AHRI_CXX20
+#if __cpp_lib_chrono >= 201907L
+    auto localTime = std::chrono::zoned_time{std::chrono::current_zone(), now}.get_local_time();
+    auto ymd = std::chrono::year_month_day{std::chrono::floor<std::chrono::days>(localTime)};
 
     std::cout << "当前日期: " << ymd << std::endl;
+#endif
+#endif
 }
 }  // namespace Ahri
 
 int main(int argc, char const* argv[]) {
-#if defined(_WIN32) && !defined(__GNUG__)
-    std::system("chcp 65001");
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
 #endif
 
     Ahri::clocks();

@@ -47,7 +47,7 @@ add_cxflags("/EHsc", "/utf-8", { tools = "cl" })
 add_cflags("/Zc:__STDC__", { tools = "cl" })
 add_cxxflags("/Zc:__cplusplus", { tools = "cl" })
 add_cxxflags("/experimental:module", { tools = "cl" })
-add_ldflags("/subsystem:console")
+add_ldflags("/subsystem:console", { tools = "cl" })
 
 -- include dir
 add_includedirs("$(projectdir)")

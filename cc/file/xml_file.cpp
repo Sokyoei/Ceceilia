@@ -6,14 +6,14 @@
  *
  */
 
+#include "Ahri/Ceceilia.hpp"
+
 #include <filesystem>
 #include <iostream>
 
 #ifdef _WIN32
 #include <Windows.h>
 #endif
-
-#include "Ceceilia.hpp"
 
 #ifdef USE_TINYXML2
 #include <tinyxml2.h>

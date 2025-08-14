@@ -33,10 +33,12 @@ target("ctimer")
     add_files("ctimer.c")
 target_end()
 
-target("dump")
-    set_kind("binary")
-    add_files("dump.cpp")
-target_end()
+if is_plat("windows") then
+    target("dump")
+        set_kind("binary")
+        add_files("dump.cpp")
+    target_end()
+end
 
 target("exceptions")
     set_kind("binary")
