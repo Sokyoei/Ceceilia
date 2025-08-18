@@ -18,7 +18,9 @@ ROOT = '"' + meson.current_source_dir().replace('\\', '/') + '"'
 include_root = include_directories('.')
 include = include_directories('include')
 
+########################################################################################################################
 # library
+########################################################################################################################
 fmt = dependency('fmt')
 spdlog = dependency('spdlog')
 tinyxml2 = dependency('tinyxml2')
@@ -28,6 +30,9 @@ tomlplusplus = dependency('tomlplusplus', method: 'pkg-config')
 gtest = dependency('gtest')
 gtest_main = dependency('gtest_main')
 
+########################################################################################################################
+# subdirectories
+########################################################################################################################
 subdir('cc')
 subdir('tests')
 
@@ -44,7 +49,9 @@ if get_option('protobuf_learn')
     subdir('protobuf_learn')
 endif
 
+########################################################################################################################
 # config.h
+########################################################################################################################
 cfg_data = configuration_data()
 cfg_data.set('ROOT', ROOT)
 cfg_data.set('USE_FMT', fmt.found())

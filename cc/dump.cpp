@@ -22,6 +22,7 @@
 #error "Dump file are not support"
 #endif
 
+#ifdef _WIN32
 LONG CreateMiniDump(EXCEPTION_POINTERS* ExceptionInfo) {
     HANDLE hFile = CreateFile(_T("Dump-Ahri.dmp"), GENERIC_WRITE, FILE_SHARE_WRITE, NULL, CREATE_ALWAYS,
                               FILE_ATTRIBUTE_NORMAL, NULL);
@@ -53,8 +54,11 @@ void test() {
     int* p = nullptr;
     *p = 1;
 }
+#endif
 
 int main(int argc, char* argv[]) {
+#ifdef _WIN32
     test();
+#endif
     return 0;
 }

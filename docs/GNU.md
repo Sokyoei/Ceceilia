@@ -40,3 +40,33 @@ PIC(Position-Independent Code), 位置无关代码
 | attach    |      |                          |
 | list      |      |                          |
 |           |      |                          |
+
+## FAQ
+
+### 高版本 GCC 安装在底版本 linux 上时，编译连接报错 `GLIBCXX_X.Y.ZZ not found`
+
+CMake 项目可以在 CMakePresets.json 文件中设置环境变量 LD_LIBRARY_PATH 来解决这个问题。
+
+```json
+        {
+            "name": "GCC_15.1.0_x86_64-pc-linux-gnu",
+            "displayName": "GCC 15.1.0 x86_64-pc-linux-gnu",
+            "description": "正在使用编译器: C = /usr/local/bin/gcc-15.1, CXX = /usr/local/bin/g++-15.1",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "/usr/local/bin/gcc-15.1",
+                "CMAKE_CXX_COMPILER": "/usr/local/bin/g++-15.1",
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "environment": {
+                "LD_LIBRARY_PATH": "/usr/local/lib64:{env:LD_LIBRARY_PATH}"
+            }
+        }
+```
+
+也可以设置链接 Flags
+
+```cmake
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-rpath=/usr/local/lib64")
+```

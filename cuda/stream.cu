@@ -2,7 +2,7 @@
 
 #include <cuda_runtime.h>
 
-#include "Ahri.cuh"
+#include "Ahri/Ahri.cuh"
 
 // CUDA内核函数
 __global__ void kernelFunction(int* data) {

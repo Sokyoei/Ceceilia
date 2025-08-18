@@ -3,7 +3,7 @@
 #include <cuda_runtime.h>
 #include <fmt/core.h>
 
-#include "Ahri.cuh"
+#include "Ahri/Ahri.cuh"
 
 int main(int argc, char const* argv[]) {
     int device_count;

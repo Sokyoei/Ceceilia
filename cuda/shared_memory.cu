@@ -8,7 +8,7 @@
 
 #include <cuda_runtime.h>
 
-#include "Ahri.cuh"
+#include "Ahri/Ahri.cuh"
 
 namespace Ahri {
 // CUDA核函数：使用共享内存进行向量加法
