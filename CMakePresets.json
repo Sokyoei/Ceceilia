@@ -1,17 +1,32 @@
 {
-    "version": 3,
+    "$comment": "Sokyoei's CMakePresets.json file",
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 31,
+        "patch": 0
+    },
     "configurePresets": [
         {
-            "name": "windows-base",
-            "description": "面向具有 Visual Studio 开发环境的 Windows。",
+            "name": "common",
+            "displayName": "通用预设",
+            "description": "跨平台通用预设，适用于 Windows 和 Linux。",
             "hidden": true,
-            "generator": "Ninja",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
             "installDir": "${sourceDir}/out/install/${presetName}",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "cl.exe",
-                "CMAKE_CXX_COMPILER": "cl.exe",
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            }
+        },
+        {
+            "name": "windows-base",
+            "description": "面向具有 Visual Studio 开发环境的 Windows。",
+            "inherits": "common",
+            "hidden": true,
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe"
             },
             "condition": {
                 "type": "equals",
@@ -62,6 +77,42 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        },
+        {
+            "name": "linux-base",
+            "description": "面向具有 GCC/Clang 编译器的 Linux 开发环境。",
+            "inherits": "common",
+            "hidden": true,
+            "generator": "Ninja",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            }
+        },
+        {
+            "name": "gcc-default_x86_64-linux-gnu-debug",
+            "displayName": "GCC default x86_64-linux-gnu (Debug)",
+            "description": "使用默认的编译器: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+            "inherits": "linux-base",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "gcc-default_x86_64-linux-gnu-release",
+            "displayName": "GCC default x86_64-linux-gnu (Release)",
+            "description": "使用默认的编译器: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+            "inherits": "gcc-default_x86_64-linux-gnu-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
-    ]
+    ],
+    "buildPresets": [],
+    "testPresets": [],
+    "packagePresets": [],
+    "workflowPresets": []
 }
