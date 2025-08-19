@@ -109,6 +109,67 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        },
+        {
+            "$comment": "GCC 15.1.0 在 Ubuntu 22.04 上编译安装",
+            "name": "gcc-15.1.0_x86_64-pc-linux-gnu-debug",
+            "displayName": "GCC 15.1.0 x86_64-pc-linux-gnu (Debug)",
+            "description": "正在使用编译器: C = /usr/local/bin/gcc-15.1, CXX = /usr/local/bin/g++-15.1",
+            "inherits": "gcc-default_x86_64-linux-gnu-debug",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/local/bin/gcc-15.1",
+                "CMAKE_CXX_COMPILER": "/usr/local/bin/g++-15.1"
+            },
+            "environment": {
+                "LD_LIBRARY_PATH": "/usr/local/lib64:$penv:{LD_LIBRARY_PATH}"
+            }
+        },
+        {
+            "name": "gcc-15.1.0_x86_64-pc-linux-gnu-release",
+            "displayName": "GCC 15.1.0 x86_64-pc-linux-gnu (Release)",
+            "description": "正在使用编译器: C = /usr/local/bin/gcc-15.1, CXX = /usr/local/bin/g++-15.1",
+            "inherits": "gcc-15.1.0_x86_64-pc-linux-gnu-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "$comment": "Clang 18 with CUDA 12.9 and Link libstdc++(CUDA libc++ not supported) on Ubuntu 22.04",
+            "name": "clang-18.1.8_x86_64-pc-linux-gnu-debug",
+            "displayName": "Clang 18.1.8 x86_64-pc-linux-gnu (Debug)",
+            "description": "正在使用编译器: C = /usr/bin/clang, CXX = /usr/bin/clang++",
+            "inherits": "linux-base",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/clang-18",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++-18",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "VCPKG_TARGET_TRIPLET": "x64-linux-clang",
+                "OpenMP_ROOT": "/usr/lib/llvm-18",
+                "OpenMP_C_FLAGS": "-fopenmp=libomp",
+                "OpenMP_CXX_FLAGS": "-fopenmp=libomp",
+                "OpenMP_C_LIB_NAMES": "omp",
+                "OpenMP_CXX_LIB_NAMES": "omp",
+                "OpenMP_omp_LIBRARY": "/usr/lib/llvm-18/lib/libomp.so",
+                "CMAKE_CUDA_HOST_COMPILER": "/usr/bin/clang++-18",
+                "CMAKE_CUDA_COMPILER": "/usr/local/cuda/bin/nvcc",
+                "CMAKE_CUDA_FLAGS": "--compiler-bindir=/usr/bin/clang++-18 -Xcompiler=--gcc-toolchain=/usr/local",
+                "CMAKE_CXX_FLAGS": "--gcc-toolchain=/usr/local -I/usr/local/include/c++/15.1.0 -I/usr/local/include/c++/15.1.0/x86_64-pc-linux-gnu",
+                "CMAKE_EXE_LINKER_FLAGS": "--gcc-toolchain=/usr/local -L/usr/local/lib64 -L/usr/local/lib/gcc/x86_64-pc-linux-gnu/15.1.0",
+                "CMAKE_CXX_SCAN_DEPENDENCIES_FLAGS": "--gcc-toolchain=/usr/local -I/usr/local/include/c++/15.1.0 -I/usr/local/include/c++/15.1.0/x86_64-pc-linux-gnu"
+            },
+            "environment": {
+                "LD_LIBRARY_PATH": "/usr/local/lib64:/usr/local/lib/gcc/x86_64-pc-linux-gnu/15.1.0:$penv{LD_LIBRARY_PATH}",
+                "CPLUS_INCLUDE_PATH": "/usr/local/include/c++/15.1.0:/usr/local/include/c++/15.1.0/x86_64-pc-linux-gnu:$penv{CPLUS_INCLUDE_PATH}"
+            }
+        },
+        {
+            "name": "clang-18.1.8_x86_64-pc-linux-gnu-release",
+            "displayName": "Clang 18.1.8 x86_64-pc-linux-gnu (Release)",
+            "description": "正在使用编译器: C = /usr/bin/clang, CXX = /usr/bin/clang++",
+            "inherits": "clang-18.1.8_x86_64-pc-linux-gnu-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [],

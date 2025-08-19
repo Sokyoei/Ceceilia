@@ -2,14 +2,15 @@ cmake_minimum_required(VERSION 3.28)  # CMake 3.28+ support C++ Modules
 
 project(Ceceilia VERSION 0.0.1 LANGUAGES C CXX)
 
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
+
 include(CheckLanguage)
 check_language(CUDA)
 if(CMAKE_CUDA_COMPILER)
     enable_language(CUDA)
+    set(CMAKE_CUDA_STANDARD 17)
 endif()
-
-set(CMAKE_C_STANDARD 17)
-set(CMAKE_CXX_STANDARD 23)
 
 ########################################################################################################################
 # options
