@@ -36,6 +36,7 @@ add_executable(VLA VLA.c)
 
 add_subdirectory(classes)
 add_subdirectory(concurrency)
+add_subdirectory(containers)
 add_subdirectory(coroutine)
 add_subdirectory(file)
 add_subdirectory(modules)
