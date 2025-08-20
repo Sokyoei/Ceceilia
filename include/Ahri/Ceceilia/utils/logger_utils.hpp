@@ -12,7 +12,9 @@
 #include <initializer_list>
 #include <string>
 
+#ifndef SPDLOG_ACTIVE_LEVEL
 #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
+#endif
 
 #include <fmt/core.h>
 #include <spdlog/sinks/daily_file_sink.h>
