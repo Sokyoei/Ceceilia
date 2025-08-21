@@ -71,7 +71,7 @@ if(Protobuf_FOUND)
     set(USE_PROTOBUF true)
 endif(Protobuf_FOUND)
 
-find_package(Boost COMPONENTS asio system random CONFIG)
+find_package(Boost COMPONENTS asio array system random CONFIG)
 if(Boost_FOUND)
     set(USE_BOOST true)
 endif(Boost_FOUND)
