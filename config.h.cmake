@@ -24,6 +24,7 @@
 #cmakedefine USE_BENCHMARK
 #cmakedefine USE_FOLLY
 #cmakedefine USE_PROXY
+#cmakedefine USE_MSFT_PROXY4
 #cmakedefine USE_ABSL
 
 #endif  // !CONFIG_H

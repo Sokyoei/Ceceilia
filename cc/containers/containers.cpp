@@ -6,6 +6,8 @@
  * C++ containers
  */
 
+#include "Ahri/Ceceilia.hpp"
+
 #include <array>
 #include <deque>
 #include <forward_list>
@@ -18,8 +20,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
-
-#include "Ceceilia.hpp"
 
 #ifdef USE_BOOST
 #include <boost/array.hpp>
