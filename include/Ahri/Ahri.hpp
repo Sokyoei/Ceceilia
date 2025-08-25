@@ -74,15 +74,29 @@ namespace Ahri {
 #endif
 
 #if __has_cpp_attribute(deprecated)
-#define AHRI_DEPRECATED(msg) [[deprecated(msg)]]
+#define AHRI_DEPRECATED [[deprecated]]
 #else
-#define AHRI_DEPRECATED(msg)
+#define AHRI_DEPRECATED
+#endif
+
+#if __has_cpp_attribute(deprecated)
+#define AHRI_DEPRECATED_(msg) [[deprecated(msg)]]
+#else
+#define AHRI_DEPRECATED_(msg)
 #endif
 
 #if __has_cpp_attribute(nodiscard)
-#define AHRI_NODISCARD(msg) [[nodiscard(msg)]]
+#ifdef AHRI_CXX17
+#define AHRI_NODISCARD [[nodiscard]]
 #else
-#define AHRI_NODISCARD(msg)
+#define AHRI_NODISCARD
+#endif
+
+#ifdef AHRI_CXX20
+#define AHRI_NODISCARD_(msg) [[nodiscard(msg)]]
+#else
+#define AHRI_NODISCARD_(msg)
+#endif
 #endif
 
 #if __has_cpp_attribute(assume)
@@ -100,7 +114,7 @@ namespace Ahri {
 #if __has_cpp_attribute(maybe_unused)
 #define AHRI_MAYBE_UNUSED [[maybe_unused]]
 #else
-#define AHRI_maybe_unused
+#define AHRI_MAYBE_UNUSED
 #endif
 
 #if __has_cpp_attribute(carries_dependency)
