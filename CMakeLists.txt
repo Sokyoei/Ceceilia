@@ -29,7 +29,7 @@ add_compile_definitions(AHRI_EXPORT)
 
 include(${PROJECT_SOURCE_DIR}/cmake/compiler.cmake)
 include(${PROJECT_SOURCE_DIR}/cmake/library.cmake)
-include(${PROJECT_SOURCE_DIR}/cmake/install.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/utils.cmake)
 
 set(ROOT ${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include)
@@ -154,4 +154,5 @@ configure_file(
     ${PROJECT_SOURCE_DIR}/config.h
 )
 
+include(${PROJECT_SOURCE_DIR}/cmake/install.cmake)
 include(${PROJECT_SOURCE_DIR}/cmake/package.cmake)
