@@ -35,7 +35,7 @@ tab_width = 4
 indent_style = tab
 tab_width = 4
 
-[*.{yaml,yml,clang-format,clang-tidy}]
+[*.{yaml,yml,clang-format,clang-tidy,clangd}]
 indent_size = 2
 
 [*.{c,h,cpp,hpp,cc,hh,cxx,hxx,ixx,ipp,cppm}]
