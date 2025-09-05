@@ -10,71 +10,71 @@
 namespace Ahri {
 void int_type() {
     // short
-    short short_;
-    short int short_int_;
-    signed short signed_short_;
-    signed short int signed_short_int_;
+    AHRI_MAYBE_UNUSED short short_;
+    AHRI_MAYBE_UNUSED short int short_int_;
+    AHRI_MAYBE_UNUSED signed short signed_short_;
+    AHRI_MAYBE_UNUSED signed short int signed_short_int_;
 
-    unsigned short unsigned_short_;
-    unsigned short int unsigned_short_int_;
+    AHRI_MAYBE_UNUSED unsigned short unsigned_short_;
+    AHRI_MAYBE_UNUSED unsigned short int unsigned_short_int_;
     // int
-    int int_;
-    signed signed_;
-    signed int signed_int_;
+    AHRI_MAYBE_UNUSED int int_;
+    AHRI_MAYBE_UNUSED signed signed_;
+    AHRI_MAYBE_UNUSED signed int signed_int_;
 
-    unsigned unsigned_;
-    unsigned int unsigned_int_;
+    AHRI_MAYBE_UNUSED unsigned unsigned_;
+    AHRI_MAYBE_UNUSED unsigned int unsigned_int_;
     // long
-    long long_;
-    long int long_int_;
-    signed long signed_long_;
-    signed long int signed_long_int_;
+    AHRI_MAYBE_UNUSED long long_;
+    AHRI_MAYBE_UNUSED long int long_int_;
+    AHRI_MAYBE_UNUSED signed long signed_long_;
+    AHRI_MAYBE_UNUSED signed long int signed_long_int_;
 
-    unsigned long unsigned_long_;
-    unsigned long int unsigned_long_int_;
+    AHRI_MAYBE_UNUSED unsigned long unsigned_long_;
+    AHRI_MAYBE_UNUSED unsigned long int unsigned_long_int_;
 #ifdef AHRI_CXX11
     // long long
-    long long long_long_;
-    long long int long_long_int_;
-    signed long long signed_long_long_;
-    signed long long int signed_long_long_int_;
+    AHRI_MAYBE_UNUSED long long long_long_;
+    AHRI_MAYBE_UNUSED long long int long_long_int_;
+    AHRI_MAYBE_UNUSED signed long long signed_long_long_;
+    AHRI_MAYBE_UNUSED signed long long int signed_long_long_int_;
 
-    unsigned long long unsigned_long_long_;
-    unsigned long long int unsigned_long_long_int_;
+    AHRI_MAYBE_UNUSED unsigned long long unsigned_long_long_;
+    AHRI_MAYBE_UNUSED unsigned long long int unsigned_long_long_int_;
 #endif  // AHRI_CXX11
 }
 
 void float_type() {
-    float float_;
-    double double_;
-    long double long_double_;
+    AHRI_MAYBE_UNUSED float float_;
+    AHRI_MAYBE_UNUSED double double_;
+    AHRI_MAYBE_UNUSED long double long_double_;
 #ifdef AHRI_CXXXX
-    std::float16_t float16_t_;
-    std::float32_t float32_t_;
-    std::float64_t float64_t_;
-    std::float128_t float128_t_;
-    std::bfloat16_t bfloat16_t_;
+    AHRI_MAYBE_UNUSED std::float16_t float16_t_;
+    AHRI_MAYBE_UNUSED std::float32_t float32_t_;
+    AHRI_MAYBE_UNUSED std::float64_t float64_t_;
+    AHRI_MAYBE_UNUSED std::float128_t float128_t_;
+    AHRI_MAYBE_UNUSED std::bfloat16_t bfloat16_t_;
 #endif  // AHRI_CXX23
 }
 
 void char_type() {
-    char char_;
-    wchar_t wchar_t_;
+    AHRI_MAYBE_UNUSED char char_;
+    AHRI_MAYBE_UNUSED wchar_t wchar_t_;
 #ifdef AHRI_CXX20
 #ifdef __cpp_char8_t
-    char8_t char8_t_;
+    AHRI_MAYBE_UNUSED char8_t char8_t_;
 #endif  // __cpp_char8_t
 #endif  // AHRI_CXX20
 #ifdef AHRI_CXX11
-    char16_t char16_t_;
-    char32_t char32_t_;
+    AHRI_MAYBE_UNUSED char16_t char16_t_;
+    AHRI_MAYBE_UNUSED char32_t char32_t_;
 #endif  // AHRI_CXX11
 }
 
-bool bool_;
-std::nullptr_t nullptr_t_;
-std::size_t size_t_;
-std::byte byte_;
+AHRI_MAYBE_UNUSED bool bool_;
+AHRI_MAYBE_UNUSED std::nullptr_t nullptr_t_;
+AHRI_MAYBE_UNUSED std::size_t size_t_;
+AHRI_MAYBE_UNUSED std::byte byte_;
 /**
  * TrivialType(平凡类型)
  * Standard-layout Type(标准布局类型)
