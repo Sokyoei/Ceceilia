@@ -2,3 +2,8 @@ CompileFlags:
   Add:
     - -I.
     - -I./include
+    # Windows vcpkg
+    - -isystemD:/vcpkg/installed/x64-windows/include
+    # Linux vcpkg
+    - -isystem/home/Ahri/vcpkg/installed/x64-linux/include
+  Compiler: cl

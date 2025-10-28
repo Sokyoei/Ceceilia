@@ -41,3 +41,18 @@ function(install_shared_library target_name)
         message(WARNING "install_shared_library: ${target_name} is not a shared library")
     endif()
 endfunction(install_shared_library target_name)
+
+function(copy_compile_commands)
+    # Copy the compile_commands.json to the project root directory
+    if(EXISTS ${CMAKE_BINARY_DIR}/compile_commands.json)
+        file(
+            COPY_FILE
+            ${CMAKE_BINARY_DIR}/compile_commands.json
+            ${CMAKE_SOURCE_DIR}/compile_commands.json
+            ONLY_IF_DIFFERENT
+        )
+        message(STATUS "Copy compile_commands.json to project root directory")
+    else()
+        message(STATUS "The compile_commands.json file does not exist in the build directory")
+    endif(EXISTS ${CMAKE_BINARY_DIR}/compile_commands.json)
+endfunction(copy_compile_commands)

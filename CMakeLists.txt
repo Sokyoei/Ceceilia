@@ -154,5 +154,7 @@ configure_file(
     ${PROJECT_SOURCE_DIR}/config.h
 )
 
+copy_compile_commands()
+
 include(${PROJECT_SOURCE_DIR}/cmake/install.cmake)
 include(${PROJECT_SOURCE_DIR}/cmake/package.cmake)
