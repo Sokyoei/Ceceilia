@@ -1,9 +1,72 @@
+---
+# C/C++
+If:
+  PathMatch:
+    - .*\.c
+    - .*\.h
+    - .*\.cpp
+    - .*\.hpp
+    - .*\.cc
+    - .*\.hh
+    - .*\.cxx
+    - .*\.hxx
+    - .*\.ixx
+    - .*\.cppm
+
 CompileFlags:
   Add:
     - -I.
     - -I./include
     # Windows vcpkg
-    - -isystemD:/vcpkg/installed/x64-windows/include
+    - -ID:/vcpkg/installed/x64-windows/include
+    - -ID:/vcpkg/installed/x64-windows/include/opencv4
     # Linux vcpkg
     - -isystem/home/Ahri/vcpkg/installed/x64-linux/include
+    - -isystem/home/Ahri/vcpkg/installed/x64-linux/include/opencv4
+    # Windows MSVC flags
+    - /std:c++latest
+    # Linux GCC flags
+    - -std=c++23
   Compiler: cl
+
+---
+# CUDA
+If:
+  PathMatch:
+    - .*\.cu
+    - .*\.cuh
+CompileFlags:
+  Add:
+    - -I.
+    - -I./include
+    # Windows vcpkg
+    - /ID:/vcpkg/installed/x64-windows/include
+    # Linux vcpkg
+    - -isystem/home/Ahri/vcpkg/installed/x64-linux/include
+    # Windows MSVC flags
+    # - /std:c++latest
+    # Linux GCC flags
+    # - -std=c++20
+  Remove:
+    - Xcompiler*
+  Compiler: nvcc
+
+---
+# COMMON
+Index:
+  Background: Build
+  StandardLibrary: true
+
+Diagnostics:
+  Includes:
+    AnalyzeAngledIncludes: false
+  UnusedIncludes: Strict
+  MissingIncludes: None
+
+InlayHints:
+  Enabled: true
+
+Hover:
+  ShowAKA: true
+# Documentation:
+#   CommentFormat: Doxygen
