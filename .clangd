@@ -18,8 +18,10 @@ CompileFlags:
     - -I.
     - -I./include
     # Windows vcpkg
-    - -ID:/vcpkg/installed/x64-windows/include
-    - -ID:/vcpkg/installed/x64-windows/include/opencv4
+    - /ID:/vcpkg/installed/x64-windows/include
+    - /ID:/vcpkg/installed/x64-windows/include/opencv4
+    # Windows Macro definitions
+    - /DGLOG_USE_GLOG_EXPORT
     # Linux vcpkg
     - -isystem/home/Ahri/vcpkg/installed/x64-linux/include
     - -isystem/home/Ahri/vcpkg/installed/x64-linux/include/opencv4
