@@ -154,7 +154,11 @@ configure_file(
     ${PROJECT_SOURCE_DIR}/config.h
 )
 
-copy_compile_commands()
+# VSCode CMake Tools plugin settings set
+# ```json
+# "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json"
+# ```
+# copy_compile_commands()
 
 include(${PROJECT_SOURCE_DIR}/cmake/install.cmake)
 include(${PROJECT_SOURCE_DIR}/cmake/package.cmake)
