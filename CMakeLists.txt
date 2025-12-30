@@ -17,9 +17,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ########################################################################################################################
 # options
 ########################################################################################################################
-option(boost_learn "build boost_learn subproject" OFF)
-option(folly_learn "build folly_learn subproject" OFF)
-option(protobuf_learn "build protobuf_learn subproject" OFF)
+option(boost_learn      "build boost_learn subproject"      OFF)
+option(folly_learn      "build folly_learn subproject"      OFF)
+option(protobuf_learn   "build protobuf_learn subproject"   OFF)
+option(drogon_learn     "build drogon_learn subproject"     OFF)
 
 ########################################################################################################################
 # global settings
@@ -51,7 +52,8 @@ target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_FMT}>:fmt::fmt>)
 target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_SPDLOG}>:spdlog::spdlog>)
 target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_NLOHMANN_JSON}>:nlohmann_json::nlohmann_json>)
 target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_TINYXML2}>:tinyxml2::tinyxml2>)
-target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_TOMLPLUSPLUS}>:PkgConfig::tomlplusplus>)
+# target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_TOMLPLUSPLUS}>:PkgConfig::tomlplusplus>)
+target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_TOMLPLUSPLUS}>:tomlplusplus::tomlplusplus>)
 target_link_libraries(ahri_ceceilia PUBLIC $<$<BOOL:${USE_YAML_CPP}>:yaml-cpp::yaml-cpp>)
 target_compile_definitions(ahri_ceceilia PUBLIC AHRI_CECEILIA_BUILD_SHARED_LIBRARY)
 add_library(Ahri::Ceceilia ALIAS ahri_ceceilia)
@@ -75,6 +77,10 @@ endif(CMAKE_CUDA_COMPILER)
 if(boost_learn AND Boost_FOUND)
     add_subdirectory(boost_learn)
 endif(boost_learn AND Boost_FOUND)
+
+if(drogon_learn AND Drogon_FOUND)
+    add_subdirectory(drogon_learn)
+endif(drogon_learn AND Drogon_FOUND)
 
 if(folly_learn AND folly_FOUND)
     add_subdirectory(folly_learn)

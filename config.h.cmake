@@ -26,5 +26,6 @@
 #cmakedefine USE_PROXY
 #cmakedefine USE_MSFT_PROXY4
 #cmakedefine USE_ABSL
+#cmakedefine USE_DROGON
 
 #endif  // !CONFIG_H

@@ -14,27 +14,6 @@ option("boost_learn",       { default = false, showmenu=true, description = "bui
 option("folly_learn",       { default = false, showmenu=true, description = "build folly_learn subproject"      })
 option("protobuf_learn",    { default = false, showmenu=true, description = "build protobuf_learn subproject"   })
 
--- option("cuda")
---     set_default(false)
---     set_showmenu(true)
---     set_description("build cuda")
--- option_end()
--- option("boost_learn")
---     set_default(false)
---     set_showmenu(true)
---     set_description("build boost_learn subproject")
--- option_end()
--- option("folly_learn")
---     set_default(false)
---     set_showmenu(true)
---     set_description("build folly_learn subproject")
--- option_end()
--- option("protobuf_learn")
---     set_default(false)
---     set_showmenu(true)
---     set_description("build protobuf_learn subproject")
--- option_end()
-
 ------------------------------------------------------------------------------------------------------------------------
 -- global settings
 ------------------------------------------------------------------------------------------------------------------------

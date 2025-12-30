@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="cc/cc.vcxproj" />
+  <Project Path="cuda/cuda.vcxproj">
+    <Platform Project="x64" />
+  </Project>
+  <Project Path="src/Ceceilia.vcxproj" />
+</Solution>
