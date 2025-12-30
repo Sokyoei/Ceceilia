@@ -39,7 +39,7 @@ namespace Ahri {
  * }
  * ```
  */
-inline void init_logging(std::string file_path) {
+inline void init_logging(const std::string& file_path, spdlog::level::level_enum log_level = spdlog::level::trace) {
     // sinks
     auto console = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
     auto file_logger = std::make_shared<spdlog::sinks::daily_file_sink_mt>(file_path, 0, 0);
@@ -50,15 +50,13 @@ inline void init_logging(std::string file_path) {
 
     std::initializer_list<spdlog::sink_ptr> sinks{console, file_logger};
     auto loggers = std::make_shared<spdlog::logger>("logger", sinks);
-    loggers->set_level(spdlog::level::debug);
+    loggers->set_level(log_level);
     spdlog::register_logger(loggers);
 }
 
-enum class LogLevel { track, debug, info, warn, error, critical };
-
 class Logger {
 private:
-    Logger(std::string file_path = "logs/Ceceilia.log") { init_logging(file_path); }
+    explicit Logger(const std::string& file_path = "logs/Ahri.log") { init_logging(file_path); }
     ~Logger() { spdlog::drop_all(); }
 
 public:
@@ -66,6 +64,12 @@ public:
         static Logger logger;
         return spdlog::get("logger");
     }
+
+    Logger(const Logger&) = delete;
+    Logger& operator=(const Logger&) = delete;
+
+private:
+    std::shared_ptr<spdlog::logger> _logger;
 };
 
 inline auto logger = Logger::get_logger();

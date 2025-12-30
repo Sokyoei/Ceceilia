@@ -1,7 +1,7 @@
-#include <sstream>
-
 #include <fmt/core.h>
 #include <proxy/proxy.h>
+
+#include "Ahri/Ahri.hpp"
 
 namespace Ahri {
 PRO_DEF_MEM_DISPATCH(MemDraw, draw);
@@ -16,8 +16,10 @@ public:
     Rectangle(double width, double height) : _width(width), _height(height) {}
     Rectangle(const Rectangle&) = default;
 
-    std::string draw() const { return std::string(fmt::format("Rectangle: width = {}, height = {}", _width, _height)); }
-    double area() const noexcept { return _width * _height; }
+    AHRI_NODISCARD std::string draw() const {
+        return std::string(fmt::format("Rectangle: width = {}, height = {}", _width, _height));
+    }
+    AHRI_NODISCARD double area() const noexcept { return _width * _height; }
 
 private:
     double _width;
