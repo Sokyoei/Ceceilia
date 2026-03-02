@@ -27,5 +27,6 @@
 #cmakedefine USE_MSFT_PROXY4
 #cmakedefine USE_ABSL
 #cmakedefine USE_DROGON
+#cmakedefine USE_JEMALLOC
 
 #endif  // !CONFIG_H
