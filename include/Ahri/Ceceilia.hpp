@@ -7,8 +7,8 @@
  */
 
 #pragma once
-#ifndef CECEILIA_HPP
-#define CECEILIA_HPP
+#ifndef AHRI_CECEILIA_HPP
+#define AHRI_CECEILIA_HPP
 
 #include <cstdlib>
 
@@ -33,4 +33,4 @@ static auto const SOKYOEI_DATA_DIR = _get_sokyoei_data_dir();
 
 #define SOKYOEI_DATA_DIR Ahri::SOKYOEI_DATA_DIR
 
-#endif  // !CECEILIA_HPP
+#endif  // !AHRI_CECEILIA_HPP
