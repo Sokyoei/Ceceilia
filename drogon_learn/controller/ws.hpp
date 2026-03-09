@@ -2,6 +2,7 @@
 #ifndef DROGON_LEARN_CONTROLLER_WS_HPP
 #define DROGON_LEARN_CONTROLLER_WS_HPP
 
+#include <drogon/HttpTypes.h>
 #include <drogon/WebSocketController.h>
 
 namespace Ahri {

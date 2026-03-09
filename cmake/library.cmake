@@ -110,6 +110,7 @@ if(Drogon_FOUND)
     set(USE_DROGON true)
 endif(Drogon_FOUND)
 
+find_package(PkgConfig REQUIRED)
 pkg_check_modules(jemalloc IMPORTED_TARGET jemalloc)
 # target_link_libraries(main PkgConfig::jemalloc)
 if(jemalloc_FOUND)
