@@ -43,7 +43,9 @@ void atomic_flag_exampe() {
 
 #ifdef AHRI_CXX20
 void atomic_ref_example() {
-    std::atomic_ref<int> ref{1};
+    int value = 1;
+    std::atomic_ref<int> ref{value};
+    ref.store(42);
 }
 #endif
 }  // namespace Ahri
