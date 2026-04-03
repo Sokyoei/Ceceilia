@@ -9,6 +9,9 @@
 #include "Ahri/Sokyoei.h"
 #endif  // __cplusplus
 
+// CUDA support
+#cmakedefine HAS_CUDA
+
 // third libraries
 #cmakedefine USE_FMT
 #cmakedefine USE_SPDLOG
