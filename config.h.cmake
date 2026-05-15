@@ -31,5 +31,6 @@
 #cmakedefine USE_ABSL
 #cmakedefine USE_DROGON
 #cmakedefine USE_JEMALLOC
+#cmakedefine USE_MIMALLOC
 
 #endif  // !CONFIG_H

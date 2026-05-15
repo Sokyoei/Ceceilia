@@ -25,10 +25,15 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ########################################################################################################################
 # options
 ########################################################################################################################
-option(boost_learn      "build boost_learn subproject"      OFF)
-option(folly_learn      "build folly_learn subproject"      OFF)
-option(protobuf_learn   "build protobuf_learn subproject"   OFF)
-option(drogon_learn     "build drogon_learn subproject"     OFF)
+option(CeceiliaModule   "build Ceceilia for C++20 module"   OFF)
+
+option(boost_learn      "enable Boost"                      OFF)
+option(folly_learn      "enable folly"                      OFF)
+option(protobuf_learn   "enable Protocol Buffers"           OFF)
+option(Drogon           "enable Drogon"                     OFF)
+option(jemalloc         "enable jemalloc"                   OFF)
+
+option(Learning         "enable learning projects"          OFF)
 
 ########################################################################################################################
 # global settings
@@ -82,13 +87,13 @@ if(CMAKE_CUDA_COMPILER)
     add_subdirectory(cuda)
 endif(CMAKE_CUDA_COMPILER)
 
+if(Learning)
+    add_subdirectory(learning)
+endif(Learning)
+
 if(boost_learn AND Boost_FOUND)
     add_subdirectory(boost_learn)
 endif(boost_learn AND Boost_FOUND)
-
-if(drogon_learn AND Drogon_FOUND)
-    add_subdirectory(drogon_learn)
-endif(drogon_learn AND Drogon_FOUND)
 
 if(folly_learn AND folly_FOUND)
     add_subdirectory(folly_learn)
