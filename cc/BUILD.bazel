@@ -1,3 +1,5 @@
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+
 cc_binary(
     name = "alias",
     srcs = ["alias.cpp"],
@@ -60,7 +62,7 @@ cc_binary(
 
 cc_binary(
     name = "random",
-    srcs = ["random.c"],
+    srcs = ["random.cpp"],
 )
 
 cc_binary(
