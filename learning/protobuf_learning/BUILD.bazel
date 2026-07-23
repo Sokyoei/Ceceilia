@@ -1,0 +1,22 @@
+load("@protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
+load("@protobuf//bazel:proto_library.bzl", "proto_library")
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+
+proto_library(
+    name = "protobuf_v2",
+    srcs = ["protobuf_v2.proto"],
+)
+
+cc_proto_library(
+    name = "protobuf_v2_cc",
+    deps = [":protobuf_v2"],
+)
+
+cc_binary(
+    name = "protobuf_main",
+    srcs = ["protobuf_main.cpp"],
+    deps = [
+        ":protobuf_v2_cc",
+        "@fmt",
+    ],
+)

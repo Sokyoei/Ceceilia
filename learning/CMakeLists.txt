@@ -1,3 +1,6 @@
 if(Drogon AND Drogon_FOUND)
     add_subdirectory(drogon_learning)
 endif(Drogon AND Drogon_FOUND)
+if(Protobuf AND Protobuf_FOUND)
+    add_subdirectory(protobuf_learning)
+endif(Protobuf AND Protobuf_FOUND)

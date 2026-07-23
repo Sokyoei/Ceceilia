@@ -1,7 +1,7 @@
 set(
     PROTO_FILES
-    "protobuf_v2_learn.proto"
-    "protobuf_v3_learn.proto"
+    "protobuf_v2.proto"
+    "protobuf_v3.proto"
 )
 
 # build .proto file
@@ -16,6 +16,6 @@ foreach(PROTO_FILE ${PROTO_FILES})
     )
 endforeach(PROTO_FILE ${PROTO_FILES})
 
-add_executable(protobuf_learn protobuf_learn.cpp protobuf_v2_learn.pb.cc protobuf_v2_learn.pb.h)
-target_link_libraries(protobuf_learn PRIVATE protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
-target_link_libraries(protobuf_learn PRIVATE fmt::fmt-header-only)
+add_executable(protobuf_main protobuf_main.cpp protobuf_v2.pb.cc protobuf_v2.pb.h)
+target_link_libraries(protobuf_main PRIVATE protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
+target_link_libraries(protobuf_main PRIVATE fmt::fmt-header-only)

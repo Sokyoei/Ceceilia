@@ -28,8 +28,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(CeceiliaModule   "build Ceceilia for C++20 module"   OFF)
 
 option(boost_learn      "enable Boost"                      OFF)
+option(Boost            "enable Boost"                      OFF)
 option(folly_learn      "enable folly"                      OFF)
-option(protobuf_learn   "enable Protocol Buffers"           OFF)
+option(folly            "enable folly"                      OFF)
+option(Abseil           "enable Abseil"                     OFF)
+option(Protobuf         "enable Protocol Buffers"           OFF)
 option(Drogon           "enable Drogon"                     OFF)
 option(jemalloc         "enable jemalloc"                   OFF)
 
@@ -98,10 +101,6 @@ endif(boost_learn AND Boost_FOUND)
 if(folly_learn AND folly_FOUND)
     add_subdirectory(folly_learn)
 endif(folly_learn AND folly_FOUND)
-
-if(protobuf_learn AND Protobuf_FOUND)
-    add_subdirectory(protobuf_learn)
-endif(protobuf_learn AND Protobuf_FOUND)
 
 # System
 if(WIN32)
