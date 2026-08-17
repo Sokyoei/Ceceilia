@@ -83,6 +83,8 @@ inline void B::explicit_inline_function() {}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// @brief 继承与多态
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Fox;
+
 /**
  * @brief 抽象动物基类
  * @details
@@ -105,6 +107,10 @@ public:
     /// @brief 纯虚函数，派生类必须实现
     virtual void eat() = 0;
     // virtual inline void drink() = 0;
+
+    // 友元不被继承，需要在基类中也进行声明
+    friend class Nono;
+    friend void get_info(Fox&& fox);
 };
 
 class Fox : public AbstractAnimal {
@@ -122,7 +128,31 @@ public:
         delete _a;
     }
     void eat() override { std::cout << "Fox can eat" << '\n'; }
+    // 成员函数
+    void show_info() { std::cout << "Fox(name: " << _name << ")" << '\n'; }
+    // 常量成员函数，只有常量对象才能调用
+    void show_info() const { std::cout << "const: Fox(name: " << _name << ")" << '\n'; }
+    // 左值引用只能调用
+    std::string get_info() & { return "lvalue: Fox(name: " + _name + ")"; }
+    // 右值引用只能调用
+    std::string get_info() && { return "rvalue: Fox(name: " + _name + ")"; }
+    friend class Nono;
+    friend void get_info(Fox&& fox);
 };
+
+// 友元类
+class Nono {
+public:
+    void show_info() { std::cout << "friend class: Fox(age: " << fox._age << ")" << '\n'; }
+
+private:
+    Fox fox;
+};
+
+// 友元函数
+void get_info(Fox&& fox) {
+    std::cout << "friend function: Fox(age: " << fox._age << ")" << '\n';
+}
 
 class Person : public AbstractAnimal {
 private:
@@ -142,17 +172,19 @@ void eat(AbstractAnimal& animal) {
 }  // namespace Ahri
 
 int main(int argc, char const* argv[]) {
-    // Ahri::Fox fox{"Ahri", 18, true};
-    // Ahri::Person person{"Tom", 21, true};
-    // Ahri::AbstractAnimal* animal;
-    // // 基类指针指向派生类以实现多态
-    // animal = &fox;
-    // animal->eat();
-    // animal = &person;
-    // animal->eat();
+    Ahri::Fox fox{"Ahri", 18, true};
+    Ahri::Person person{"Tom", 21, true};
+    Ahri::AbstractAnimal* animal;
+    // 基类指针指向派生类以实现多态
+    animal = &fox;
+    animal->eat();
+    animal = &person;
+    animal->eat();
 
-    // eat(fox);
-    // eat(person);
+    eat(fox);
+    eat(person);
+
+    Ahri::get_info(std::move(fox));
 
     std::unique_ptr<Ahri::AbstractAnimal> a = std::make_unique<Ahri::Fox>("Ahri", 18, true);
     // Ahri::AbstractAnimal* a = new Ahri::Fox{"Ahri", 18, true};
