@@ -12,6 +12,9 @@
 
 int main(int argc, char* argv[]) {
     std::tuple<int, char> t(20, 'a');
+    std::cout << "First element: " << std::get<0>(t) << '\n';
+    std::cout << "Second element: " << std::get<1>(t) << '\n';
+    std::cout << "size: " << std::tuple_size<decltype(t)>::value << '\n';
     std::cout << std::get<0>(t) << std::get<1>(t) << std::tuple_size<decltype(t)>::value << std::endl;
     std::get<0>(t) = 100;
 

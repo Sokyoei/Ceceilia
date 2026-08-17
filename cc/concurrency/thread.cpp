@@ -6,10 +6,19 @@
  *
  */
 
+#include "config.h"
+
 #include <iostream>
 #include <string>
 #include <string_view>
 #include <thread>
+
+#ifdef USE_BOOST
+#include <boost/thread.hpp>
+#endif
+#ifdef USE_ABSL
+#include <absl/synchronization/mutex.h>
+#endif
 
 namespace Ahri {
 void say_hello(std::string_view& str) {
