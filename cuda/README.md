@@ -47,3 +47,25 @@ PTX(Parallel Thread Execution)
 ```shell
 nvcc -ptx cuda_file.cu -o ptx_file.ptx
 ```
+
+## kernel function 核函数
+
+1. 核函数只能访问 GPU 显存
+2. 不能使用变长参数
+3. 不能使用静态变量
+4. 不能使用函数指针
+5. 核函数具有异步性
+
+核函数
+
+```c
+__global__ void function_name(args) {
+    // TODO
+}
+```
+
+核函数调用
+
+```c
+function_name<<<grid_size, block_size>>>(args);
+```
