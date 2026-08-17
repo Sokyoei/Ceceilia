@@ -35,6 +35,8 @@ add_executable(boost_uuid boost_uuid.cpp)
 target_link_libraries(boost_uuid PRIVATE Boost::system)
 add_executable(variable_parameter variable_parameter.cpp)
 add_executable(VLA VLA.c)
+add_executable(folly_string folly_string.cpp)
+target_link_libraries(folly_string PRIVATE Folly::folly Folly::folly_deps Folly::follybenchmark Folly::folly_test_util)
 
 add_subdirectory(classes)
 add_subdirectory(concurrency)

@@ -25,3 +25,5 @@ endif()
 
 add_executable(boost_threadpool boost_threadpool.cpp)
 target_link_libraries(boost_threadpool PRIVATE Boost::system Boost::asio)
+add_executable(folly_executor folly_executor.cpp)
+target_link_libraries(folly_executor PRIVATE Folly::folly Folly::folly_deps Folly::follybenchmark Folly::folly_test_util)

@@ -101,6 +101,37 @@ cc_binary(
 )
 
 cc_binary(
+    name = "boost_uuid",
+    srcs = ["boost_uuid.cpp"],
+    deps = [
+        # "@boost.core",
+        # "@boost.integer",
+        # "@boost.config",
+        # "@boost.move",
+        # "@boost.system",
+        # "@boost.uuid",
+        # "@boost.random",
+        "@boost.assert",
+        "@boost.config",
+        "@boost.integer",
+        "@boost.container_hash",
+        "@boost.core",
+        "@boost.io",
+        "@boost.move",
+        "@boost.numeric_conversion",
+        "@boost.predef",
+        "@boost.random",
+        "@boost.serialization",
+        "@boost.static_assert",
+        "@boost.throw_exception",
+        "@boost.tti",
+        "@boost.type_traits",
+        "@boost.winapi",
+        "@boost.uuid",
+    ],
+)
+
+cc_binary(
     name = "variable_parameter",
     srcs = ["variable_parameter.cpp"],
 )

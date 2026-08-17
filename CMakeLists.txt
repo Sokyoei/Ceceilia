@@ -28,7 +28,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(CeceiliaModule   "build Ceceilia for C++20 module"   OFF)
 
 option(Boost            "enable Boost"                      OFF)
-option(folly_learn      "enable folly"                      OFF)
 option(folly            "enable folly"                      OFF)
 option(Abseil           "enable Abseil"                     OFF)
 option(Protobuf         "enable Protocol Buffers"           OFF)
@@ -92,10 +91,6 @@ endif(CMAKE_CUDA_COMPILER)
 if(Learning)
     add_subdirectory(learning)
 endif(Learning)
-
-if(folly_learn AND folly_FOUND)
-    add_subdirectory(folly_learn)
-endif(folly_learn AND folly_FOUND)
 
 # System
 if(WIN32)
