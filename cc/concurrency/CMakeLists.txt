@@ -22,3 +22,6 @@ if(WIN32)
     add_executable(winthread winthread.c)
     add_executable(winthreadpool winthreadpool.c)
 endif()
+
+add_executable(boost_threadpool boost_threadpool.cpp)
+target_link_libraries(boost_threadpool PRIVATE Boost::system Boost::asio)

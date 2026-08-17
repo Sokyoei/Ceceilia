@@ -59,3 +59,9 @@ if is_os("windows") then
         add_files("winthreadpool.c")
     target_end()
 end
+
+target("boost_threadpool")
+    set_kind("binary")
+    add_files("boost_threadpool.cpp")
+    add_packages("boost")
+target_end()

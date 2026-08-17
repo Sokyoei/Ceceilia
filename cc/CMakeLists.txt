@@ -31,6 +31,8 @@ add_executable(strings strings.cpp)
 add_executable(timer timer.cpp)
 add_executable(three_way_comparison three_way_comparison.cpp)
 add_executable(type_inference type_inference.cpp)
+add_executable(boost_uuid boost_uuid.cpp)
+target_link_libraries(boost_uuid PRIVATE Boost::system)
 add_executable(variable_parameter variable_parameter.cpp)
 add_executable(VLA VLA.c)
 

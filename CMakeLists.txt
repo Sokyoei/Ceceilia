@@ -27,7 +27,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ########################################################################################################################
 option(CeceiliaModule   "build Ceceilia for C++20 module"   OFF)
 
-option(boost_learn      "enable Boost"                      OFF)
 option(Boost            "enable Boost"                      OFF)
 option(folly_learn      "enable folly"                      OFF)
 option(folly            "enable folly"                      OFF)
@@ -93,10 +92,6 @@ endif(CMAKE_CUDA_COMPILER)
 if(Learning)
     add_subdirectory(learning)
 endif(Learning)
-
-if(boost_learn AND Boost_FOUND)
-    add_subdirectory(boost_learn)
-endif(boost_learn AND Boost_FOUND)
 
 if(folly_learn AND folly_FOUND)
     add_subdirectory(folly_learn)

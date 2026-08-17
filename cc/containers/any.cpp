@@ -9,6 +9,13 @@
 #include <any>
 #include <iostream>
 
+#ifdef USE_BOOST
+#include <boost/any.hpp>
+#endif
+#ifdef USE_ABSEIL
+#include <absl/types/any.h>
+#endif
+
 int main(int argc, char* argv[]) {
     std::cout << std::boolalpha;
     std::any a = 1;
