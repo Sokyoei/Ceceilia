@@ -1,7 +1,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#mesondefine ROOT
+#mesondefine CECEILIA_ROOT
+
+#define MESON
 
 #ifdef __cplusplus
 #include "Ahri/Sokyoei.hpp"

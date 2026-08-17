@@ -1,7 +1,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#cmakedefine ROOT "@ROOT@"
+#cmakedefine CECEILIA_ROOT "@CECEILIA_ROOT@"
+
+#define CMAKE
 
 #ifdef __cplusplus
 #include "Ahri/Sokyoei.hpp"

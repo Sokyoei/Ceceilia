@@ -3,9 +3,9 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="cc/cc.vcxproj" />
+  <Project Path="cc/cc.vcxproj" Id="c2a152a6-aef9-4250-a04c-f8e50160ddff" />
   <Project Path="cuda/cuda.vcxproj">
     <Platform Project="x64" />
   </Project>
-  <Project Path="src/Ceceilia.vcxproj" />
+  <Project Path="src/Ceceilia.vcxproj" Id="98494117-641b-40df-9683-2492948612c9" />
 </Solution>

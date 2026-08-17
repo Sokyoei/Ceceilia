@@ -1,35 +1,50 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+genrule(
+    name = "config_h",
+    srcs = ["config.h.bazel"],
+    outs = ["config.h"],
+    cmd_bash = """
+        root=$$(pwd)
+        sed -e "s|@CECEILIA_ROOT@|$$root|g" \
+            $< > $@
+    """,
+    cmd_ps = """
+        $$root = $$PWD.Path.Replace('\\', '/')
+        $$content = Get-Content -Raw '$<'
+        $$content = $$content -replace '@CECEILIA_ROOT@', $$root
+        Set-Content -Path '$@' -Value $$content -NoNewline
+    """,
+    visibility = ["//visibility:public"],
+)
+
 cc_library(
     name = "config",
-    hdrs = [
-        "config.h",
-        "include/Sokyoei.h",
-        "include/Sokyoei.hpp",
-    ],
+    hdrs = [":config_h"],
     visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "include",
     hdrs = [
-        "include/Ahri.cuh",
-        "include/Ahri.h",
-        "include/Ahri.hpp",
-        "include/Ahri.ixx",
-        "include/Ceceilia.cuh",
-        "include/Ceceilia.h",
-        "include/Ceceilia.hpp",
-        "include/Nono.cuh",
-        "include/Nono.h",
-        "include/Nono.hpp",
-        "include/Nono.ixx",
-        "include/Sokyoei.cuh",
-        "include/Sokyoei.h",
-        "include/Sokyoei.hpp",
-        "include/Sokyoei.ixx",
-        "include/Utils.h",
-        "include/Utils.hpp",
+        "include/Ahri/Ahri.cuh",
+        "include/Ahri/Ahri.h",
+        "include/Ahri/Ahri.hpp",
+        "include/Ahri/Ahri.ixx",
+        "include/Ahri/Ceceilia.cuh",
+        "include/Ahri/Ceceilia.h",
+        "include/Ahri/Ceceilia.hpp",
+        "include/Ahri/Nono.cuh",
+        "include/Ahri/Nono.h",
+        "include/Ahri/Nono.hpp",
+        "include/Ahri/Nono.ixx",
+        "include/Ahri/Sokyoei.cuh",
+        "include/Ahri/Sokyoei.h",
+        "include/Ahri/Sokyoei.hpp",
+        "include/Ahri/Sokyoei.ixx",
+        "include/Ahri/Utils.h",
+        "include/Ahri/Utils.hpp",
     ],
-    includes = ["//include"],
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
 )

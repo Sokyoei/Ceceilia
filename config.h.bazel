@@ -1,0 +1,8 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#define CECEILIA_ROOT "@CECEILIA_ROOT@"
+
+#define BAZEL
+
+#endif  // !CONFIG_H

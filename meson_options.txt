@@ -1,3 +1,1 @@
-option('boost_learn', type: 'boolean', value: false, description: 'build boost_learn subproject')
-option('folly_learn', type: 'boolean', value: false, description: 'build folly_learn subproject')
-option('protobuf_learn', type: 'boolean', value: false, description: 'build protobuf_learn subproject')
+option('learning', type: 'boolean', value: false, description: 'learning subproject')

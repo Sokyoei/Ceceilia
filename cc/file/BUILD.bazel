@@ -1,8 +1,9 @@
-load("//bazel:defs.bzl", "cc_binary")
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
 
 cc_binary(
     name = "json_file",
     srcs = ["json_file.cpp"],
+    defines = ["USE_NLOHMANN_JSON"],
     deps = [
         "//:config",
         "//:include",

@@ -18,6 +18,51 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\include\Ahri\Ahri.cuh" />
+    <None Include="..\include\Ahri\Ceceilia.cuh" />
+    <None Include="..\include\Ahri\Nono.cuh" />
+    <None Include="..\include\Ahri\Sokyoei.cuh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Ahri\Ahri.h" />
+    <ClInclude Include="..\include\Ahri\Ahri.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia.h" />
+    <ClInclude Include="..\include\Ahri\Ceceilia.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\core\coroutine.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\core\string.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\charconvert.h" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\charconvert.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\check.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\console.h" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\error_utils.h" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\fmt.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\json.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\loadlibrary.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\logger_utils.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\mqtt_utils.hpp" />
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\readfile.hpp" />
+    <ClInclude Include="..\include\Ahri\Constants.h" />
+    <ClInclude Include="..\include\Ahri\Nono.h" />
+    <ClInclude Include="..\include\Ahri\Nono.hpp" />
+    <ClInclude Include="..\include\Ahri\Sokyoei.h" />
+    <ClInclude Include="..\include\Ahri\Sokyoei.hpp" />
+    <ClInclude Include="..\include\Ahri\Utils.h" />
+    <ClInclude Include="..\include\Ahri\Utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\include\Ahri\Ahri.ixx" />
+    <ClCompile Include="..\include\Ahri\Ceceilia\core\coroutine.ixx" />
+    <ClCompile Include="..\include\Ahri\Ceceilia\core\string.ixx" />
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\charconvert.c" />
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\json.ixx" />
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\logger_utils.ixx" />
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\mqtt_utils.ixx" />
+    <ClCompile Include="..\include\Ahri\Nono.ixx" />
+    <ClCompile Include="..\include\Ahri\Sokyoei.ixx" />
+    <ClCompile Include="Ahri\Ceceilia\ceceilia.cpp" />
+    <ClCompile Include="Ahri\Ceceilia\ceceilia_module.ixx" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -154,27 +199,6 @@
       <EnableUAC>false</EnableUAC>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="core\string.hpp" />
-    <ClInclude Include="utils\console.h" />
-    <ClInclude Include="utils\error_utils.h" />
-    <ClInclude Include="utils\json.hpp" />
-    <ClInclude Include="utils\logger_utils.hpp" />
-    <ClInclude Include="utils\mqtt_utils.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="core\string.ixx" />
-    <ClCompile Include="utils\json.ixx" />
-    <ClCompile Include="utils\logger_utils.ixx" />
-    <ClCompile Include="utils\mqtt_utils.ixx" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="STL\array" />
-    <None Include="STL\list" />
-    <None Include="STL\map" />
-    <None Include="STL\set" />
-    <None Include="STL\vector" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

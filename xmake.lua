@@ -10,9 +10,7 @@ set_languages("c17", "c++20")
 -- options
 ------------------------------------------------------------------------------------------------------------------------
 option("cuda",              { default = false, showmenu=true, description = "build cuda"                        })
-option("boost_learn",       { default = false, showmenu=true, description = "build boost_learn subproject"      })
-option("folly_learn",       { default = false, showmenu=true, description = "build folly_learn subproject"      })
-option("protobuf_learn",    { default = false, showmenu=true, description = "build protobuf_learn subproject"   })
+option("learning",          { default = false, showmenu=true, description = "build learning subproject"         })
 
 ------------------------------------------------------------------------------------------------------------------------
 -- global settings
@@ -28,7 +26,7 @@ add_includedirs("$(projectdir)/include")
 -- config.h
 set_configdir("$(projectdir)")
 add_configfiles("config.h.xmake", { filename = "config.h" })
-set_configvar("ROOT", (function()
+set_configvar("CECEILIA_ROOT", (function()
     projectdir, count = string.gsub(os.projectdir(), "\\", "/")
     return projectdir
 end)())
@@ -102,14 +100,8 @@ includes("cc")
 if has_config("cuda") then
     includes("cuda")
 end
-if has_config("boost_learn") then
-    includes("boost_learn")
-end
-if has_config("folly_learn") then
-    includes("folly_learn")
-end
-if has_config("protobuf_learn") then
-    includes("protobuf_learn")
+if has_config("learning") then
+    includes("learning")
 end
 includes("tests")
 

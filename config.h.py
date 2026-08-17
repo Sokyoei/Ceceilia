@@ -1,13 +1,13 @@
-from pathlib import Path
 import platform
+from pathlib import Path
 
-ROOT = str(Path.cwd())
+CECEILIA_ROOT = str(Path.cwd())
 if platform.system() == "Windows":
-    ROOT = ROOT.replace("\\", "/")
+    CECEILIA_ROOT = CECEILIA_ROOT.replace("\\", "/")
 
 
 vars: list = [
-    f'#define ROOT "{ROOT}"\n',
+    f'#define CECEILIA_ROOT "{CECEILIA_ROOT}"\n',
     '#include "include/Sokyoei.h"\n',
 ]
 

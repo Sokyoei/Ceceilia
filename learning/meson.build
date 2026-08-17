@@ -1,0 +1,9 @@
+if(boost.found())
+    subdir('asio_learning')
+endif
+if(drogon.found())
+    subdir('drogon_learning')
+endif
+if(protobuf.found())
+    subdir('protobuf_learning')
+endif

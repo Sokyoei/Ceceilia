@@ -14,7 +14,7 @@ if has_nvcc
     nvcc = meson.get_compiler('cuda')
 endif
 
-ROOT = '"' + meson.current_source_dir().replace('\\', '/') + '"'
+CECEILIA_ROOT = '"' + meson.current_source_dir().replace('\\', '/') + '"'
 include_root = include_directories('.')
 include = include_directories('include')
 
@@ -39,21 +39,15 @@ subdir('tests')
 if has_nvcc
     subdir('cuda')
 endif
-if get_option('boost_learn')
-    subdir('boost_learn')
-endif
-if get_option('folly_learn')
-    subdir('folly_learn')
-endif
-if get_option('protobuf_learn')
-    subdir('protobuf_learn')
+if get_option('learning')
+    subdir('learning')
 endif
 
 ########################################################################################################################
 # config.h
 ########################################################################################################################
 cfg_data = configuration_data()
-cfg_data.set('ROOT', ROOT)
+cfg_data.set('CECEILIA_ROOT', CECEILIA_ROOT)
 cfg_data.set('USE_FMT', fmt.found())
 cfg_data.set('USE_SPDLOG', spdlog.found())
 cfg_data.set('USE_TINYXML2', tinyxml2.found())

@@ -15,44 +15,126 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="utils\logger_utils.hpp">
+    <None Include="..\include\Ahri\Ahri.cuh">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\include\Ahri\Ceceilia.cuh">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\include\Ahri\Nono.cuh">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\include\Ahri\Sokyoei.cuh">
+      <Filter>头文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Ahri\Ahri.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="utils\mqtt_utils.hpp">
+    <ClInclude Include="..\include\Ahri\Ahri.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="utils\error_utils.h">
+    <ClInclude Include="..\include\Ahri\Ceceilia.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="core\string.hpp">
+    <ClInclude Include="..\include\Ahri\Ceceilia.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="utils\json.hpp">
+    <ClInclude Include="..\include\Ahri\Constants.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="utils\console.h">
+    <ClInclude Include="..\include\Ahri\Nono.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Nono.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Sokyoei.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Sokyoei.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Utils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\core\coroutine.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\core\string.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\charconvert.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\charconvert.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\check.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\console.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\error_utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\fmt.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\json.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\loadlibrary.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\logger_utils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\mqtt_utils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ahri\Ceceilia\utils\readfile.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="core\string.ixx">
+    <ClCompile Include="..\include\Ahri\Ahri.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Nono.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Sokyoei.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Ceceilia\core\coroutine.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Ceceilia\core\string.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\json.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\logger_utils.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\mqtt_utils.ixx">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Ahri\Ceceilia\utils\charconvert.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="utils\logger_utils.ixx">
+    <ClCompile Include="Ahri\Ceceilia\ceceilia.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="utils\mqtt_utils.ixx">
+    <ClCompile Include="Ahri\Ceceilia\ceceilia_module.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="utils\json.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="STL\map" />
-    <None Include="STL\set" />
-    <None Include="STL\vector" />
-    <None Include="STL\list" />
-    <None Include="STL\array" />
   </ItemGroup>
 </Project>
