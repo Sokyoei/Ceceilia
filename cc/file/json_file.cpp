@@ -6,7 +6,7 @@
  *
  */
 
-#include "Ahri/Ceceilia.hpp"
+#include "config.h"
 
 #include <filesystem>
 #include <fstream>
@@ -16,11 +16,13 @@
 #include <Windows.h>
 #endif
 
-#ifdef USE_NLOHMANN_JSON
+#ifdef CECEILIA_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
 #else
 #error "require json library"
 #endif
+
+#include "Ahri/Ceceilia.hpp"
 
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32
@@ -29,7 +31,7 @@ int main(int argc, char const* argv[]) {
 
     auto json_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.json";
 
-#ifdef USE_NLOHMANN_JSON
+#ifdef CECEILIA_USE_NLOHMANN_JSON
     std::ifstream f(json_file_path);
     auto settings = nlohmann::json::parse(f);
     std::cout << settings << std::endl;

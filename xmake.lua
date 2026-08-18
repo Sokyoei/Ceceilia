@@ -58,39 +58,39 @@ else
     add_requires("gtest", { configs = { main = true, shared = true, gmock = true } })
 end
 if has_package("gtest") then
-    set_configvar("USE_GTEST", true)
+    set_configvar("CECEILIA_USE_GTEST", true)
 end
 add_requires("fmt", { configs = { header_only = true } })
 if has_package("fmt") then
-    set_configvar("USE_FMT", true)
+    set_configvar("CECEILIA_USE_FMT", true)
 end
 add_requires("spdlog", { configs = { header_only = true } })
 if has_package("spdlog") then
-    set_configvar("USE_SPDLOG", true)
+    set_configvar("CECEILIA_USE_SPDLOG", true)
 end
 add_requires("nlohmann_json")
 if has_package("nlohmann_json") then
-    set_configvar("USE_NLOHMANN_JSON", true)
+    set_configvar("CECEILIA_USE_NLOHMANN_JSON", true)
 end
 add_requires("tinyxml2")
 if has_package("tinyxml2") then
-    set_configvar("USE_TINYXML2", true)
+    set_configvar("CECEILIA_USE_TINYXML2", true)
 end
 -- add_requires("toml11")
 -- if has_package("toml11") then
---     set_configvar("USE_TOML11", true)
+--     set_configvar("CECEILIA_USE_TOML11", true)
 -- end
 add_requires("toml++")
 if has_package("toml++") then
-    set_configvar("USE_TOMLPLUSPLUS", true)
+    set_configvar("CECEILIA_USE_TOMLPLUSPLUS", true)
 end
 add_requires("yaml-cpp")
 if has_package("yaml-cpp") then
-    set_configvar("USE_YAML_CPP", true)
+    set_configvar("CECEILIA_USE_YAML_CPP", true)
 end
 add_requires("boost", { configs = {asio = true, system = true, thread = true } })
 if has_package("boost") then
-    set_configvar("USE_BOOST", true)
+    set_configvar("CECEILIA_USE_BOOST", true)
 end
 
 ------------------------------------------------------------------------------------------------------------------------

@@ -13,10 +13,10 @@
 #include <string_view>
 #include <thread>
 
-#ifdef USE_BOOST
+#ifdef CECEILIA_USE_BOOST
 #include <boost/thread.hpp>
 #endif
-#ifdef USE_ABSL
+#ifdef CECEILIA_USE_ABSL
 #include <absl/synchronization/mutex.h>
 #endif
 

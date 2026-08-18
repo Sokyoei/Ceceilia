@@ -6,7 +6,7 @@
  *
  */
 
-#include "Ahri/Ceceilia.hpp"
+#include "config.h"
 
 #include <filesystem>
 #include <fstream>
@@ -16,11 +16,13 @@
 #include <Windows.h>
 #endif
 
-#ifdef USE_YAML_CPP
+#ifdef CECEILIA_USE_YAML_CPP
 #include <yaml-cpp/yaml.h>
 #else
 #error "require yaml library"
 #endif
+
+#include "Ahri/Ceceilia.hpp"
 
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32
@@ -29,7 +31,7 @@ int main(int argc, char const* argv[]) {
 
     auto yaml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.yaml";
 
-#ifdef USE_YAML_CPP
+#ifdef CECEILIA_USE_YAML_CPP
     std::fstream f(yaml_file_path);
     auto yaml_file = YAML::Load(f);
     std::cout << yaml_file << std::endl;

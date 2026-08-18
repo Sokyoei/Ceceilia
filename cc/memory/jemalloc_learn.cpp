@@ -1,5 +1,9 @@
 #include <iostream>
 
+#ifdef _WIN32
+#define JEMALLOC_MANGLE
+#endif
+
 #include <jemalloc/jemalloc.h>
 
 int main(int argc, char const* argv[]) {

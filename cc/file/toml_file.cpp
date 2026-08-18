@@ -6,7 +6,7 @@
  *
  */
 
-#include "Ahri/Ceceilia.hpp"
+#include "config.h"
 
 #include <filesystem>
 #include <iostream>
@@ -17,7 +17,7 @@
 #include <Windows.h>
 #endif
 
-#ifdef USE_TOMLPLUSPLUS
+#ifdef CECEILIA_USE_TOMLPLUSPLUS
 #if __has_include(<toml++/toml.h>)  // for vcpkg
 #include <toml++/toml.h>
 #elif __has_include(<toml.hpp>)
@@ -29,6 +29,8 @@
 #error "require toml library"
 #endif
 
+#include "Ahri/Ceceilia.hpp"
+
 using namespace std::string_literals;
 using namespace std::string_view_literals;
 
@@ -39,7 +41,7 @@ int main(int argc, char const* argv[]) {
 
     auto toml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.toml";
 
-#ifdef USE_TOMLPLUSPLUS
+#ifdef CECEILIA_USE_TOMLPLUSPLUS
     auto settings = toml::parse_file(toml_file_path.c_str());
     std::cout << settings << std::endl;
     std::cout << settings["Ahri Skins"]["Ahri"]["zh-cn"].value_or(""sv) << std::endl;

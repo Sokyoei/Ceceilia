@@ -12,14 +12,14 @@
 #endif  // __cplusplus
 
 // third libraries
-#mesondefine USE_FMT
-#mesondefine USE_SPDLOG
-#mesondefine USE_NLOHMANN_JSON
-#mesondefine USE_TOMLPLUSPLUS
-#mesondefine USE_TINYXML2
-#mesondefine USE_YAML_CPP
-#mesondefine USE_GTEST
-#mesondefine USE_MOSQUITTO
-#mesondefine USE_FOLLY
+#mesondefine CECEILIA_USE_FMT
+#mesondefine CECEILIA_USE_SPDLOG
+#mesondefine CECEILIA_USE_NLOHMANN_JSON
+#mesondefine CECEILIA_USE_TOMLPLUSPLUS
+#mesondefine CECEILIA_USE_TINYXML2
+#mesondefine CECEILIA_USE_YAML_CPP
+#mesondefine CECEILIA_USE_GTEST
+#mesondefine CECEILIA_USE_MOSQUITTO
+#mesondefine CECEILIA_USE_FOLLY
 
 #endif  // !CONFIG_H

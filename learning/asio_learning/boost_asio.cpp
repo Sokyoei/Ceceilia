@@ -11,10 +11,6 @@
 #include <fmt/core.h>
 #include <boost/asio.hpp>
 
-#ifndef _WIN32_WINNT
-#define _WIN32_WINNT = 0x0A00  // Windows 10
-#endif
-
 namespace Ahri {
 void handler(const boost::system::error_code& ec) {
     fmt::println("5 s.");
@@ -63,7 +59,7 @@ int main(int argc, char const* argv[]) {
     fmt::println("main Hello, world!");
 
     // async
-    boost::asio::deadline_timer timer(io_context, boost::posix_time::seconds(5));
+    boost::asio::steady_timer timer(io_context, std::chrono::seconds(5));
     timer.async_wait(Ahri::handler);
 
     int count = 0;

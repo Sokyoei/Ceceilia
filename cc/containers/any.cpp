@@ -9,7 +9,7 @@
 #include <any>
 #include <iostream>
 
-#ifdef USE_BOOST
+#ifdef CECEILIA_USE_BOOST
 #include <boost/any.hpp>
 #endif
 #ifdef USE_ABSEIL

@@ -6,7 +6,7 @@
  *
  */
 
-#include "Ahri/Ceceilia.hpp"
+#include "config.h"
 
 #include <filesystem>
 #include <iostream>
@@ -15,11 +15,13 @@
 #include <Windows.h>
 #endif
 
-#ifdef USE_TINYXML2
+#ifdef CECEILIA_USE_TINYXML2
 #include <tinyxml2.h>
 #else
 #error "require xml library"
 #endif
+
+#include "Ahri/Ceceilia.hpp"
 
 namespace Ahri {
 /**
@@ -60,7 +62,7 @@ int main(int argc, char* argv[]) {
 
     auto xml_file_path = std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Ahri.xml";
 
-#ifdef USE_TINYXML2
+#ifdef CECEILIA_USE_TINYXML2
     tinyxml2::XMLDocument xml;
     auto error = xml.LoadFile(xml_file_path.string().c_str());
     if (error == tinyxml2::XML_SUCCESS) {

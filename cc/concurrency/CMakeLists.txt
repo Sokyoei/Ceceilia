@@ -6,6 +6,7 @@ add_executable(lock lock.cpp)
 add_executable(singleton singleton.cpp)
 add_executable(sync sync.cpp)
 add_executable(thread thread.cpp)
+target_link_libraries(thread PRIVATE $<$<BOOL:${CECEILIA_USE_BOOST}>:Boost::system>)
 add_executable(threadpool_example threadpool_example.cpp threadpool.hpp)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
