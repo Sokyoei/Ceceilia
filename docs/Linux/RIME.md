@@ -52,7 +52,18 @@ EOF
 cat /etc/environment
 ```
 
-### 5. 主题配置
+开机自启
+
+```shell
+mkdir -p ~/.config/autostart
+cp /var/lib/flatpak/exports/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
+```
+
+### 5. 输入法配置
+
+现在输入法只需要保留`中州韵`即可，`键盘 - 英语（美国）`保留的时候经常会按到 `ctrl + 空格` 导致中英文切换失效。
+
+### 6. 主题配置
 
 ```shell
 mkdir -p ~/.var/app/org.fcitx.Fcitx5/data/fcitx5/themes/
@@ -62,6 +73,8 @@ cd ~/.var/app/org.fcitx.Fcitx5/data/fcitx5/themes/
 git clone https://github.com/catppuccin/fcitx5 catppuccin
 cp -r catppuccin/src/* ./
 ```
+
+然后打开 Fcitx 配置 -> 附加组建 -> 经典用户界面 -> 主题，选择自己喜欢的主题。
 
 ### 6. 实用工具和更新
 
@@ -78,6 +91,22 @@ cd ~/.var/app/org.fcitx.Fcitx5/data/fcitx5/rime/
 git pull
 # 重载 rime 部署
 flatpak run --command=fcitx5-remote org.fcitx.Fcitx5 -r
+```
+
+## FAQ
+
+### 1. VSCode 终端打开跟 RIME 冲突
+
+注释掉 `~/.var/app/org.fcitx.Fcitx5/data/fcitx5/rime/default.yaml` 文件的 `Control+grave` 和 `Control+Shift+grave`
+
+``` yaml
+# 方案选单相关
+switcher:
+  caption: 「方案选单」
+  hotkeys:
+    - F4
+    # - Control+grave
+    # - Control+Shift+grave
 ```
 
 ###### 参考
