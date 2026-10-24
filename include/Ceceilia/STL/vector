@@ -1,0 +1,13 @@
+#pragma once
+#ifndef CECEILIA_STL_VECTOR
+#define CECEILIA_STL_VECTOR
+
+namespace Ceceilia {
+template <typename T>
+class vector {
+public:
+    vector(T /* args */);
+};
+}  // namespace Ceceilia
+
+#endif  // !CECEILIA_STL_VECTOR

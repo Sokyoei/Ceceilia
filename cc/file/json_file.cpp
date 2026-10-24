@@ -22,7 +22,7 @@
 #error "require json library"
 #endif
 
-#include "Ahri/Ceceilia.hpp"
+#include "Ceceilia.hpp"
 
 int main(int argc, char const* argv[]) {
 #ifdef _WIN32

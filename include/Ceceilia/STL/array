@@ -1,0 +1,15 @@
+#pragma once
+#ifndef CECEILIA_STL_ARRAY
+#define CECEILIA_STL_ARRAY
+
+namespace Ceceilia {
+template <typename T>
+class array {
+public:
+    array(T /* args */);
+
+private:
+};
+}  // namespace Ceceilia
+
+#endif  // !CECEILIA_STL_ARRAY

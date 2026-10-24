@@ -1,0 +1,15 @@
+#pragma once
+#ifndef CECEILIA_STL_SET
+#define CECEILIA_STL_SET
+
+namespace Ceceilia {
+template <typename T>
+class set {
+public:
+    set(T);
+
+private:
+};
+}  // namespace Ceceilia
+
+#endif  // !CECEILIA_STL_SET

@@ -1,0 +1,15 @@
+#pragma once
+#ifndef CECEILIA_STL_LIST
+#define CECEILIA_STL_LIST
+
+namespace Ceceilia {
+template <typename T>
+class list {
+public:
+    list(T /* args */);
+
+private:
+};
+}  // namespace Ceceilia
+
+#endif  // !CECEILIA_STL_LIST

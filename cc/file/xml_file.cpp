@@ -21,7 +21,7 @@
 #error "require xml library"
 #endif
 
-#include "Ahri/Ceceilia.hpp"
+#include "Ceceilia.hpp"
 
 namespace Ahri {
 /**

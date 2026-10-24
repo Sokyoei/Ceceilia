@@ -1,0 +1,15 @@
+#pragma once
+#ifndef CECEILIA_STL_MAP
+#define CECEILIA_STL_MAP
+
+namespace Ceceilia {
+template <typename T>
+class map {
+public:
+    map(T /* args */);
+
+private:
+};
+}  // namespace Ceceilia
+
+#endif  // !CECEILIA_STL_MAP

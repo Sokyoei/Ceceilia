@@ -23,13 +23,13 @@
 #elif __has_include(<toml.hpp>)
 #include <toml.hpp>
 #endif
-#elif defined(USE_TOML11)
+#elif defined(CECEILIA_USE_TOML11)
 #include <toml.hpp>
 #else
 #error "require toml library"
 #endif
 
-#include "Ahri/Ceceilia.hpp"
+#include "Ceceilia.hpp"
 
 using namespace std::string_literals;
 using namespace std::string_view_literals;
